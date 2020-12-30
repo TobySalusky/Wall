@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Toby\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Toby\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_Fondue.-124502254.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Toby\Documents\GitHub\fondue" t="IncludeFlat">
+      <e p="fondue" t="IncludeRecursive">
+        <e p="app.manifest" t="Include" />
+        <e p="Assets" t="Include">
+          <e p="Textures" t="Include">
+            <e p="bush.png" t="Include" />
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Code" t="Include">
+          <e p="Entity.cs" t="Include" />
+          <e p="Fondue.cs" t="Include" />
+          <e p="InGameObject.cs" t="Include" />
+          <e p="Program.cs" t="Include" />
+          <e p="Util.cs" t="Include" />
+        </e>
+        <e p="Content" t="Include">
+          <e p="Content.mgcb" t="Include" />
+          <e p="obj" t="Include">
+            <e p="DesktopGL" t="Include">
+              <e p="Content" t="Include">
+                <e p=".mgstats" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Fondue.csproj" t="IncludeRecursive" />
+        <e p="Icon.bmp" t="Include" />
+        <e p="Icon.ico" t="Include" />
+        <e p="Microsoft.Xna.Framework.Content.ContentTypeReader" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Fondue.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Fondue.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
