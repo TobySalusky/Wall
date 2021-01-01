@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -19,6 +20,7 @@ namespace Wall
         private Player player;
         private Camera camera;
         public static ChunkMap map;
+        public static List<Entity> entities = new List<Entity>();
 
         public Wall()
         {
@@ -29,7 +31,7 @@ namespace Wall
             // These remove the framerate limit
             graphics.SynchronizeWithVerticalRetrace = false;
             IsFixedTimeStep = false;
-
+            
             instance = this;
 
         }
@@ -51,8 +53,8 @@ namespace Wall
             Chunk.loadMapData();
 
             map = new ChunkMap();
-            player = new Player(new Vector2(25, -5));
-            camera = new Camera(new Vector2(0, 0), 20F);
+            player = new Player(new Vector2(25, 400));
+            camera = new Camera(new Vector2(0, 0), 24F);
         }
 
         protected override void LoadContent()
@@ -77,10 +79,23 @@ namespace Wall
             }
 
             KeyboardState keyState = Keyboard.GetState();
+            MouseState mouseState = Mouse.GetState();
 
             keyInput(keyState);
             player.keyInput(keyState, deltaTime);
+            player.mouseInput(mouseState, deltaTime);
             player.update(deltaTime);
+            
+            for (int i = entities.Count - 1; i >= 0; i--) {
+                Entity entity = entities[i];
+                
+                if (entity.deleteFlag) {
+                    entities.RemoveAt(i);
+                    continue;
+                }
+                
+                entity.update(deltaTime);
+            }
 
             camera.pos = player.pos;
             
@@ -105,6 +120,11 @@ namespace Wall
                 null, null, null, null);
 
             map.render(camera, spriteBatch);
+
+            foreach (var entity in entities) {
+                entity.render(camera, spriteBatch);
+            }
+            
             player.render(camera, spriteBatch);
             
             spriteBatch.End();

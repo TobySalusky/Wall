@@ -12,8 +12,13 @@
         </e>
         <e p="Textures" t="Include">
           <e p="bush.png" t="Include" />
+          <e p="grapple.png" t="Include" />
+          <e p="grapple_chain.png" t="Include" />
+          <e p="grapple_link.png" t="Include" />
+          <e p="ice.png" t="Include" />
           <e p="mapData.png" t="Include" />
           <e p="null.png" t="Include" />
+          <e p="snow.png" t="Include" />
           <e p="snowAtlas.png" t="Include" />
           <e p="snowSlime" t="Include">
             <e p="SnowSlimeIdle.png" t="Include" />
@@ -30,6 +35,7 @@
         <e p="Camera.cs" t="Include" />
         <e p="Entity" t="Include">
           <e p="Entity.cs" t="Include" />
+          <e p="Grapple.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="SnowSlime.cs" t="Include" />
         </e>

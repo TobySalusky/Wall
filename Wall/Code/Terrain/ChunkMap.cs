@@ -12,14 +12,28 @@ namespace Wall {
         }
 
         public Chunk getChunk(Point indices) {
+
+            Chunk chunk = getRawChunk(indices);
+
+            if (!chunk.loaded)
+                chunk.load();
             
+            return chunk;
+        }
+
+        public Chunk getRawChunk(Point indices) { // returns chunk without fully loading it (generates texture-less tiles)
             chunks.TryGetValue(indices, out var chunk);
 
             if (chunk == null) {
                 return addChunk(indices);
             }
-            
+
             return chunk;
+        }
+        
+        public Chunk getRawChunk(Vector2 position) { // finds chunk containing these coordinates
+
+            return getRawChunk(chunkIndices(position));
         }
 
         public Chunk getChunk(Vector2 position) { // finds chunk containing these coordinates
@@ -67,6 +81,16 @@ namespace Wall {
         public Tile getTile(Point indices) {
             var (x, y) = indices;
             Chunk chunk = getChunk(chunkIndices(new Vector2(x, y)));
+            return chunk.tiles[Util.intMod(x, Chunk.chunkSize), Util.intMod(y, Chunk.chunkSize)];
+        }
+        
+        public Tile getRawTile(Vector2 pos) {
+            return getRawTile(blockIndices(pos));
+        }
+        
+        public Tile getRawTile(Point indices) {
+            var (x, y) = indices;
+            Chunk chunk = getRawChunk(chunkIndices(new Vector2(x, y)));
             return chunk.tiles[Util.intMod(x, Chunk.chunkSize), Util.intMod(y, Chunk.chunkSize)];
         }
 

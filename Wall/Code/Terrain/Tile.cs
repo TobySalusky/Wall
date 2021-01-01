@@ -10,6 +10,7 @@ namespace Wall {
         public readonly Vector2 pos; // marks top-left location
         
         private Texture2D texture;
+        private Rectangle atlasRect; // TODO:
         
         public enum type {
             air, snow, ice
@@ -33,16 +34,19 @@ namespace Wall {
             this.tileType = tileType;
             this.pos = pos;
 
-            texture = findTexture(tileType);
+            //texture = findTexture(tileType);
         }
 
         public bool isSolid() {
             return tileType != type.air;
         }
 
-        private static Texture2D findTexture(type tileType) {
+        public void findTexture() {
 
-            return (tileType == type.air) ? null : Textures.get(tileType.ToString());
+            texture = (tileType == type.air) ? null : Textures.get(tileType.ToString());
+
+            if (texture != null && texture.Width * texture.Height > 1)
+                findAtlasRect(findAtlasIndex());
         }
         
         public void render(Camera camera, SpriteBatch spriteBatch) { // TODO: make more efficient
@@ -53,7 +57,59 @@ namespace Wall {
             int size = (int) camera.scale;
             Rectangle rect = new Rectangle((int) x, (int) y, size, size);
                 
-            spriteBatch.Draw(texture, rect, Color.White);
+            spriteBatch.Draw(texture, rect, atlasRect, Color.White);
+        }
+
+        private void findAtlasRect(int index) {
+            int rows = 3, cols = 3;
+
+            int col = index % cols;
+            int row = index / cols;
+
+            int size = texture.Width / cols; // assumes square blocks
+
+            atlasRect = new Rectangle(size * col, size * row, size, size);
+        }
+
+        private int findAtlasIndex() {
+            if (airAbove() && !airBelow() && airLeft() && !airRight())
+                return 0;
+            if (airAbove() && !airBelow() && !airLeft() && !airRight())
+                return 1;
+            if (airAbove() && !airBelow() && !airLeft() && airRight())
+                return 2;
+            if (!airAbove() && !airBelow() && airLeft() && !airRight())
+                return 3;
+            if (!airAbove() && !airBelow() && !airLeft() && airRight())
+                return 5;
+            if (!airAbove() && airBelow() && airLeft() && !airRight())
+                return 6;
+            if (!airAbove() && airBelow() && !airLeft() && !airRight())
+                return 7;
+            if (!airAbove() && airBelow() && !airLeft() && airRight())
+                return 8;
+            
+            return 4;
+        }
+
+        private static bool isAirAt(Vector2 pos) {
+            return Wall.map.getRawTile(pos).tileType == type.air;
+        }
+
+        private bool airAbove() {
+            return isAirAt(pos - Vector2.UnitY);
+        }
+        
+        private bool airBelow() {
+            return isAirAt(pos + Vector2.UnitY);
+        }
+        
+        private bool airLeft() {
+            return isAirAt(pos - Vector2.UnitX);
+        }
+        
+        private bool airRight() {
+            return isAirAt(pos + Vector2.UnitX);
         }
     }
 }

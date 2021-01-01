@@ -11,13 +11,20 @@ namespace Wall
         public Texture2D texture;
         public Vector2 dimen;
 
-        public float speed = 30F;
+        public float speed = 25F;
 
         private const float collisionStep = 0.1F;
         
-        private const float gravity = 70F;
+        public const float gravity = 70F;
         public bool grounded;
         public bool facingLeft = true;
+
+        public float rotation;
+
+        public bool hasStep = true, hasGravity = true;
+        public float maxStepHeight = 1.1F;
+
+        public bool deleteFlag;
         
         public Entity(Vector2 pos) {
             this.pos = pos;
@@ -29,21 +36,28 @@ namespace Wall
         }
         
         public virtual void update(float deltaTime) {
+
+            const float maxRot = (float) Math.PI * 0.4F;
+            rotation = Math.Sign(vel.X) * Math.Min(1, Math.Abs(vel.X) / 100F) * maxRot;
             
             grounded = collidesAt(pos + Vector2.UnitY * 0.1F);
-            vel.Y += gravity * deltaTime;
 
-            if (grounded && vel.Y > 0.5F)
-                vel.Y = 0.5F;
+            if (hasGravity) {
+                vel.Y += gravity * deltaTime;
+
+                const float groundGrav = 2F;
+                if (grounded && vel.Y > groundGrav)
+                    vel.Y = groundGrav;
+            }
 
             collisionMove(vel * deltaTime);
         }
 
-        private void collisionMove(Vector2 fullDiff) {
+        protected void collisionMove(Vector2 fullDiff) {
             if (!collidesAt(pos + fullDiff)) { // TODO: improve (can result in clipping [due to initial skip])
                 pos += fullDiff;
             } else {
-                
+
                 float diffX = 0, diffY = 0;
                 float stepX = collisionStep * Math.Sign(fullDiff.X), stepY = collisionStep * Math.Sign(fullDiff.Y);
                 
@@ -54,7 +68,19 @@ namespace Wall
                     for (int i = 0; i < Math.Abs(fullDiff.X) / collisionStep; i++) {
                         diffX += stepX;
                         if (collidesAt(pos + Vector2.UnitX * diffX)) {
+
+                            if (hasStep && grounded) { // stepping up single blocks
+                                for (float step = 0; step <= maxStepHeight; step += collisionStep) {
+                                    if (!collidesAt(pos + new Vector2(diffX, -step))) {
+                                        pos += new Vector2(diffX, -step);
+                                        collisionMove(fullDiff - Vector2.UnitX * diffX);
+                                        return;
+                                    }
+                                }
+                            }
+
                             diffX -= stepX;
+                            vel.X = 0; // bonking
                             break;
                         }
                     }
@@ -70,6 +96,7 @@ namespace Wall
                         diffY += stepY;
                         if (collidesAt(pos + Vector2.UnitY * diffY)) {
                             diffY -= stepY;
+                            vel.Y = 0; // bonking
                             break;
                         }
                     }
@@ -87,12 +114,14 @@ namespace Wall
             return collidesAt(pos, dimen);
         }
 
-        public void render(Camera camera, SpriteBatch spriteBatch) { // TODO: perhaps use more efficient drawing unless needed, also add rotation
+        public virtual void render(Camera camera, SpriteBatch spriteBatch) { // TODO: perhaps use more efficient drawing unless needed, also add rotation
             
             //spriteBatch.Draw(texture, camera.toScreen(pos, dimen), Color.White);
             SpriteEffects effects = facingLeft ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-            spriteBatch.Draw(texture, camera.toScreen(pos, dimen), null, Color.White, 0, Vector2.Zero, effects, 0);
-            
+            Vector2 textureSize = new Vector2(texture.Width, texture.Height);
+            Vector2 scale = dimen * camera.scale / textureSize;
+            spriteBatch.Draw(texture, camera.toScreen(pos), null, Color.White, rotation, textureSize / 2F, scale,  effects, 0);
+
         }
     }
 }

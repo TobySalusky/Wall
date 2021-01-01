@@ -12,6 +12,8 @@ namespace Wall {
         public readonly Tile[,] tiles = new Tile[chunkSize, chunkSize];
 
         private readonly Vector2 indices; // should always be ints
+
+        public bool loaded;
         
         public Chunk(Vector2 indices) {
             this.indices = indices;
@@ -48,6 +50,16 @@ namespace Wall {
                     tiles[i, j] = genTile((int)(topLeft.X + i), (int)(topLeft.Y + j));
                 }
             }
+        }
+
+        public void load() {
+            for (int i = 0; i < chunkSize; i++) {
+                for (int j = 0; j < chunkSize; j++) {
+                    tiles[i, j].findTexture(); // currently causing overflow b/c it tries to load chunk after chunk
+                }
+            }
+
+            loaded = true;
         }
 
         private Tile genTile(int x, int y) {
