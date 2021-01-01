@@ -18,9 +18,12 @@ namespace Wall
         private int secondsPassed = 0;
         
         public static Player player;
-        private Camera camera;
+        public static Camera camera;
         public static ChunkMap map;
         public static List<Entity> entities = new List<Entity>();
+        public static List<Projectile> projectiles = new List<Projectile>();
+        public static List<Particle> particles = new List<Particle>();
+        public static List<Entity> playerList = new List<Entity>();
 
         public static ButtonState lastLeft, lastMiddle, lastRight;
 
@@ -56,6 +59,7 @@ namespace Wall
 
             map = new ChunkMap();
             player = new Player(new Vector2(25, 400));
+            playerList.Add(player);
             camera = new Camera(new Vector2(0, 0), 24F);
         }
 
@@ -93,7 +97,7 @@ namespace Wall
             lastRight = mouseState.RightButton;
 
             keyInput(keyState);
-            player.keyInput(keyState, deltaTime);
+            player.keyInput(mouseState, keyState, deltaTime);
             player.mouseInput(mouseState, leftChange, middleChange, rightChange, deltaTime);
             player.update(deltaTime);
             
@@ -106,6 +110,28 @@ namespace Wall
                 }
                 
                 entity.update(deltaTime);
+            }
+            
+            for (int i = projectiles.Count - 1; i >= 0; i--) {
+                Projectile projectile = projectiles[i];
+                
+                if (projectile.deleteFlag) {
+                    projectiles.RemoveAt(i);
+                    continue;
+                }
+                
+                projectile.update(deltaTime);
+            }
+            
+            for (int i = particles.Count - 1; i >= 0; i--) {
+                Particle particle = particles[i];
+                
+                if (particle.deleteFlag) {
+                    particles.RemoveAt(i);
+                    continue;
+                }
+                
+                particle.update(deltaTime);
             }
 
             camera.pos = player.pos;
@@ -135,9 +161,17 @@ namespace Wall
             foreach (var entity in entities) {
                 entity.render(camera, spriteBatch);
             }
-            
+
+            foreach (var projectile in projectiles) {
+                projectile.render(camera, spriteBatch);
+            }
+
             player.render(camera, spriteBatch);
             
+            foreach (var particle in particles) {
+                particle.render(camera, spriteBatch);
+            }
+
             spriteBatch.End();
             
             

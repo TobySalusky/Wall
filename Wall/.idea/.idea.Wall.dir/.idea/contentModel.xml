@@ -18,6 +18,7 @@
           <e p="ice.png" t="Include" />
           <e p="mapData.png" t="Include" />
           <e p="null.png" t="Include" />
+          <e p="Shuriken.png" t="Include" />
           <e p="snow.png" t="Include" />
           <e p="snowAtlas.png" t="Include" />
           <e p="snowSlime" t="Include">
@@ -43,10 +44,23 @@
         <e p="FileUtil" t="Include">
           <e p="Paths.cs" t="Include" />
         </e>
+        <e p="Item" t="Include">
+          <e p="Item.cs" t="Include" />
+          <e p="Sword.cs" t="Include" />
+        </e>
         <e p="OutsideSamples" t="Include">
           <e p="FrameCounter.cs" t="Include" />
         </e>
+        <e p="Particles" t="Include">
+          <e p="Particle.cs" t="Include" />
+          <e p="PixelParticle.cs" t="Include" />
+          <e p="SnowPuffParticle.cs" t="Include" />
+        </e>
         <e p="Program.cs" t="Include" />
+        <e p="Projectiles" t="Include">
+          <e p="Projectile.cs" t="Include" />
+          <e p="Shuriken.cs" t="Include" />
+        </e>
         <e p="Terrain" t="Include">
           <e p="Chunk.cs" t="Include" />
           <e p="ChunkMap.cs" t="Include" />

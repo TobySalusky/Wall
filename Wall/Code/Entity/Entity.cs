@@ -25,7 +25,10 @@ namespace Wall
         public float maxStepHeight = 1.1F;
 
         public bool deleteFlag;
-        
+
+        public float health = 10, maxHealth = 10;
+        public float timeSinceDamaged = 100;
+
         public Entity(Vector2 pos) {
             this.pos = pos;
 
@@ -35,11 +38,42 @@ namespace Wall
             dimen = new Vector2(2, 2);
         }
 
+        public void initHealth(float health) {
+            maxHealth = health;
+            this.health = maxHealth;
+        }
+
+        public virtual void die() {
+            deleteFlag = true;
+        }
+
+        public virtual void damaged(float damage) {
+            health -= damage;
+            timeSinceDamaged = 0;
+
+            if (health <= 0 && !deleteFlag) {
+                die();
+            }
+        }
+
+        public void knockedBack(Vector2 knockVel) {
+            vel += knockVel;
+        }
+
+        public void knockedBack(float mag, Vector2 otherPos) {
+            knockedBack(Util.polar(mag, Util.angle(pos - otherPos)));
+        }
+        
+        public void knockedBack(float mag, float angle) {
+            knockedBack(Util.polar(mag, angle));
+        }
+
         public virtual float findRotation() {
             return 0;
         }
 
         public virtual void update(float deltaTime) {
+            timeSinceDamaged += deltaTime;
             rotation = findRotation();
             
             grounded = collidesAt(pos + Vector2.UnitY * 0.1F);
@@ -47,12 +81,28 @@ namespace Wall
             if (hasGravity) {
                 vel.Y += gravity * deltaTime;
 
-                const float groundGrav = 2F;
+                /*const float groundGrav = 2F;
                 if (grounded && vel.Y > groundGrav)
-                    vel.Y = groundGrav;
+                    vel.Y = groundGrav;*/
             }
 
             collisionMove(vel * deltaTime);
+        }
+
+        protected bool collidesWith(Entity entity, Vector2 pos, Vector2 dimen) {
+            return Util.center(pos, dimen).Intersects(Util.center(entity.pos, entity.dimen));
+        }
+
+        protected bool collidesWith(Entity entity) {
+            return collidesWith(entity, pos, dimen);
+        }
+
+        public virtual void bonkX(Vector2 newPos) {
+            vel.X = 0;
+        }
+        
+        public virtual void bonkY(Vector2 newPos) {
+            vel.Y = 0;
         }
 
         protected void collisionMove(Vector2 fullDiff) {
@@ -82,7 +132,7 @@ namespace Wall
                             }
 
                             diffX -= stepX;
-                            vel.X = 0; // bonking
+                            bonkX(pos + Vector2.UnitX * diffX); // bonking
                             break;
                         }
                     }
@@ -98,7 +148,7 @@ namespace Wall
                         diffY += stepY;
                         if (collidesAt(pos + Vector2.UnitY * diffY)) {
                             diffY -= stepY;
-                            vel.Y = 0; // bonking
+                            bonkY(pos + Vector2.UnitY * diffY); // bonking
                             break;
                         }
                     }
@@ -116,14 +166,25 @@ namespace Wall
             return collidesAt(pos, dimen);
         }
 
+        public virtual Color getTint() {
+            const float redTime = 0.5F, start = 0.35F;
+
+            if (timeSinceDamaged > redTime) {
+                return Color.White;
+            }
+
+            float amount = (1 - start) * timeSinceDamaged / redTime + start;
+
+            return new Color(1F, amount, amount);
+        }
+
         public virtual void render(Camera camera, SpriteBatch spriteBatch) { // TODO: perhaps use more efficient drawing unless needed, also add rotation
             
             //spriteBatch.Draw(texture, camera.toScreen(pos, dimen), Color.White);
             SpriteEffects effects = facingLeft ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             Vector2 textureSize = new Vector2(texture.Width, texture.Height);
             Vector2 scale = dimen * camera.scale / textureSize;
-            spriteBatch.Draw(texture, camera.toScreen(pos), null, Color.White, rotation, textureSize / 2F, scale,  effects, 0);
-
+            spriteBatch.Draw(texture, camera.toScreen(pos), null, getTint(), rotation, textureSize / 2F, scale,  effects, 0);
         }
     }
 }

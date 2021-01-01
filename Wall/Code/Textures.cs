@@ -13,14 +13,9 @@ namespace Wall {
 
         public static void loadTextures() {
             
-            Texture2D snow = new Texture2D(Wall.getGraphicsDevice(), 1, 1);
-            snow.SetData(new[] { Color.White });
-            textures["snow"] = snow;
-            
-            
-            Texture2D ice = new Texture2D(Wall.getGraphicsDevice(), 1, 1);
-            ice.SetData(new[] { Color.Aqua });
-            textures["ice"] = ice;
+            Texture2D pixelParticle = new Texture2D(Wall.getGraphicsDevice(), 1, 1);
+            pixelParticle.SetData(new[] { Color.White });
+            textures["pixelParticle"] = pixelParticle;
 
             processFolder(Paths.texturePath);
         }

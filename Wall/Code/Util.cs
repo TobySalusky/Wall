@@ -50,5 +50,21 @@ namespace Wall {
         public static float heightToJumpPower(float jumpHeight, float gravity) {
             return (float) Math.Sqrt(jumpHeight * 2 * gravity);
         }
+
+        public static Color[] colorArray(Texture2D texture) {
+            var colorData = new Color[texture.Width * texture.Height];
+            texture.GetData(colorData);
+
+            return colorData;
+        }
+
+        public static bool chance(float chance) {
+            return (rand.NextDouble() < chance);
+        }
+
+        public static Color randomColor(Texture2D texture) { // TODO:  WARNING:does not guarantee a non invisible color
+            var arr = colorArray(texture);
+            return arr[(int) (rand.NextDouble() * arr.Length)];
+        }
     }
 }

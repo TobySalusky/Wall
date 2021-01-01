@@ -5,12 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Code/Entity/Enemy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Shuriken.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Item/Item.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Item/Sword.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Particles/Particle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Particles/PixelParticle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Particles/SnowPuffParticle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Projectiles/Projectile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Projectiles/Shuriken.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Camera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Camera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Entity/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Terrain/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Terrain/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Textures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Textures.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Util.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Wall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Wall.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
@@ -40,8 +51,26 @@
       <option value="$PROJECT_DIR$/Code/Entity/Enemy.cs" />
       <option value="$PROJECT_DIR$/Code/Wall.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
       <option value="$PROJECT_DIR$/Code/Util.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/Item.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/Sword.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Enemy.cs" />
+      <option value="$PROJECT_DIR$/Code/Projectile/Projectile.cs" />
+      <option value="$PROJECT_DIR$/Code/Textures.cs" />
+      <option value="$PROJECT_DIR$/Code/Particles/PixelParticle.cs" />
+      <option value="$PROJECT_DIR$/Code/Particles/Particle.cs" />
+      <option value="$PROJECT_DIR$/Code/Particles/SnowPixel.cs" />
+      <option value="$PROJECT_DIR$/Code/Util.cs" />
+      <option value="$PROJECT_DIR$/Code/Terrain/Tile.cs" />
+      <option value="$PROJECT_DIR$/Code/Particles/SnowPuffParticle.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
+      <option value="$PROJECT_DIR$/Code/Wall.cs" />
+      <option value="$PROJECT_DIR$/Code/Camera.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
+      <option value="$PROJECT_DIR$/Code/Projectiles/Shuriken.cs" />
+      <option value="$PROJECT_DIR$/Code/Projectiles/Projectile.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" />
     </changedPaths>
   </component>
@@ -55,6 +84,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -87,7 +118,8 @@
       <updated>1609362120982</updated>
       <workItem from="1609362125482" duration="3439000" />
       <workItem from="1609402565304" duration="319000" />
-      <workItem from="1609442625188" duration="16216000" />
+      <workItem from="1609442625188" duration="17618000" />
+      <workItem from="1609526102619" duration="14736000" />
     </task>
     <servers />
   </component>

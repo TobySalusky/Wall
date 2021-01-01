@@ -9,9 +9,12 @@ namespace Wall {
         public readonly type tileType;
         public readonly Vector2 pos; // marks top-left location
         
-        private Texture2D texture;
+        public Texture2D texture;
         private Rectangle atlasRect; // TODO:
-        
+
+        public const int pixelCount = 8;
+        public const float pixelSize = 1/8F;
+
         public enum type {
             air, snow, ice
         }
