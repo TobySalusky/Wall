@@ -34,11 +34,13 @@ namespace Wall
 
             dimen = new Vector2(2, 2);
         }
-        
-        public virtual void update(float deltaTime) {
 
-            const float maxRot = (float) Math.PI * 0.4F;
-            rotation = Math.Sign(vel.X) * Math.Min(1, Math.Abs(vel.X) / 100F) * maxRot;
+        public virtual float findRotation() {
+            return 0;
+        }
+
+        public virtual void update(float deltaTime) {
+            rotation = findRotation();
             
             grounded = collidesAt(pos + Vector2.UnitY * 0.1F);
 

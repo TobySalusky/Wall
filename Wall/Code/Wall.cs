@@ -17,10 +17,12 @@ namespace Wall
         private FrameCounter fpsCounter = new FrameCounter();
         private int secondsPassed = 0;
         
-        private Player player;
+        public static Player player;
         private Camera camera;
         public static ChunkMap map;
         public static List<Entity> entities = new List<Entity>();
+
+        public static ButtonState lastLeft, lastMiddle, lastRight;
 
         public Wall()
         {
@@ -81,9 +83,18 @@ namespace Wall
             KeyboardState keyState = Keyboard.GetState();
             MouseState mouseState = Mouse.GetState();
 
+            bool leftChange = lastLeft != mouseState.LeftButton;
+            lastLeft = mouseState.LeftButton;
+            
+            bool middleChange = lastMiddle != mouseState.MiddleButton;
+            lastMiddle = mouseState.MiddleButton;
+            
+            bool rightChange = lastRight != mouseState.RightButton;
+            lastRight = mouseState.RightButton;
+
             keyInput(keyState);
             player.keyInput(keyState, deltaTime);
-            player.mouseInput(mouseState, deltaTime);
+            player.mouseInput(mouseState, leftChange, middleChange, rightChange, deltaTime);
             player.update(deltaTime);
             
             for (int i = entities.Count - 1; i >= 0; i--) {

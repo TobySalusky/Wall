@@ -25,12 +25,21 @@ namespace Wall {
             base.update(deltaTime);
         }
 
-        public void mouseInput(MouseState state, float deltaTime) {
+        public override float findRotation() {
+            const float maxRot = (float) Math.PI * 0.4F;
+            return Math.Sign(vel.X) * Math.Min(1, Math.Abs(vel.X) / 100F) * maxRot;
+        }
+
+        public void mouseInput(MouseState state, bool leftChange, bool middleChange, bool rightChange, float deltaTime) {
 
             if (state.LeftButton == ButtonState.Pressed && !grappleOut) {
                 grappleOut = true;
                 Vector2 diff = new Vector2(state.X, state.Y) - new Vector2(1920, 1080) / 2; // TODO: use camera to translate player location into center
                 Wall.entities.Add(new Grapple(this, pos, Util.polar(150F, Util.angle(diff))));
+            }
+
+            if (state.RightButton == ButtonState.Pressed && rightChange) {
+                Wall.entities.Add(new SnowSlime(pos));
             }
 
         }

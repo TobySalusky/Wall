@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/ice.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/snow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Entity/Grapple.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Entity/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Entity/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Terrain/Chunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Terrain/Chunk.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Terrain/ChunkMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Terrain/ChunkMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Terrain/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Terrain/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Util.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Wall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Wall.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
@@ -40,11 +36,13 @@
       <option value="$PROJECT_DIR$/Code/Terrain/Chunk.cs" />
       <option value="$PROJECT_DIR$/Code/Terrain/ChunkMap.cs" />
       <option value="$PROJECT_DIR$/Code/Terrain/Tile.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Grapple.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Enemy.cs" />
       <option value="$PROJECT_DIR$/Code/Wall.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
-      <option value="$PROJECT_DIR$/Code/Util.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Grapple.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
+      <option value="$PROJECT_DIR$/Code/Util.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mOQNeJbHdjMoHHcoB1BpLaoLCl" />
@@ -89,7 +87,7 @@
       <updated>1609362120982</updated>
       <workItem from="1609362125482" duration="3439000" />
       <workItem from="1609402565304" duration="319000" />
-      <workItem from="1609442625188" duration="11991000" />
+      <workItem from="1609442625188" duration="16216000" />
     </task>
     <servers />
   </component>

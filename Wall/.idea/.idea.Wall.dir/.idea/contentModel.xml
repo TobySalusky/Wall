@@ -34,6 +34,7 @@
       <e p="Code" t="Include">
         <e p="Camera.cs" t="Include" />
         <e p="Entity" t="Include">
+          <e p="Enemy.cs" t="Include" />
           <e p="Entity.cs" t="Include" />
           <e p="Grapple.cs" t="Include" />
           <e p="Player.cs" t="Include" />
