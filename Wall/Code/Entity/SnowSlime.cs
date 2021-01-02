@@ -27,7 +27,7 @@ namespace Wall {
         public override void die() {
             base.die();
             
-            dropItem(new SnowBall(4));
+            dropItem(new SnowBall(Util.randInt(1, 4)));
 
             Color[] colorArray = Util.colorArray(texture);
             

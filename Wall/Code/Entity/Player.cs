@@ -35,14 +35,44 @@ namespace Wall {
             hotbar[3] = new SnowBall(99);
         }
 
-        public void tryPickUp(Item item) {
+        public void tryPickUp(GroundItem ground) {
 
+            Item item = ground.item;
             Item.type type = item.itemType;
             
             // first tries to stack the item with others
-            
-            
-            
+            for (int y = 0; y < inventory.GetLength(1); y++) {
+                for (int x = 0; x < inventory.GetLength(0); x++) {
+                    Item thisItem = inventory[x, y];
+                    if (thisItem != null && thisItem.itemType == type) {
+                        int canTake = thisItem.maxStack - thisItem.count;
+                        int take = Math.Min(item.count, canTake);
+
+                        item.count -= take;
+                        thisItem.count += take;
+                    }
+                }
+            }
+
+            if (item.count == 0) {
+                ground.deleteFlag = true;
+            } else if (item.count < 0) {
+                Console.WriteLine("Something clearly went wrong here, you see " + item + " wound up with a count less than 0");
+            } else {
+                // checks for empty slots
+                for (int y = 0; y < inventory.GetLength(1); y++) {
+                    for (int x = 0; x < inventory.GetLength(0); x++) {
+                        Item thisItem = inventory[x, y];
+                        if (thisItem == null) {
+                            inventory[x, y] = item;
+                            ground.deleteFlag = true;
+                            return;
+                        }
+                    }
+                }
+            }
+
+
         }
 
         public void setSelectedItemIndex(int index) {

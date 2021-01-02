@@ -43,7 +43,7 @@ namespace Wall {
                 vel += Util.polar(50 * (1 - (Util.mag(diff) / gravStart)), Util.angle(diff)) * deltaTime;
 
                 if (collidesWith(player)) {
-                    player.tryPickUp(item);
+                    player.tryPickUp(this);
                 }
             }
 
