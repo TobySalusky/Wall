@@ -6,10 +6,11 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Wall {
     public class Chunk {
 
-        public static int[,] mapData; // TODO: do this in chunks or something (perhaps load on the fly) because this can be a huge memory-use
+        public static int[,] mapData, backMapData; // TODO: do this in chunks or something (perhaps load on the fly) because this can be a huge memory-use
         
         public const int chunkSize = 8;
         public readonly Tile[,] tiles = new Tile[chunkSize, chunkSize];
+        public readonly Tile[,] backgrounds = new Tile[chunkSize, chunkSize];
 
         private readonly Vector2 indices; // should always be ints
 
@@ -23,12 +24,14 @@ namespace Wall {
 
         public static void loadMapData() { // TODO: change colors to ints here
 
-            Texture2D texture = Textures.get("mapData");
+            mapData = loadColorMap(Textures.get("mapData"), Tile.genTileTable());
+            backMapData = loadColorMap(Textures.get("backMapData"), Tile.genBackTable());
+        }
+        
+        public static int[,] loadColorMap(Texture2D texture, Dictionary<Color, int> table) { // TODO: change colors to ints here
             
             var colorData = new Color[texture.Width * texture.Height];
             texture.GetData(colorData);
-
-            Dictionary<Color, int> table = Tile.genTable();
             
             var arrayID = new int[texture.Width,texture.Height];
             for (int row = 0; row < texture.Height; row++)
@@ -39,7 +42,7 @@ namespace Wall {
                 }
             }
 
-            mapData = arrayID;
+            return arrayID;
         }
 
         private void genTiles() {
@@ -47,6 +50,7 @@ namespace Wall {
             
             for (int i = 0; i < chunkSize; i++) {
                 for (int j = 0; j < chunkSize; j++) {
+                    backgrounds[i, j] = genBack((int)(topLeft.X + i), (int)(topLeft.Y + j));
                     tiles[i, j] = genTile((int)(topLeft.X + i), (int)(topLeft.Y + j));
                 }
             }
@@ -55,7 +59,8 @@ namespace Wall {
         public void load() {
             for (int i = 0; i < chunkSize; i++) {
                 for (int j = 0; j < chunkSize; j++) {
-                    tiles[i, j].findTexture(); // currently causing overflow b/c it tries to load chunk after chunk
+                    tiles[i, j].findTexture();
+                    backgrounds[i, j].findTexture();
                 }
             }
 
@@ -72,6 +77,17 @@ namespace Wall {
 
             return new Tile((Tile.type) ID, new Vector2(x, y));
         }
+        
+        private Tile genBack(int x, int y) {
+
+            int ID = (int) Tile.type.air;
+            
+            if (x >= 0 && x < backMapData.GetLength(0) && y >= 0 && y < backMapData.GetLength(1)) {
+                ID = backMapData[x, y];
+            }
+
+            return new Tile((Tile.type) ID, new Vector2(x, y));
+        }
 
         private static int colorToID(Dictionary<Color, int> table, Color color) {
             
@@ -81,6 +97,7 @@ namespace Wall {
         public void render(Camera camera, SpriteBatch spriteBatch) {
             for (int i = 0; i < chunkSize; i++) {
                 for (int j = 0; j < chunkSize; j++) {
+                    backgrounds[i,j].render(camera, spriteBatch); // TODO: only render when necessary
                     tiles[i,j].render(camera, spriteBatch);
                 }
             }

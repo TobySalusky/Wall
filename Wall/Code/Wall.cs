@@ -27,7 +27,7 @@ namespace Wall
 
         public static ButtonState lastLeft, lastMiddle, lastRight;
         public static int lastScroll;
-
+        
         public Wall()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -148,6 +148,8 @@ namespace Wall
                 closeGame();
         }
 
+        
+        
         protected override void Draw(GameTime gameTime)
         {
             
@@ -156,18 +158,18 @@ namespace Wall
             // TODO: Add your drawing code here
 
             spriteBatch.Begin(SpriteSortMode.Deferred,
-                BlendState.AlphaBlend,
+                BlendState.NonPremultiplied,
                 SamplerState.PointClamp,
                 null, null, null, null);
 
             map.render(camera, spriteBatch);
 
-            foreach (var entity in entities) {
-                entity.render(camera, spriteBatch);
-            }
-
             foreach (var projectile in projectiles) {
                 projectile.render(camera, spriteBatch);
+            }
+            
+            foreach (var entity in entities) {
+                entity.render(camera, spriteBatch);
             }
 
             player.render(camera, spriteBatch);

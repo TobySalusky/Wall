@@ -19,7 +19,7 @@ namespace Wall {
         public Vector2 dimen;
 
         public enum type {
-            FrostSword, bow
+            FrostSword, Bow, Shuriken, SnowBall
         }
 
         public Item(type itemType, int count) {

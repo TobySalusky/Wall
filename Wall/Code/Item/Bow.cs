@@ -6,9 +6,9 @@ namespace Wall {
 
         public float angle, velocity, offset = 1.5F;
         
-        public Bow(int count) : base(type.bow, count) {
+        public Bow(int count) : base(type.Bow, count) {
             useDelay = 0.5F;
-            velocity = 80;
+            velocity = 70;
 
             allwaysRender = true;
         }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -50,9 +52,21 @@ namespace Wall {
         public static int randInt(int startInc, int endExc) {
             return rand.Next(startInc, endExc);
         }
+        
+        public static int randInt(int endExc) {
+            return rand.Next(0, endExc);
+        }
 
         public static float random(float min, float max) {
             return (float) rand.NextDouble() * (max - min) + min;
+        }
+
+        public static float randomAngle() {
+            return random(Maths.twoPI);
+        }
+
+        public static float random(float max) {
+            return (float) rand.NextDouble() * max;
         }
 
         public static float heightToJumpPower(float jumpHeight, float gravity) {
@@ -74,9 +88,25 @@ namespace Wall {
             var arr = colorArray(texture);
             return arr[(int) (rand.NextDouble() * arr.Length)];
         }
+        
+        public static Color randomColor(Texture2D texture, Rectangle rect) { // TODO:  WARNING:does not guarantee a non invisible color
+            var arr = colorArray(texture);
+            int x = randInt(rect.Width + rect.X);
+            int y = randInt(rect.Height + rect.Y);
+            return arr[x + y * texture.Width];
+        }
 
         public static bool isClassOrSub(Object obj, Type superClass) {
             return obj.GetType().IsSubclassOf(superClass) || obj.GetType() == superClass;
+        }
+
+        public static void debugDot(Vector2 pos, Camera camera, SpriteBatch spriteBatch) {
+            spriteBatch.Draw(Textures.get("bush"), camera.toScreen(pos), null, Color.Red, 0, Vector2.Zero * 0.5F, Vector2.One, SpriteEffects.None, 0);
+        }
+        
+        // FROM: https://stackoverflow.com/questions/972307/how-to-loop-through-all-enum-values-in-c
+        public static IEnumerable<T> GetValues<T>() {
+            return Enum.GetValues(typeof(T)).Cast<T>();
         }
     }
 }

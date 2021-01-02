@@ -13,11 +13,15 @@ namespace Wall {
 
         public static void loadTextures() {
 
-            textures["pixelParticle"] = genRect(Color.White);
+            textures["pixel"] = genRect(Color.White);
             textures["ItemSlot"] = genRect(Color.Black);
             textures["ItemSlotSelect"] = genRect(Color.DarkGray);
 
             processFolder(Paths.texturePath);
+        }
+
+        public static Dictionary<string, Texture2D> debugTexturesGrab() {
+            return textures;
         }
 
         private static Texture2D genRect(Color rectColor) {

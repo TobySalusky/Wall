@@ -62,7 +62,7 @@ namespace Wall
         
         public void snowImpactPuff(int count, float intensity, Vector2 pos, Tile tileOn) {
             for (int i = 0; i < count; i++) {
-                Particle puff = new SnowPixel(pos + new Vector2(Util.random(-1, 1) * dimen.X * 0.3F, dimen.Y / 2), new Vector2(Util.random(-2, 2) * (1 + intensity), -Util.random(0.3F, 1.3F)), Util.randomColor(tileOn.texture));
+                Particle puff = new SnowPixel(pos + new Vector2(Util.random(-1, 1) * dimen.X * 0.3F, dimen.Y / 2), new Vector2(Util.random(-2, 2) * (1 + intensity), -Util.random(0.3F, 1.3F)), Util.randomColor(tileOn.texture, tileOn.textureAtlasRect()));
                 Wall.particles.Add(puff);
             }
         }
@@ -122,7 +122,7 @@ namespace Wall
 
                 if (mag > 1) {
                     if (Util.chance(deltaTime * 10)) {
-                        Particle puff = new SnowPixel(pos + new Vector2(Util.random(-1, 1) * dimen.X / 4, dimen.Y / 2), new Vector2(-signX * Math.Clamp(mag / 10, 1, 5), -Util.random(0.3F, 1.3F)), Util.randomColor(tileOn.texture));
+                        Particle puff = new SnowPixel(pos + new Vector2(Util.random(-1, 1) * dimen.X / 4, dimen.Y / 2), new Vector2(-signX * Math.Clamp(mag / 10, 1, 5), -Util.random(0.3F, 1.3F)), Util.randomColor(tileOn.texture, tileOn.textureAtlasRect()));
                         Wall.particles.Add(puff);
                     }
                 }

@@ -12,6 +12,7 @@
         </e>
         <e p="Textures" t="Include">
           <e p="Arrow.png" t="Include" />
+          <e p="backMapData.png" t="Include" />
           <e p="Bow.png" t="Include" />
           <e p="bush.png" t="Include" />
           <e p="FrostSword.png" t="Include" />
@@ -24,6 +25,8 @@
           <e p="Shuriken.png" t="Include" />
           <e p="snow.png" t="Include" />
           <e p="snowAtlas.png" t="Include" />
+          <e p="snowBack.png" t="Include" />
+          <e p="SnowBall.png" t="Include" />
           <e p="snowSlime" t="Include">
             <e p="SnowSlimeIdle.png" t="Include" />
             <e p="SnowSlimeLook.png" t="Include" />
@@ -51,6 +54,8 @@
           <e p="Bow.cs" t="Include" />
           <e p="FrostSword.cs" t="Include" />
           <e p="Item.cs" t="Include" />
+          <e p="Shuriken.cs" t="Include" />
+          <e p="SnowBall.cs" t="Include" />
           <e p="Sword.cs" t="Include" />
         </e>
         <e p="Maths.cs" t="Include" />
@@ -68,7 +73,9 @@
           <e p="Arrow.cs" t="Include" />
           <e p="MeleeAttack.cs" t="Include" />
           <e p="Projectile.cs" t="Include" />
-          <e p="Shuriken.cs" t="Include" />
+          <e p="ShurikenProjectile.cs" t="Include" />
+          <e p="SnowBallProjectile.cs" t="Include" />
+          <e p="StickableProjectile.cs" t="Include" />
         </e>
         <e p="Terrain" t="Include">
           <e p="Chunk.cs" t="Include" />

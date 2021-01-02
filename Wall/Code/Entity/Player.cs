@@ -26,6 +26,8 @@ namespace Wall {
             Item.player = this;
             hotbar[0] = new FrostSword(1);
             hotbar[1] = new Bow(1);
+            hotbar[2] = new Shuriken(99);
+            hotbar[3] = new SnowBall(99);
         }
 
         public void setSelectedItemIndex(int index) {
