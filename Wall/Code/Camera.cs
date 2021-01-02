@@ -6,7 +6,7 @@ namespace Wall {
         public Vector2 pos;
         public float scale;
         public Vector2 screenCenter = new Vector2(1920, 1080) / 2;
-
+        
         public Camera(Vector2 pos, float scale = 1F) {
             this.pos = pos;
             this.scale = scale;

@@ -24,10 +24,11 @@ namespace Wall
         public static List<Projectile> projectiles = new List<Projectile>();
         public static List<Particle> particles = new List<Particle>();
         public static List<Entity> playerList = new List<Entity>();
+        public static List<GroundItem> items = new List<GroundItem>();
 
         public static ButtonState lastLeft, lastMiddle, lastRight;
         public static int lastScroll;
-
+        
         public Wall()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -67,8 +68,9 @@ namespace Wall
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
+            
+            Fonts.arial = Content.Load<SpriteFont>("BaseFont");
+            
             
         }
 
@@ -137,6 +139,17 @@ namespace Wall
                 
                 particle.update(deltaTime);
             }
+            
+            for (int i = items.Count - 1; i >= 0; i--) {
+                GroundItem item = items[i];
+                
+                if (item.deleteFlag) {
+                    items.RemoveAt(i);
+                    continue;
+                }
+                
+                item.update(deltaTime);
+            }
 
             camera.pos = player.pos;
             
@@ -148,6 +161,8 @@ namespace Wall
                 closeGame();
         }
 
+        
+        
         protected override void Draw(GameTime gameTime)
         {
             
@@ -156,18 +171,22 @@ namespace Wall
             // TODO: Add your drawing code here
 
             spriteBatch.Begin(SpriteSortMode.Deferred,
-                BlendState.AlphaBlend,
+                BlendState.NonPremultiplied,
                 SamplerState.PointClamp,
                 null, null, null, null);
 
             map.render(camera, spriteBatch);
 
-            foreach (var entity in entities) {
-                entity.render(camera, spriteBatch);
+            foreach (var item in items) {
+                item.render(camera, spriteBatch);
             }
-
+            
             foreach (var projectile in projectiles) {
                 projectile.render(camera, spriteBatch);
+            }
+            
+            foreach (var entity in entities) {
+                entity.render(camera, spriteBatch);
             }
 
             player.render(camera, spriteBatch);

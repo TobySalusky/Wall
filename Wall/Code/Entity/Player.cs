@@ -15,19 +15,12 @@ namespace Wall {
         public bool grappleOut, grappleHit;
         public Grapple grapple;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         public bool canNotBounce = false;
 
-        public Item[] hotbar = new Item[9];
-=======
+
         public Item[,] inventory;
         public Array2DView<Item> hotbar;
->>>>>>> 869013c1ed191f978822d14b0c14f598d1b37ca8
-=======
-        public Item[,] inventory;
-        public Array2DView<Item> hotbar;
->>>>>>> 869013c1ed191f978822d14b0c14f598d1b37ca8
         
         public int selectedItemIndex;
         

@@ -8,29 +8,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/FrostSword.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Item/Bow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Item/FrostSword.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Maths.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/MouseInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Projectiles/Arrow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Projectiles/MeleeAttack.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Array2DView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Fonts.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Item/GroundItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/BaseFont.spritefont" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/BaseFont.xnb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgcontent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/BaseFont.mgcontent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Content/BaseFont.xnb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Entity/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Sword.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Sword.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Projectiles/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Projectiles/Projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Projectiles/Shuriken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Projectiles/Shuriken.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Textures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Textures.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Item/Shuriken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Shuriken.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Item/SnowBall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/SnowBall.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Util.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Wall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Wall.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgstats" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
     </list>
@@ -44,13 +45,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Code/Terrain/Chunk.cs" />
-      <option value="$PROJECT_DIR$/Code/Terrain/Tile.cs" />
-      <option value="$PROJECT_DIR$/Code/Terrain/Tile.cs" />
-      <option value="$PROJECT_DIR$/Code/Terrain/Chunk.cs" />
-      <option value="$PROJECT_DIR$/Code/Terrain/Chunk.cs" />
-      <option value="$PROJECT_DIR$/Code/Terrain/ChunkMap.cs" />
-      <option value="$PROJECT_DIR$/Code/Terrain/Tile.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Grapple.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Enemy.cs" />
       <option value="$PROJECT_DIR$/Code/Wall.cs" />
@@ -60,29 +54,48 @@
       <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Enemy.cs" />
       <option value="$PROJECT_DIR$/Code/Projectile/Projectile.cs" />
-      <option value="$PROJECT_DIR$/Code/Particles/PixelParticle.cs" />
       <option value="$PROJECT_DIR$/Code/Particles/Particle.cs" />
       <option value="$PROJECT_DIR$/Code/Particles/SnowPixel.cs" />
-      <option value="$PROJECT_DIR$/Code/Terrain/Tile.cs" />
-      <option value="$PROJECT_DIR$/Code/Camera.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" />
       <option value="$PROJECT_DIR$/Code/Item/IceSword.cs" />
       <option value="$PROJECT_DIR$/Code/MouseInfo.cs" />
       <option value="$PROJECT_DIR$/Code/Maths.cs" />
       <option value="$PROJECT_DIR$/Code/Projectiles/MeleeAttack.cs" />
       <option value="$PROJECT_DIR$/Code/Particles/SnowPuffParticle.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
-      <option value="$PROJECT_DIR$/Code/Textures.cs" />
-      <option value="$PROJECT_DIR$/Code/Wall.cs" />
       <option value="$PROJECT_DIR$/Code/Item/FrostSword.cs" />
-      <option value="$PROJECT_DIR$/Code/Util.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/Sword.cs" />
+      <option value="$PROJECT_DIR$/Code/Particles/PixelParticle.cs" />
+      <option value="$PROJECT_DIR$/Code/Camera.cs" />
+      <option value="$PROJECT_DIR$/Code/Terrain/ChunkMap.cs" />
+      <option value="$PROJECT_DIR$/Code/Terrain/Chunk.cs" />
+      <option value="$PROJECT_DIR$/Code/Textures.cs" />
+      <option value="$PROJECT_DIR$/Code/Terrain/Tile.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
       <option value="$PROJECT_DIR$/Code/Projectiles/Shuriken.cs" />
       <option value="$PROJECT_DIR$/Code/Projectiles/Projectile.cs" />
-      <option value="$PROJECT_DIR$/Code/Projectiles/Arrow.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
-      <option value="$PROJECT_DIR$/Code/Item/Sword.cs" />
-      <option value="$PROJECT_DIR$/Code/Item/Item.cs" />
       <option value="$PROJECT_DIR$/Code/Item/Bow.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/Shuriken.cs" />
+      <option value="$PROJECT_DIR$/Code/Projectiles/Arrow.cs" />
+      <option value="$PROJECT_DIR$/Code/Projectiles/StickableProjectile.cs" />
+      <option value="$PROJECT_DIR$/Code/Wall.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/Item.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/SnowBall.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
+      <option value="$PROJECT_DIR$/Code/Util.cs" />
+      <option value="$PROJECT_DIR$/Code/Projectiles/ShurikenProjectile.cs" />
+      <option value="$PROJECT_DIR$/Code/Projectiles/SnowBallProjectile.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
+      <option value="$PROJECT_DIR$/Code/Util.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/GroundItem.cs" />
+      <option value="$PROJECT_DIR$/Code/Fonts.cs" />
+      <option value="$PROJECT_DIR$/Code/Wall.cs" />
+      <option value="$PROJECT_DIR$/Content/BaseFont.spritefont" />
+      <option value="$PROJECT_DIR$/Code/Item/SnowBall.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/Shuriken.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/Item.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
+      <option value="$PROJECT_DIR$/Code/Array2DView.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mOQNeJbHdjMoHHcoB1BpLaoLCl" />
@@ -133,7 +146,8 @@
       <workItem from="1609362125482" duration="3439000" />
       <workItem from="1609402565304" duration="319000" />
       <workItem from="1609442625188" duration="17618000" />
-      <workItem from="1609526102619" duration="27911000" />
+      <workItem from="1609526102619" duration="40570000" />
+      <workItem from="1609613172640" duration="7877000" />
     </task>
     <servers />
   </component>

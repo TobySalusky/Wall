@@ -93,6 +93,16 @@ namespace Wall {
             Chunk chunk = getRawChunk(chunkIndices(new Vector2(x, y)));
             return chunk.tiles[Util.intMod(x, Chunk.chunkSize), Util.intMod(y, Chunk.chunkSize)];
         }
+        
+        public Tile getRawBack(Vector2 pos) {
+            return getRawBack(blockIndices(pos));
+        }
+        
+        public Tile getRawBack(Point indices) {
+            var (x, y) = indices;
+            Chunk chunk = getRawChunk(chunkIndices(new Vector2(x, y)));
+            return chunk.backgrounds[Util.intMod(x, Chunk.chunkSize), Util.intMod(y, Chunk.chunkSize)];
+        }
 
         public bool pointCollide(Vector2 pos) {
             return getTile(pos).isSolid();
