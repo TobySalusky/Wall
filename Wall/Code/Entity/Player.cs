@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Wall {
     public class Player : Entity {
+
+        private bool terrariaMode = false;
         
         private float jumpHeight = 4;
         private float jumpTime;
@@ -12,6 +14,10 @@ namespace Wall {
 
         public bool grappleOut, grappleHit;
         public Grapple grapple;
+
+
+        public bool canNotBounce = false;
+
 
         public Item[,] inventory;
         public Array2DView<Item> hotbar;
@@ -138,6 +144,10 @@ namespace Wall {
 
             int inputX = 0;
 
+            if (state.IsKeyDown(Keys.Tab)) {
+                terrariaMode = !terrariaMode;
+            }
+            
             if (state.IsKeyDown(Keys.E) && !grappleOut) {
                 grappleOut = true;
                 Wall.entities.Add(new Grapple(this, pos, Util.polar(150F, Util.angle(diff))));
@@ -192,12 +202,48 @@ namespace Wall {
                 }
             }
             
-            if (grappleOut && state.IsKeyDown(Keys.Space)) {
+            if (grappleOut && ((state.IsKeyUp(Keys.E)&&!terrariaMode)||(state.IsKeyDown(Keys.Space)&&terrariaMode))) {
                 grapple.deleteFlag = true;
                 grapple = null;
                 grappleOut = false;
                 grappleHit = false;
                 hasGravity = true;
+            }
+
+            if (state.IsKeyDown(Keys.Space)) {
+                if (collidesAt(pos + (Vector2.UnitX * .2F), dimen))
+                {
+                    if (!grounded && !canNotBounce)
+                    {
+                        vel.X = -30;
+                        if (vel.Y > -25)
+                        {
+                            vel.Y = -25;
+                        }
+                    }
+                    else
+                    {
+                        canNotBounce = true;
+                    }
+                }
+                else if (collidesAt(pos - (Vector2.UnitX * .2F), dimen))
+                {
+                    if (!grounded && !canNotBounce)
+                    {
+                        vel.X = 30;
+                        if (vel.Y > -25)
+                        {
+                            vel.Y = -25;
+                        }
+                    }
+                    else
+                    {
+                        canNotBounce = true;
+                    }
+                }
+                else {
+                    canNotBounce = false;
+                }
             }
         }
 
