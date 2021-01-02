@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Wall {
     public class Player : Entity {
+
+        private bool terrariaMode = false;
         
         private float jumpHeight = 4;
         private float jumpTime;
@@ -13,7 +15,19 @@ namespace Wall {
         public bool grappleOut, grappleHit;
         public Grapple grapple;
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+        public bool canNotBounce = false;
+
         public Item[] hotbar = new Item[9];
+=======
+        public Item[,] inventory;
+        public Array2DView<Item> hotbar;
+>>>>>>> 869013c1ed191f978822d14b0c14f598d1b37ca8
+=======
+        public Item[,] inventory;
+        public Array2DView<Item> hotbar;
+>>>>>>> 869013c1ed191f978822d14b0c14f598d1b37ca8
         
         public int selectedItemIndex;
         
@@ -24,8 +38,24 @@ namespace Wall {
             speed = 25F;
             initHealth(30);
             Item.player = this;
+            
+            inventory = new Item[9, 4];
+            hotbar = new Array2DView<Item>(inventory, 0);
+
             hotbar[0] = new FrostSword(1);
             hotbar[1] = new Bow(1);
+            hotbar[2] = new Shuriken(99);
+            hotbar[3] = new SnowBall(99);
+        }
+
+        public void tryPickUp(Item item) {
+
+            Item.type type = item.itemType;
+            
+            // first tries to stack the item with others
+            
+            
+            
         }
 
         public void setSelectedItemIndex(int index) {
@@ -91,6 +121,10 @@ namespace Wall {
 
             int inputX = 0;
 
+            if (state.IsKeyDown(Keys.Tab)) {
+                terrariaMode = !terrariaMode;
+            }
+            
             if (state.IsKeyDown(Keys.E) && !grappleOut) {
                 grappleOut = true;
                 Wall.entities.Add(new Grapple(this, pos, Util.polar(150F, Util.angle(diff))));
@@ -145,12 +179,48 @@ namespace Wall {
                 }
             }
             
-            if (grappleOut && state.IsKeyDown(Keys.Space)) {
+            if (grappleOut && ((state.IsKeyUp(Keys.E)&&!terrariaMode)||(state.IsKeyDown(Keys.Space)&&terrariaMode))) {
                 grapple.deleteFlag = true;
                 grapple = null;
                 grappleOut = false;
                 grappleHit = false;
                 hasGravity = true;
+            }
+
+            if (state.IsKeyDown(Keys.Space)) {
+                if (collidesAt(pos + (Vector2.UnitX * .2F), dimen))
+                {
+                    if (!grounded && !canNotBounce)
+                    {
+                        vel.X = -30;
+                        if (vel.Y > -25)
+                        {
+                            vel.Y = -25;
+                        }
+                    }
+                    else
+                    {
+                        canNotBounce = true;
+                    }
+                }
+                else if (collidesAt(pos - (Vector2.UnitX * .2F), dimen))
+                {
+                    if (!grounded && !canNotBounce)
+                    {
+                        vel.X = 30;
+                        if (vel.Y > -25)
+                        {
+                            vel.Y = -25;
+                        }
+                    }
+                    else
+                    {
+                        canNotBounce = true;
+                    }
+                }
+                else {
+                    canNotBounce = false;
+                }
             }
         }
 
@@ -173,8 +243,7 @@ namespace Wall {
             Texture2D itemSlot = Textures.get("ItemSlot");
             for (int i = 0; i < hotbar.Length; i++) {
                 Rectangle rect = new Rectangle(x, y, 64, 64);
-                x += 70;
-                
+
                 if (i == selectedItemIndex) {
                     spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.6F));
                 }
@@ -182,8 +251,16 @@ namespace Wall {
                     spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.3F));
                 }
 
-                if (hotbar[i] != null)
+                Item item = hotbar[i];
+                if (item != null) {
                     spriteBatch.Draw(hotbar[i].texture, rect, Color.White);
+
+                    if (item.maxStack != 1) {
+                        spriteBatch.DrawString(Fonts.arial, "" + item.count, new Vector2(x + 40, y + 40), Color.White);
+                    }
+                }
+
+                x += 70;
             }
 
         }
