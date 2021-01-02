@@ -10,8 +10,6 @@
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/GroundItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/GroundItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
@@ -76,8 +74,8 @@
       <option value="$PROJECT_DIR$/Code/Item/Item.cs" />
       <option value="$PROJECT_DIR$/Code/Array2DView.cs" />
       <option value="$PROJECT_DIR$/Code/Item/GroundItem.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mOQNeJbHdjMoHHcoB1BpLaoLCl" />
@@ -129,7 +127,7 @@
       <workItem from="1609402565304" duration="319000" />
       <workItem from="1609442625188" duration="17618000" />
       <workItem from="1609526102619" duration="40570000" />
-      <workItem from="1609613172640" duration="9304000" />
+      <workItem from="1609613172640" duration="10194000" />
     </task>
     <servers />
   </component>

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Input;
 namespace Wall {
     public class Player : Entity {
 
-        private bool terrariaMode = false;
+        private bool terrariaMode = true;
         
         private float jumpHeight = 4;
         private float jumpTime;
