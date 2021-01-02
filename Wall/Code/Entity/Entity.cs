@@ -42,6 +42,30 @@ namespace Wall
             maxHealth = health;
             this.health = maxHealth;
         }
+        
+        public Tile getTileOn() {
+            return getTileOn(pos);
+        }
+
+        public Tile getTileOn(Vector2 pos) {
+            return Wall.map.getTile(pos + Vector2.UnitY * (dimen.Y / 2 + 0.1F));
+        }
+        
+        public virtual void jump(float jumpHeight) {
+            vel.Y -= Util.heightToJumpPower(jumpHeight, gravity);
+
+            Tile tileOn = getTileOn();
+            if (tileOn.tileType == Tile.type.snow) {
+                snowImpactPuff(10, 0.5F, pos, tileOn);
+            }
+        }
+        
+        public void snowImpactPuff(int count, float intensity, Vector2 pos, Tile tileOn) {
+            for (int i = 0; i < count; i++) {
+                Particle puff = new SnowPixel(pos + new Vector2(Util.random(-1, 1) * dimen.X * 0.3F, dimen.Y / 2), new Vector2(Util.random(-2, 2) * (1 + intensity), -Util.random(0.3F, 1.3F)), Util.randomColor(tileOn.texture));
+                Wall.particles.Add(puff);
+            }
+        }
 
         public virtual void die() {
             deleteFlag = true;
@@ -86,7 +110,23 @@ namespace Wall
                     vel.Y = groundGrav;*/
             }
 
+            snowRunningPuffs(deltaTime);
+
             collisionMove(vel * deltaTime);
+        }
+
+        public void snowRunningPuffs(float deltaTime) {
+            Tile tileOn = getTileOn();
+            if (tileOn.tileType != Tile.type.air) {
+                float signX = Math.Sign(vel.X), mag = vel.X * signX;
+
+                if (mag > 1) {
+                    if (Util.chance(deltaTime * 10)) {
+                        Particle puff = new SnowPixel(pos + new Vector2(Util.random(-1, 1) * dimen.X / 4, dimen.Y / 2), new Vector2(-signX * Math.Clamp(mag / 10, 1, 5), -Util.random(0.3F, 1.3F)), Util.randomColor(tileOn.texture));
+                        Wall.particles.Add(puff);
+                    }
+                }
+            }
         }
 
         protected bool collidesWith(Entity entity, Vector2 pos, Vector2 dimen) {
@@ -102,6 +142,17 @@ namespace Wall
         }
         
         public virtual void bonkY(Vector2 newPos) {
+            
+            Tile tileOn = getTileOn(newPos);
+            if (tileOn.tileType == Tile.type.snow) { //TODO: for some reason causes particles when program is unfocused?!!
+                
+                float intensity = Math.Min(vel.Y * 0.4F / 30, 1);
+
+                int count = (int) (intensity * 30);
+                
+                snowImpactPuff(count, intensity, newPos, tileOn);
+            }
+            
             vel.Y = 0;
         }
 

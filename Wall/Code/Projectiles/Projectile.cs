@@ -95,7 +95,11 @@ namespace Wall {
         }
 
         public virtual void render(Camera camera, SpriteBatch spriteBatch) { // TODO: perhaps use more efficient drawing unless needed, also add rotation
-            
+
+            if (texture == null) {
+                return;
+            }
+
             Vector2 textureSize = new Vector2(texture.Width, texture.Height);
             Vector2 scale = dimen * camera.scale / textureSize;
             spriteBatch.Draw(texture, camera.toScreen(pos), null, Color.White, rotation, textureSize / 2F, scale,  SpriteEffects.None, 0);

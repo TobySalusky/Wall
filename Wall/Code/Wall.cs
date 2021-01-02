@@ -26,6 +26,7 @@ namespace Wall
         public static List<Entity> playerList = new List<Entity>();
 
         public static ButtonState lastLeft, lastMiddle, lastRight;
+        public static int lastScroll;
 
         public Wall()
         {
@@ -96,9 +97,12 @@ namespace Wall
             bool rightChange = lastRight != mouseState.RightButton;
             lastRight = mouseState.RightButton;
 
+            int scroll = -Math.Sign(mouseState.ScrollWheelValue - lastScroll); // TODO: fix: WARNING: can only scroll in intervals of one per update
+            lastScroll = mouseState.ScrollWheelValue;
+
             keyInput(keyState);
             player.keyInput(mouseState, keyState, deltaTime);
-            player.mouseInput(mouseState, leftChange, middleChange, rightChange, deltaTime);
+            player.mouseInput(mouseState, leftChange, middleChange, rightChange, scroll, deltaTime);
             player.update(deltaTime);
             
             for (int i = entities.Count - 1; i >= 0; i--) {

@@ -12,12 +12,18 @@ namespace Wall {
         private static Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
 
         public static void loadTextures() {
-            
-            Texture2D pixelParticle = new Texture2D(Wall.getGraphicsDevice(), 1, 1);
-            pixelParticle.SetData(new[] { Color.White });
-            textures["pixelParticle"] = pixelParticle;
+
+            textures["pixelParticle"] = genRect(Color.White);
+            textures["ItemSlot"] = genRect(Color.Black);
+            textures["ItemSlotSelect"] = genRect(Color.DarkGray);
 
             processFolder(Paths.texturePath);
+        }
+
+        private static Texture2D genRect(Color rectColor) {
+            Texture2D rect = new Texture2D(Wall.getGraphicsDevice(), 1, 1);
+            rect.SetData(new[] {rectColor});
+            return rect;
         }
 
         private static void processFile(string path) { // assumes a png file...

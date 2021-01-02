@@ -11,7 +11,10 @@
           <e p="autosave Untitled 914.art" t="Include" />
         </e>
         <e p="Textures" t="Include">
+          <e p="Arrow.png" t="Include" />
+          <e p="Bow.png" t="Include" />
           <e p="bush.png" t="Include" />
+          <e p="FrostSword.png" t="Include" />
           <e p="grapple.png" t="Include" />
           <e p="grapple_chain.png" t="Include" />
           <e p="grapple_link.png" t="Include" />
@@ -45,9 +48,13 @@
           <e p="Paths.cs" t="Include" />
         </e>
         <e p="Item" t="Include">
+          <e p="Bow.cs" t="Include" />
+          <e p="FrostSword.cs" t="Include" />
           <e p="Item.cs" t="Include" />
           <e p="Sword.cs" t="Include" />
         </e>
+        <e p="Maths.cs" t="Include" />
+        <e p="MouseInfo.cs" t="Include" />
         <e p="OutsideSamples" t="Include">
           <e p="FrameCounter.cs" t="Include" />
         </e>
@@ -58,6 +65,8 @@
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Projectiles" t="Include">
+          <e p="Arrow.cs" t="Include" />
+          <e p="MeleeAttack.cs" t="Include" />
           <e p="Projectile.cs" t="Include" />
           <e p="Shuriken.cs" t="Include" />
         </e>

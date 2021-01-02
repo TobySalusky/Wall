@@ -1,69 +1,51 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace Wall {
     public class Player : Entity {
         
-        private float jumpSpeed = 25;
+        private float jumpHeight = 4;
         private float jumpTime;
         private const float jumpTimeStart = 0.6F;
 
         public bool grappleOut, grappleHit;
         public Grapple grapple;
 
+        public Item[] hotbar = new Item[9];
+        
+        public int selectedItemIndex;
+        
+        public Item currentItem;
+
         public Player(Vector2 pos) : base(pos) {
             
             speed = 25F;
             initHealth(30);
-            
+            Item.player = this;
+            hotbar[0] = new FrostSword(1);
+            hotbar[1] = new Bow(1);
         }
 
-        public void snowImpactPuff(int count, float intensity, Vector2 pos, Tile tileOn) {
-            for (int i = 0; i < count; i++) {
-                Particle puff = new SnowPixel(pos + new Vector2(Util.random(-1, 1) * dimen.X * 0.3F, dimen.Y / 2), new Vector2(Util.random(-2, 2) * (1 + intensity), -Util.random(0.3F, 1.3F)), Util.randomColor(tileOn.texture));
-                Wall.particles.Add(puff);
-            }
-        }
+        public void setSelectedItemIndex(int index) {
 
-        public override void bonkY(Vector2 newPos) { 
-
-            Tile tileOn = getTileOn(newPos);
-            if (tileOn.tileType == Tile.type.snow) { //TODO: for some reason causes particles when program is unfocused?!!
-                
-                float intensity = Math.Min(vel.Y * 0.4F / 30, 1);
-
-                int count = (int) (intensity * 30);
-                
-                snowImpactPuff(count, intensity, newPos, tileOn);
+            if (index != selectedItemIndex) {
+                hotbar[selectedItemIndex]?.switchOff();
             }
 
-            base.bonkY(newPos);
+            selectedItemIndex = index;
         }
 
-        public Tile getTileOn() {
-            return getTileOn(pos);
-        }
-
-        public Tile getTileOn(Vector2 pos) {
-            return Wall.map.getTile(pos + Vector2.UnitY * (dimen.Y / 2 + 0.1F));
+        public override void jump(float jumpHeight) {
+            base.jump(jumpHeight);
+            jumpTime = jumpTimeStart;
         }
 
         public override void update(float deltaTime) {
 
-            Tile tileOn = getTileOn();
-
-            if (tileOn.tileType == Tile.type.snow) {
-                float signX = Math.Sign(vel.X), mag = vel.X * signX;
-
-                if (mag > 1) {
-                    if (Util.chance(deltaTime * 10)) {
-                        Particle puff = new SnowPixel(pos + new Vector2(Util.random(-1, 1) * dimen.X / 4, dimen.Y / 2), new Vector2(-signX * Math.Clamp(mag / 10, 1, 5), -Util.random(0.3F, 1.3F)), Util.randomColor(tileOn.texture));
-                        Wall.particles.Add(puff);
-                    }
-                }
-            }
-
+            currentItem = hotbar[selectedItemIndex];
+            
             if (grappleHit) { // grapple movement
                 Vector2 accel = Vector2.Normalize(grapple.pos - pos) * 90;
                 //accel += Vector2.UnitY * gravity;
@@ -82,29 +64,25 @@ namespace Wall {
             return Math.Sign(vel.X) * Math.Min(1, Math.Abs(vel.X) / 100F) * maxRot;
         }
 
-        public void mouseInput(MouseState state, bool leftChange, bool middleChange, bool rightChange, float deltaTime) {
+        public void mouseInput(MouseState state, bool leftChange, bool middleChange, bool rightChange, int scroll, float deltaTime) {
 
-            Vector2 mousePos = new Vector2(state.X, state.Y);
-            Vector2 diff = mousePos - Wall.camera.toScreen(pos);
-            
-            if (state.LeftButton == ButtonState.Pressed && leftChange) {
-                Wall.projectiles.Add(new Shuriken(pos, Vector2.Normalize(diff) * 40, true));
+            MouseInfo mouse = new MouseInfo(state, leftChange, middleChange, rightChange);
+
+            int newIndex = selectedItemIndex + scroll;
+            if (selectedItemIndex < 0) {
+                newIndex = hotbar.Length + newIndex;
+                newIndex = Math.Max(newIndex, 0);
             }
+            setSelectedItemIndex(newIndex % hotbar.Length);
+            
+            Vector2 diff = mouse.pos - Wall.camera.toScreen(pos);
+            
+            currentItem?.update(deltaTime, mouse);
 
             if (state.RightButton == ButtonState.Pressed && rightChange) {
-                Wall.entities.Add(new SnowSlime(Wall.camera.toWorld(mousePos)));
+                Wall.entities.Add(new SnowSlime(Wall.camera.toWorld(mouse.pos)));
             }
 
-        }
-
-        public void jump() {
-            vel.Y -= jumpSpeed;
-            jumpTime = jumpTimeStart;
-
-            Tile tileOn = getTileOn();
-            if (tileOn.tileType == Tile.type.snow) {
-                snowImpactPuff(10, 0.5F, pos, tileOn);
-            }
         }
 
         public void keyInput(MouseState mouseState, KeyboardState state, float deltaTime) {
@@ -117,6 +95,27 @@ namespace Wall {
                 grappleOut = true;
                 Wall.entities.Add(new Grapple(this, pos, Util.polar(150F, Util.angle(diff))));
             }
+
+            if (state.IsKeyDown(Keys.D1))
+                setSelectedItemIndex(0);
+            if (state.IsKeyDown(Keys.D2))
+                setSelectedItemIndex(1);
+            if (state.IsKeyDown(Keys.D3))
+                setSelectedItemIndex(2);
+            if (state.IsKeyDown(Keys.D4))
+                setSelectedItemIndex(3);
+            if (state.IsKeyDown(Keys.D5))
+                setSelectedItemIndex(4);
+            if (state.IsKeyDown(Keys.D6))
+                setSelectedItemIndex(5);
+            if (state.IsKeyDown(Keys.D7))
+                setSelectedItemIndex(6);
+            if (state.IsKeyDown(Keys.D8))
+                setSelectedItemIndex(7);
+            if (state.IsKeyDown(Keys.D9))
+                setSelectedItemIndex(8);
+            
+            
 
             if (state.IsKeyDown(Keys.A))
                 inputX--;
@@ -135,14 +134,14 @@ namespace Wall {
                 float accelSpeed = (inputX == 0 && grounded) ? 5 : 2.5F;
                 vel.X += ((inputX * speed) - vel.X) * deltaTime * accelSpeed;
 
-                if (grounded && jumpPressed(state) && jumpTime < jumpTimeStart - 0.5F) {
+                if (grounded && jumpPressed(state) && jumpTime < jumpTimeStart - 0.1F) {
 
-                    jump();
+                    jump(jumpHeight);
                 }
 
                 if (!grounded && jumpPressed(state) && jumpTime > 0) {
                     float fade = jumpTime / jumpTimeStart;
-                    vel.Y -= jumpSpeed * 2F * deltaTime * fade;
+                    vel.Y -= 50F * deltaTime * fade;
                 }
             }
             
@@ -157,6 +156,36 @@ namespace Wall {
 
         public bool jumpPressed(KeyboardState state) {
             return state.IsKeyDown(Keys.W) || state.IsKeyDown(Keys.Space);
+        }
+
+        public override void render(Camera camera, SpriteBatch spriteBatch) {
+            base.render(camera, spriteBatch);
+            currentItem?.render(camera, spriteBatch);
+
+            renderUI(camera, spriteBatch);
+        }
+
+        public void renderUI(Camera camera, SpriteBatch spriteBatch) {
+            
+            
+            // hotbar
+            int x = 20, y = 20;
+            Texture2D itemSlot = Textures.get("ItemSlot");
+            for (int i = 0; i < hotbar.Length; i++) {
+                Rectangle rect = new Rectangle(x, y, 64, 64);
+                x += 70;
+                
+                if (i == selectedItemIndex) {
+                    spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.6F));
+                }
+                else {
+                    spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.3F));
+                }
+
+                if (hotbar[i] != null)
+                    spriteBatch.Draw(hotbar[i].texture, rect, Color.White);
+            }
+
         }
     }
 }

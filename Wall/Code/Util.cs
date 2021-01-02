@@ -36,7 +36,15 @@ namespace Wall {
             Vector2 textureSize = new Vector2(texture.Width, texture.Height);
             Vector2 scale = dimen * camera.scale / textureSize;
             spriteBatch.Draw(texture, camera.toScreen(pos), null, Color.White, rotation, textureSize / 2F, scale,  SpriteEffects.None, 0);
+        }
+        
+        public static void render(Texture2D texture, Vector2 pos, Vector2 dimen, float rotation, Camera camera, SpriteBatch spriteBatch, bool flipped) { // TODO: perhaps use more efficient drawing unless needed, also add rotation
+            
+            SpriteEffects effects = flipped ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
+            Vector2 textureSize = new Vector2(texture.Width, texture.Height);
+            Vector2 scale = dimen * camera.scale / textureSize;
+            spriteBatch.Draw(texture, camera.toScreen(pos), null, Color.White, rotation, textureSize / 2F, scale,  effects, 0);
         }
 
         public static int randInt(int startInc, int endExc) {
@@ -65,6 +73,10 @@ namespace Wall {
         public static Color randomColor(Texture2D texture) { // TODO:  WARNING:does not guarantee a non invisible color
             var arr = colorArray(texture);
             return arr[(int) (rand.NextDouble() * arr.Length)];
+        }
+
+        public static bool isClassOrSub(Object obj, Type superClass) {
+            return obj.GetType().IsSubclassOf(superClass) || obj.GetType() == superClass;
         }
     }
 }

@@ -9,8 +9,6 @@ namespace Wall {
             damage = 3;
             hitsLeft = 3;
             knockback = 10;
-            
-            //gravity /= 2;
         }
 
         public override void changeRotation(float deltaTime) {
