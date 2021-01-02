@@ -101,7 +101,7 @@ namespace Wall {
         }
 
         public static void debugDot(Vector2 pos, Camera camera, SpriteBatch spriteBatch) {
-            spriteBatch.Draw(Textures.get("bush"), camera.toScreen(pos), null, Color.Red, 0, Vector2.Zero * 0.5F, Vector2.One, SpriteEffects.None, 0);
+            render(Textures.get("bush"), pos, Vector2.One * 0.5F,  0, camera, spriteBatch);
         }
         
         // FROM: https://stackoverflow.com/questions/972307/how-to-loop-through-all-enum-values-in-c

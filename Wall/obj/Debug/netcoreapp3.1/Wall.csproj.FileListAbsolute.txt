@@ -44,3 +44,4 @@ C:\Users\Toby\Documents\GitHub\wall\Wall\obj\Debug\netcoreapp3.1\Wall.csproj.Cop
 C:\Users\Toby\Documents\GitHub\wall\Wall\obj\Debug\netcoreapp3.1\Wall.dll
 C:\Users\Toby\Documents\GitHub\wall\Wall\obj\Debug\netcoreapp3.1\Wall.pdb
 C:\Users\Toby\Documents\GitHub\wall\Wall\obj\Debug\netcoreapp3.1\Wall.genruntimeconfig.cache
+C:\Users\Toby\Documents\GitHub\wall\Wall\bin\Debug\netcoreapp3.1\Content\BaseFont.xnb

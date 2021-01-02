@@ -156,6 +156,16 @@ namespace Wall
             vel.Y = 0;
         }
 
+        public void dropItem(Item item) {
+            GroundItem ground = new GroundItem(item, randomInDimenRect(),
+                new Vector2(Util.random(-10, 10), Util.random(-5, -2)));
+            Wall.items.Add(ground);
+        }
+
+        public Vector2 randomInDimenRect() {
+            return pos + new Vector2(Util.random(-0.5F, 0.5F), Util.random(-0.5F, 0.5F)) * dimen;
+        }
+
         protected void collisionMove(Vector2 fullDiff) {
             if (!collidesAt(pos + fullDiff)) { // TODO: improve (can result in clipping [due to initial skip])
                 pos += fullDiff;
@@ -172,7 +182,7 @@ namespace Wall
                         diffX += stepX;
                         if (collidesAt(pos + Vector2.UnitX * diffX)) {
 
-                            if (hasStep && grounded) { // stepping up single blocks
+                            if (hasStep && collidesAt(pos + Vector2.UnitY, dimen)) { // stepping up single blocks
                                 for (float step = 0; step <= maxStepHeight; step += collisionStep) {
                                     if (!collidesAt(pos + new Vector2(diffX, -step))) {
                                         pos += new Vector2(diffX, -step);

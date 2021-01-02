@@ -39,6 +39,7 @@
       </e>
       <e p="bin" t="ExcludeRecursive" />
       <e p="Code" t="Include">
+        <e p="Array2DView.cs" t="Include" />
         <e p="Camera.cs" t="Include" />
         <e p="Entity" t="Include">
           <e p="Enemy.cs" t="Include" />
@@ -50,9 +51,11 @@
         <e p="FileUtil" t="Include">
           <e p="Paths.cs" t="Include" />
         </e>
+        <e p="Fonts.cs" t="Include" />
         <e p="Item" t="Include">
           <e p="Bow.cs" t="Include" />
           <e p="FrostSword.cs" t="Include" />
+          <e p="GroundItem.cs" t="Include" />
           <e p="Item.cs" t="Include" />
           <e p="Shuriken.cs" t="Include" />
           <e p="SnowBall.cs" t="Include" />
@@ -87,11 +90,21 @@
         <e p="Wall.cs" t="Include" />
       </e>
       <e p="Content" t="Include">
+        <e p="BaseFont.spritefont" t="Include" />
+        <e p="bin" t="Include">
+          <e p="DesktopGL" t="Include">
+            <e p="Content" t="Include">
+              <e p="BaseFont.xnb" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Content.mgcb" t="Include" />
         <e p="obj" t="Include">
           <e p="DesktopGL" t="Include">
             <e p="Content" t="Include">
+              <e p=".mgcontent" t="Include" />
               <e p=".mgstats" t="Include" />
+              <e p="BaseFont.mgcontent" t="Include" />
             </e>
           </e>
         </e>

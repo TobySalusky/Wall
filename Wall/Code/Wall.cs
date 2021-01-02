@@ -24,6 +24,7 @@ namespace Wall
         public static List<Projectile> projectiles = new List<Projectile>();
         public static List<Particle> particles = new List<Particle>();
         public static List<Entity> playerList = new List<Entity>();
+        public static List<GroundItem> items = new List<GroundItem>();
 
         public static ButtonState lastLeft, lastMiddle, lastRight;
         public static int lastScroll;
@@ -67,8 +68,9 @@ namespace Wall
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
+            
+            Fonts.arial = Content.Load<SpriteFont>("BaseFont");
+            
             
         }
 
@@ -137,6 +139,17 @@ namespace Wall
                 
                 particle.update(deltaTime);
             }
+            
+            for (int i = items.Count - 1; i >= 0; i--) {
+                GroundItem item = items[i];
+                
+                if (item.deleteFlag) {
+                    items.RemoveAt(i);
+                    continue;
+                }
+                
+                item.update(deltaTime);
+            }
 
             camera.pos = player.pos;
             
@@ -164,6 +177,10 @@ namespace Wall
 
             map.render(camera, spriteBatch);
 
+            foreach (var item in items) {
+                item.render(camera, spriteBatch);
+            }
+            
             foreach (var projectile in projectiles) {
                 projectile.render(camera, spriteBatch);
             }

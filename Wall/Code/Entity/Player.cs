@@ -13,7 +13,8 @@ namespace Wall {
         public bool grappleOut, grappleHit;
         public Grapple grapple;
 
-        public Item[] hotbar = new Item[9];
+        public Item[,] inventory;
+        public Array2DView<Item> hotbar;
         
         public int selectedItemIndex;
         
@@ -24,10 +25,24 @@ namespace Wall {
             speed = 25F;
             initHealth(30);
             Item.player = this;
+            
+            inventory = new Item[9, 4];
+            hotbar = new Array2DView<Item>(inventory, 0);
+
             hotbar[0] = new FrostSword(1);
             hotbar[1] = new Bow(1);
             hotbar[2] = new Shuriken(99);
             hotbar[3] = new SnowBall(99);
+        }
+
+        public void tryPickUp(Item item) {
+
+            Item.type type = item.itemType;
+            
+            // first tries to stack the item with others
+            
+            
+            
         }
 
         public void setSelectedItemIndex(int index) {
@@ -175,8 +190,7 @@ namespace Wall {
             Texture2D itemSlot = Textures.get("ItemSlot");
             for (int i = 0; i < hotbar.Length; i++) {
                 Rectangle rect = new Rectangle(x, y, 64, 64);
-                x += 70;
-                
+
                 if (i == selectedItemIndex) {
                     spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.6F));
                 }
@@ -184,8 +198,16 @@ namespace Wall {
                     spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.3F));
                 }
 
-                if (hotbar[i] != null)
+                Item item = hotbar[i];
+                if (item != null) {
                     spriteBatch.Draw(hotbar[i].texture, rect, Color.White);
+
+                    if (item.maxStack != 1) {
+                        spriteBatch.DrawString(Fonts.arial, "" + item.count, new Vector2(x + 40, y + 40), Color.White);
+                    }
+                }
+
+                x += 70;
             }
 
         }

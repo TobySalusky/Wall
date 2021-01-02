@@ -4,7 +4,9 @@
         public float offset = 1.5F;
 
         public Shuriken(int count) : base(type.Shuriken, count) {
-            useDelay = 0.35F;
+            useDelay = 0.45F;
+            makeStackable();
+            consumable = true;
         }
 
         public override void use(float angle, float distance) {

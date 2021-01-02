@@ -5,6 +5,8 @@
 
         public SnowBall(int count) : base(type.SnowBall, count) {
             useDelay = 0.3F;
+            makeStackable();
+            consumable = true;
         }
 
         public override void use(float angle, float distance) {
