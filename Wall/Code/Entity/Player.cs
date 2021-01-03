@@ -211,39 +211,32 @@ namespace Wall {
             }
 
             if (state.IsKeyDown(Keys.Space)) {
-                if (collidesAt(pos + (Vector2.UnitX * .2F), dimen))
-                {
-                    if (!grounded && !canNotBounce)
-                    {
-                        vel.X = -30;
+                tryWallBounce();
+            }
+        }
+
+        public void tryWallBounce() {
+
+            bool bounced = false;
+            
+            for (int dir = -1; dir <= 1; dir += 2) {
+                if (collidesAt(pos + (Vector2.UnitX * 0.2F) * dir, dimen)) {
+                    if (!collidesAt(pos + Vector2.UnitY * 2) && !canNotBounce) {
+                        bounced = true;
+                        
+                        vel.X = -30 * dir;
                         if (vel.Y > -25)
                         {
                             vel.Y = -25;
                         }
-                    }
-                    else
-                    {
-                        canNotBounce = true;
+
+                        break;
                     }
                 }
-                else if (collidesAt(pos - (Vector2.UnitX * .2F), dimen))
-                {
-                    if (!grounded && !canNotBounce)
-                    {
-                        vel.X = 30;
-                        if (vel.Y > -25)
-                        {
-                            vel.Y = -25;
-                        }
-                    }
-                    else
-                    {
-                        canNotBounce = true;
-                    }
-                }
-                else {
-                    canNotBounce = false;
-                }
+            }
+
+            if (!bounced) {
+                canNotBounce = false;
             }
         }
 
