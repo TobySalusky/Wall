@@ -24,11 +24,11 @@ namespace Wall {
         public Vector2 dimen;
 
         public enum type {
-            FrostSword, Bow, Shuriken, SnowBall
+            FrostSword, Bow, Shuriken, SnowBall, Arrow, RubberArrow
         }
 
-        public Item(type itemType, int count) {
-            this.itemType = itemType;
+        public Item(int count) {
+            itemType = Enum.Parse<type>(GetType().Name);
             this.count = count;
 
             texture = Textures.get(GetType().Name);

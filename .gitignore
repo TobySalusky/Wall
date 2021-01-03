@@ -32,3 +32,7 @@ _UpgradeReport_Files/
 Thumbs.db
 Desktop.ini
 .DS_Store
+*.dll
+*.pdb
+Wall/.idea/.idea.Wall.dir/.idea/workspace.xml
+Wall/.idea/.idea.Wall.dir/.idea/contentModel.xml

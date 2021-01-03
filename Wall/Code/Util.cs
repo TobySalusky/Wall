@@ -100,6 +100,27 @@ namespace Wall {
             return obj.GetType().IsSubclassOf(superClass) || obj.GetType() == superClass;
         }
 
+        public static Rectangle useRatio(Vector2 dimen, Rectangle rect) {
+
+            float ratio = dimen.Y / dimen.X;
+
+            Vector2 newDimen;
+            
+            float height = ratio * rect.Width;
+            if (height > rect.Height) {
+                newDimen = new Vector2(rect.Height / ratio, rect.Height);
+            } else {
+                newDimen = new Vector2(rect.Width, ratio * rect.Width);
+            }
+            
+
+            return center(middle(rect), newDimen);
+        }
+
+        public static Vector2 middle(Rectangle rect) {
+            return new Vector2(rect.X + rect.Width / 2F, rect.Y + rect.Height / 2F);
+        }
+
         public static void debugDot(Vector2 pos, Camera camera, SpriteBatch spriteBatch) {
             render(Textures.get("bush"), pos, Vector2.One * 0.5F,  0, camera, spriteBatch);
         }

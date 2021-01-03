@@ -6,23 +6,41 @@
     <e p="C:\Users\Toby\Documents\GitHub\wall\wall" t="IncludeRecursive">
       <e p="app.manifest" t="Include" />
       <e p="Assets" t="Include">
-        <e p="autosaves" t="Include">
-          <e p="autosave Untitled 7851.art" t="Include" />
-          <e p="autosave Untitled 914.art" t="Include" />
-        </e>
         <e p="Textures" t="Include">
           <e p="Arrow.png" t="Include" />
+          <e p="autosaves" t="Include">
+            <e p="autosave Untitled 403.art" t="Include" />
+            <e p="autosave Untitled 4270.art" t="Include" />
+            <e p="autosave Untitled 5790.art" t="Include" />
+            <e p="autosave Untitled 6594.art" t="Include" />
+            <e p="autosave Untitled 6730.art" t="Include" />
+            <e p="autosave Untitled 7240.art" t="Include" />
+            <e p="autosave Untitled 727.art" t="Include" />
+            <e p="autosave Untitled 7836.art" t="Include" />
+            <e p="autosave Untitled 8826.art" t="Include" />
+            <e p="autosave Untitled 9231.art" t="Include" />
+            <e p="autosave Untitled 9910.art" t="Include" />
+          </e>
           <e p="backMapData.png" t="Include" />
           <e p="Bow.png" t="Include" />
+          <e p="BowPull1.png" t="Include" />
+          <e p="BowPull2.png" t="Include" />
+          <e p="BowPull3.png" t="Include" />
           <e p="bush.png" t="Include" />
           <e p="FrostSword.png" t="Include" />
           <e p="grapple.png" t="Include" />
           <e p="grapple_chain.png" t="Include" />
-          <e p="grapple_link.png" t="Include" />
           <e p="ice.png" t="Include" />
           <e p="mapData.png" t="Include" />
           <e p="null.png" t="Include" />
+          <e p="old_grapple_chain.png" t="Include" />
+          <e p="oldgrapple.png" t="Include" />
+          <e p="oldice.png" t="Include" />
+          <e p="oldsnow.png" t="Include" />
+          <e p="RubberArrow.png" t="Include" />
           <e p="Shuriken.png" t="Include" />
+          <e p="snake_grapple.png" t="Include" />
+          <e p="snake_grapple_chain.png" t="Include" />
           <e p="snow.png" t="Include" />
           <e p="snowAtlas.png" t="Include" />
           <e p="snowBack.png" t="Include" />
@@ -35,6 +53,8 @@
             <e p="SnowSlimeMove3.png" t="Include" />
             <e p="SnowSlimeMove4.png" t="Include" />
           </e>
+          <e p="SnowSnakeBody.png" t="Include" />
+          <e p="SnowSnakeHead.png" t="Include" />
         </e>
       </e>
       <e p="bin" t="ExcludeRecursive" />
@@ -47,12 +67,17 @@
           <e p="Grapple.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="SnowSlime.cs" t="Include" />
+          <e p="Worm" t="Include">
+            <e p="WormHead.cs" t="Include" />
+            <e p="WormSegment.cs" t="Include" />
+          </e>
         </e>
         <e p="FileUtil" t="Include">
           <e p="Paths.cs" t="Include" />
         </e>
         <e p="Fonts.cs" t="Include" />
         <e p="Item" t="Include">
+          <e p="Arrow.cs" t="Include" />
           <e p="Bow.cs" t="Include" />
           <e p="FrostSword.cs" t="Include" />
           <e p="GroundItem.cs" t="Include" />
@@ -73,9 +98,10 @@
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Projectiles" t="Include">
-          <e p="Arrow.cs" t="Include" />
+          <e p="ArrowProjectile.cs" t="Include" />
           <e p="MeleeAttack.cs" t="Include" />
           <e p="Projectile.cs" t="Include" />
+          <e p="RubberArrowProjectile.cs" t="Include" />
           <e p="ShurikenProjectile.cs" t="Include" />
           <e p="SnowBallProjectile.cs" t="Include" />
           <e p="StickableProjectile.cs" t="Include" />
