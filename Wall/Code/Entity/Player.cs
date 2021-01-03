@@ -15,7 +15,7 @@ namespace Wall {
         public bool grappleOut, grappleHit;
         public Grapple grapple;
 
-
+        public bool canGrapple = true;
         public bool canNotBounce = false;
 
 
@@ -139,7 +139,7 @@ namespace Wall {
         }
 
         public void keyInput(MouseState mouseState, KeyboardState state, float deltaTime) {
-            
+
             Vector2 diff = new Vector2(mouseState.X, mouseState.Y) - Wall.camera.toScreen(pos);
 
             int inputX = 0;
@@ -147,8 +147,8 @@ namespace Wall {
             if (state.IsKeyDown(Keys.Tab)) {
                 terrariaMode = !terrariaMode;
             }
-            
-            if (state.IsKeyDown(Keys.E) && !grappleOut) {
+
+            if (state.IsKeyDown(Keys.E) && !grappleOut && canGrapple) {
                 grappleOut = true;
                 Wall.entities.Add(new Grapple(this, pos, Util.polar(150F, Util.angle(diff))));
             }
@@ -171,8 +171,8 @@ namespace Wall {
                 setSelectedItemIndex(7);
             if (state.IsKeyDown(Keys.D9))
                 setSelectedItemIndex(8);
-            
-            
+
+
 
             if (state.IsKeyDown(Keys.A))
                 inputX--;
@@ -186,7 +186,7 @@ namespace Wall {
             }
 
             jumpTime -= deltaTime;
-            
+
             if (!grappleHit) {
                 float accelSpeed = (inputX == 0 && grounded) ? 5 : 2.5F;
                 vel.X += ((inputX * speed) - vel.X) * deltaTime * accelSpeed;
@@ -201,13 +201,18 @@ namespace Wall {
                     vel.Y -= 50F * deltaTime * fade;
                 }
             }
-            
-            if (grappleOut && ((state.IsKeyUp(Keys.E)&&!terrariaMode)||(state.IsKeyDown(Keys.Space)&&terrariaMode))) {
+
+            if (grappleOut && ((state.IsKeyUp(Keys.E) && !terrariaMode) || (state.IsKeyDown(Keys.Space) && terrariaMode))) {
                 grapple.deleteFlag = true;
                 grapple = null;
                 grappleOut = false;
                 grappleHit = false;
                 hasGravity = true;
+                canGrapple = true;
+            }
+
+            if (state.IsKeyUp(Keys.E) && !terrariaMode) {
+                canGrapple = true;
             }
 
             if (state.IsKeyDown(Keys.Space)) {
@@ -228,6 +233,18 @@ namespace Wall {
                         if (vel.Y > -25)
                         {
                             vel.Y = -25;
+                        }
+
+                        if (grappleOut) {
+                            grapple.deleteFlag = true;
+                            grapple = null;
+                            grappleOut = false;
+                            grappleHit = false;
+                            hasGravity = true;
+                            if (!terrariaMode)
+                            {
+                                canGrapple = false;
+                            }
                         }
 
                         break;
