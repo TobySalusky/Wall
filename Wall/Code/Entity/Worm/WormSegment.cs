@@ -13,12 +13,16 @@ namespace Wall {
             hasCollision = false;
             hasGravity = false;
             
-            initTexture("bush");
+            initTexture("SnowSnakeBody");
         }
 
         public override void die() {
             base.die();
             snowPuffDeath();
+        }
+        
+        public override float findRotation() {
+            return Util.angle(inFront.pos - pos) + Maths.halfPI;
         }
 
         public override void damaged(float damage) {

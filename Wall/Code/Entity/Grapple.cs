@@ -7,6 +7,7 @@ namespace Wall {
 
         public Player user;
         public bool hit;
+        public Texture2D chain;
         
         public Grapple(Player user, Vector2 pos, Vector2 vel) : base(pos) {
             this.vel = vel;
@@ -14,11 +15,13 @@ namespace Wall {
             hasGravity = false;
             this.user = user;
             user.grapple = this;
-            dimen = new Vector2(9 / 8F, 1);
 
             rotation = Util.angle(vel) + (float) Math.PI / 2;
 
             texture = Textures.get("grapple");
+            dimen = new Vector2(texture.Width, texture.Height) * Tile.pixelSize;
+            
+            chain = Textures.get("grapple_chain");
         }
 
         public override void update(float deltaTime) {
@@ -38,7 +41,6 @@ namespace Wall {
             Vector2 diff = pos - user.pos;
             float chainAngle = Util.angle(diff);
             Vector2 chainSize = new Vector2(5, 9) / 8F;
-            Texture2D chain = Textures.get("grapple_chain");
 
             Vector2 step = Util.polar(chainSize.Y, chainAngle);
 

@@ -13,6 +13,8 @@ namespace Wall {
             
             initHealth(100);
 
+            initTexture("SnowSnakeHead");
+            
             setup();
 
             genSegments();
@@ -41,7 +43,11 @@ namespace Wall {
 
         public virtual void setup() {
             segmentCount = 15;
-            segmentOffset = 2;
+            segmentOffset = 1.5F;
+        }
+
+        public override float findRotation() {
+            return Util.angle(vel) + Maths.halfPI;
         }
 
         public void genSegments() {

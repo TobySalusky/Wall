@@ -8,34 +8,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/RubberArrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/oldice.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/oldsnow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ice.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Item/Arrow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Projectiles/RubberArrowProjectile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/BowPull1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/BowPull2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/BowPull3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/SnowSnakeBody.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/SnowSnakeHead.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 403.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 4270.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 5790.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 6594.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 6730.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 7240.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 727.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 7836.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 8826.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 9231.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 9910.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/old_grapple_chain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/oldgrapple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/snake_grapple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/snake_grapple_chain.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ice.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/ice.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/snow.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/snow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/grapple.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/grapple.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/grapple_chain.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/grapple_chain.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/grapple_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/autosaves/autosave Untitled 7851.art" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/autosaves/autosave Untitled 914.art" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ice.art" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/Grapple.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Grapple.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Item/Bow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Bow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/GroundItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/GroundItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Shuriken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Shuriken.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/SnowBall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/SnowBall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Sword.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Sword.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Projectiles/Arrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Projectiles/ArrowProjectile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Textures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Textures.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Util.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
     </list>
@@ -49,11 +57,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Code/Particles/Particle.cs" />
-      <option value="$PROJECT_DIR$/Code/Particles/SnowPixel.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" />
-      <option value="$PROJECT_DIR$/Code/Item/IceSword.cs" />
-      <option value="$PROJECT_DIR$/Code/MouseInfo.cs" />
       <option value="$PROJECT_DIR$/Code/Maths.cs" />
       <option value="$PROJECT_DIR$/Code/Projectiles/MeleeAttack.cs" />
       <option value="$PROJECT_DIR$/Code/Particles/SnowPuffParticle.cs" />
@@ -100,6 +103,11 @@
       <option value="$PROJECT_DIR$/Code/Item/GroundItem.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" />
+      <option value="$PROJECT_DIR$/Code/Textures.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/Bow.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Grapple.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mOQNeJbHdjMoHHcoB1BpLaoLCl" />
@@ -151,7 +159,9 @@
       <workItem from="1609402565304" duration="319000" />
       <workItem from="1609442625188" duration="17618000" />
       <workItem from="1609526102619" duration="40570000" />
-      <workItem from="1609613172640" duration="25131000" />
+      <workItem from="1609613172640" duration="25425000" />
+      <workItem from="1609650348373" duration="4426000" />
+      <workItem from="1609699728959" duration="714000" />
     </task>
     <servers />
   </component>

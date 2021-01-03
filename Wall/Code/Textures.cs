@@ -33,8 +33,12 @@ namespace Wall {
 
         private static void processFile(string path) { // assumes a png file...
             int start = path.LastIndexOf("\\") + 1;
-            string filename = path.Substring(start, path.LastIndexOf(".png") - start);
-            loadTexture(filename, path);
+            int pngIndex = path.LastIndexOf(".png");
+            
+            if (pngIndex != -1) {
+                string filename = path.Substring(start, pngIndex - start);
+                loadTexture(filename, path);
+            }
         }
 
         private static void processFolder(string dirPath) {
