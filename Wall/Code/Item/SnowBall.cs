@@ -3,7 +3,7 @@
         
         public float offset = 1.5F;
 
-        public SnowBall(int count) : base(type.SnowBall, count) {
+        public SnowBall(int count) : base(count) {
             useDelay = 0.3F;
             makeStackable();
             consumable = true;

@@ -10,6 +10,7 @@
           <e p="autosave Untitled 7851.art" t="Include" />
           <e p="autosave Untitled 914.art" t="Include" />
         </e>
+        <e p="ice.art" t="Include" />
         <e p="Textures" t="Include">
           <e p="Arrow.png" t="Include" />
           <e p="backMapData.png" t="Include" />
@@ -22,6 +23,9 @@
           <e p="ice.png" t="Include" />
           <e p="mapData.png" t="Include" />
           <e p="null.png" t="Include" />
+          <e p="oldice.png" t="Include" />
+          <e p="oldsnow.png" t="Include" />
+          <e p="RubberArrow.png" t="Include" />
           <e p="Shuriken.png" t="Include" />
           <e p="snow.png" t="Include" />
           <e p="snowAtlas.png" t="Include" />
@@ -47,12 +51,17 @@
           <e p="Grapple.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="SnowSlime.cs" t="Include" />
+          <e p="Worm" t="Include">
+            <e p="WormHead.cs" t="Include" />
+            <e p="WormSegment.cs" t="Include" />
+          </e>
         </e>
         <e p="FileUtil" t="Include">
           <e p="Paths.cs" t="Include" />
         </e>
         <e p="Fonts.cs" t="Include" />
         <e p="Item" t="Include">
+          <e p="Arrow.cs" t="Include" />
           <e p="Bow.cs" t="Include" />
           <e p="FrostSword.cs" t="Include" />
           <e p="GroundItem.cs" t="Include" />
@@ -73,9 +82,10 @@
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Projectiles" t="Include">
-          <e p="Arrow.cs" t="Include" />
+          <e p="ArrowProjectile.cs" t="Include" />
           <e p="MeleeAttack.cs" t="Include" />
           <e p="Projectile.cs" t="Include" />
+          <e p="RubberArrowProjectile.cs" t="Include" />
           <e p="ShurikenProjectile.cs" t="Include" />
           <e p="SnowBallProjectile.cs" t="Include" />
           <e p="StickableProjectile.cs" t="Include" />

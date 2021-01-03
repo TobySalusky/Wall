@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Wall {
-    public class Arrow : StickableProjectile {
+    public class ArrowProjectile : StickableProjectile {
         
-        public Arrow(Vector2 pos, Vector2 vel, bool playerOwned) : base(pos, vel, playerOwned) {
+        public ArrowProjectile(Vector2 pos, Vector2 vel, bool playerOwned) : base(pos, vel, playerOwned) {
             hasGravity = true;
 
             damage = 5;

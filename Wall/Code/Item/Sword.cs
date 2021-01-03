@@ -17,7 +17,7 @@ namespace Wall {
         public float swingTime;
         public int swingDir;
 
-        public Sword(type itemType, int count) : base(itemType, count) {
+        public Sword(type itemType, int count) : base(count) {
 
             swingTime = useDelay;
         }

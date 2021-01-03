@@ -29,7 +29,7 @@ namespace Wall {
         public Player(Vector2 pos) : base(pos) {
             
             speed = 25F;
-            initHealth(30);
+            initHealth(50);
             Item.player = this;
             
             inventory = new Item[9, 4];
@@ -39,6 +39,7 @@ namespace Wall {
             hotbar[1] = new Bow(1);
             hotbar[2] = new Shuriken(99);
             hotbar[3] = new SnowBall(99);
+            hotbar[4] = new RubberArrow(99);
         }
 
         public void tryPickUp(GroundItem ground) {
@@ -77,8 +78,19 @@ namespace Wall {
                     }
                 }
             }
+        }
 
+        public Item firstItem(Predicate<Item> pred) {
+            for (int y = 0; y < inventory.GetLength(1); y++) {
+                for (int x = 0; x < inventory.GetLength(0); x++) {
+                    Item item = inventory[x, y];
+                    if (item != null && pred(item)) {
+                        return item;
+                    }
+                }
+            }
 
+            return null;
         }
 
         public void setSelectedItemIndex(int index) {
@@ -132,7 +144,11 @@ namespace Wall {
             
             currentItem?.update(deltaTime, mouse);
 
-            if (state.RightButton == ButtonState.Pressed && rightChange) {
+            if (mouse.middlePressed) {
+                Wall.entities.Add(new WormHead(Wall.camera.toWorld(mouse.pos)));
+            }
+
+            if (mouse.rightPressed) {
                 Wall.entities.Add(new SnowSlime(Wall.camera.toWorld(mouse.pos)));
             }
 
@@ -269,7 +285,7 @@ namespace Wall {
 
                 Item item = hotbar[i];
                 if (item != null) {
-                    spriteBatch.Draw(hotbar[i].texture, rect, Color.White);
+                    spriteBatch.Draw(hotbar[i].texture, Util.useRatio(item.dimen, rect), Color.White);
 
                     if (item.maxStack != 1) {
                         spriteBatch.DrawString(Fonts.arial, "" + item.count, new Vector2(x + 40, y + 40), Color.White);
@@ -278,6 +294,13 @@ namespace Wall {
 
                 x += 70;
             }
+            
+            // health bar
+            Rectangle healthRect = new Rectangle(1500, 10, 300, 30);
+            spriteBatch.Draw(itemSlot, healthRect, new Color(Color.White, 0.4F));
+            spriteBatch.Draw(Textures.get("HealthBar"), new Rectangle(healthRect.X, healthRect.Y, (int) (healthRect.Width * (health / maxHealth)), healthRect.Height), 
+                new Color(Color.White, 0.4F));
+            
 
         }
     }

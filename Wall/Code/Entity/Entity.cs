@@ -14,6 +14,7 @@ namespace Wall
         public float speed = 25F;
 
         private const float collisionStep = 0.1F;
+        public bool hasCollision = true;
         
         public const float gravity = 70F;
         public bool grounded;
@@ -36,6 +37,11 @@ namespace Wall
             texture = Textures.get("bush");
 
             dimen = new Vector2(2, 2);
+        }
+
+        public void initTexture(string identifier) {
+            texture = Textures.get(identifier);
+            dimen = new Vector2(texture.Width, texture.Height) * Tile.pixelSize;
         }
 
         public void initHealth(float health) {
@@ -75,9 +81,13 @@ namespace Wall
             health -= damage;
             timeSinceDamaged = 0;
 
-            if (health <= 0 && !deleteFlag) {
+            if (shouldDieDamaged()) {
                 die();
             }
+        }
+
+        public virtual bool shouldDieDamaged() {
+            return health <= 0 && !deleteFlag;
         }
 
         public void knockedBack(Vector2 knockVel) {
@@ -112,7 +122,12 @@ namespace Wall
 
             snowRunningPuffs(deltaTime);
 
-            collisionMove(vel * deltaTime);
+            if (hasCollision) {
+                collisionMove(vel * deltaTime);
+            }
+            else {
+                pos += vel * deltaTime;
+            }
         }
 
         public void snowRunningPuffs(float deltaTime) {

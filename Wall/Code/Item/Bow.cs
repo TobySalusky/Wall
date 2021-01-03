@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Wall {
@@ -6,17 +7,28 @@ namespace Wall {
 
         public float angle, velocity, offset = 1.5F;
         
-        public Bow(int count) : base(type.Bow, count) {
+        public Bow(int count) : base(count) {
             useDelay = 0.5F;
             velocity = 70;
 
             allwaysRender = true;
         }
 
+        public override bool canUse() {
+            return base.canUse() && topArrow() != null;
+        }
+
+        public Arrow topArrow() {
+            return (Arrow) player.firstItem(item => Util.isClassOrSub(item, typeof(Arrow)));
+        }
+
         public override void use(float angle, float distance) {
             base.use(angle, distance);
-            
-            Wall.projectiles.Add(new Arrow(player.pos + Util.polar(offset, angle), Util.polar(velocity, angle), true));
+
+            Arrow arrow = topArrow();
+
+            Wall.projectiles.Add(arrow.createArrow(player.pos + Util.polar(offset, angle), Util.polar(velocity, angle)));
+            arrow.count --;
         }
 
         public override void update(float deltaTime, MouseInfo mouse) {

@@ -30,7 +30,7 @@ namespace Wall {
         }
         
         protected bool collidesWith(Entity entity) {
-            return Util.center(pos, item.dimen).Intersects(Util.center(entity.pos, entity.dimen));
+            return Util.center(pos, item.dimen + Vector2.One * 0.5F).Intersects(Util.center(entity.pos, entity.dimen));
         }
         
         public virtual void update(float deltaTime) {
