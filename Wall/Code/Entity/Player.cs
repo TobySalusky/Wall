@@ -15,7 +15,7 @@ namespace Wall {
         public bool grappleOut, grappleHit;
         public Grapple grapple;
 
-
+        public bool canGrapple = true;
         public bool canNotBounce = false;
 
 
@@ -197,8 +197,8 @@ namespace Wall {
                 setSelectedItemIndex(7);
             if (keys.pressed(Keys.D9))
                 setSelectedItemIndex(8);
-            
-            
+
+
 
             if (keys.down(Keys.A))
                 inputX--;
@@ -212,7 +212,7 @@ namespace Wall {
             }
 
             jumpTime -= deltaTime;
-            
+
             if (!grappleHit) {
                 float accelSpeed = (inputX == 0 && grounded) ? 5 : 2.5F;
                 vel.X += ((inputX * speed) - vel.X) * deltaTime * accelSpeed;
@@ -229,11 +229,17 @@ namespace Wall {
             }
             
             if (grappleOut && ((keys.up(Keys.E)&&!terrariaMode)||(keys.down(Keys.Space)&&terrariaMode))) {
+
                 grapple.deleteFlag = true;
                 grapple = null;
                 grappleOut = false;
                 grappleHit = false;
                 hasGravity = true;
+                canGrapple = true;
+            }
+
+            if (keys.up(Keys.E) && !terrariaMode) {
+                canGrapple = true;
             }
 
             if (keys.down(Keys.Space)) {
@@ -254,6 +260,18 @@ namespace Wall {
                         if (vel.Y > -25)
                         {
                             vel.Y = -25;
+                        }
+
+                        if (grappleOut) {
+                            grapple.deleteFlag = true;
+                            grapple = null;
+                            grappleOut = false;
+                            grappleHit = false;
+                            hasGravity = true;
+                            if (!terrariaMode)
+                            {
+                                canGrapple = false;
+                            }
                         }
 
                         break;

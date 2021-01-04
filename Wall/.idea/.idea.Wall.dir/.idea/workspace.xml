@@ -26,32 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Code/KeyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Wall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Wall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgstats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/BaseFont.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/BaseFont.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.runtimeconfig.dev.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.genruntimeconfig.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Wall.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Wall.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Wall.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Wall.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,25 +144,25 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1609717509138">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1609718237673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609717509138" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1609717509137">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609718237673" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1609718237673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609717509137" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1609717509137">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609718237673" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1609718237673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609717509137" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1609717509138">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609718237673" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1609718237673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609717509138" />
-    <state x="638" y="253" width="644" height="534" key="find.popup" timestamp="1609717494283">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609718237673" />
+    <state x="638" y="253" width="644" height="534" key="find.popup" timestamp="1609718226664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="638" y="253" width="644" height="534" key="find.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609717494283" />
+    <state x="638" y="253" width="644" height="534" key="find.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609718226664" />
   </component>
 </project>
