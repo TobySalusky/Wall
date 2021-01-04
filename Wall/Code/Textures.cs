@@ -14,6 +14,7 @@ namespace Wall {
         public static void loadTextures() {
 
             textures["pixel"] = genRect(Color.White);
+            textures["PixelFlame"] = genRect(Color.White);
             textures["ItemSlot"] = genRect(Color.Black);
             textures["ItemSlotSelect"] = genRect(Color.DarkGray);
             textures["HealthBar"] = genRect(Color.Red);

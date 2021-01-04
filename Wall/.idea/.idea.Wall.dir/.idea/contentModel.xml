@@ -9,14 +9,20 @@
         <e p="Textures" t="Include">
           <e p="Arrow.png" t="Include" />
           <e p="autosaves" t="Include">
+            <e p="autosave Untitled 2850.art" t="Include" />
+            <e p="autosave Untitled 3496.art" t="Include" />
+            <e p="autosave Untitled 3918.art" t="Include" />
             <e p="autosave Untitled 403.art" t="Include" />
             <e p="autosave Untitled 4270.art" t="Include" />
+            <e p="autosave Untitled 5220.art" t="Include" />
             <e p="autosave Untitled 5790.art" t="Include" />
             <e p="autosave Untitled 6594.art" t="Include" />
             <e p="autosave Untitled 6730.art" t="Include" />
             <e p="autosave Untitled 7240.art" t="Include" />
             <e p="autosave Untitled 727.art" t="Include" />
             <e p="autosave Untitled 7836.art" t="Include" />
+            <e p="autosave Untitled 79.art" t="Include" />
+            <e p="autosave Untitled 857.art" t="Include" />
             <e p="autosave Untitled 8826.art" t="Include" />
             <e p="autosave Untitled 9231.art" t="Include" />
             <e p="autosave Untitled 9910.art" t="Include" />
@@ -27,6 +33,7 @@
           <e p="BowPull2.png" t="Include" />
           <e p="BowPull3.png" t="Include" />
           <e p="bush.png" t="Include" />
+          <e p="Flamethrower.png" t="Include" />
           <e p="FrostSword.png" t="Include" />
           <e p="grapple.png" t="Include" />
           <e p="grapple_chain.png" t="Include" />
@@ -53,8 +60,8 @@
             <e p="SnowSlimeMove3.png" t="Include" />
             <e p="SnowSlimeMove4.png" t="Include" />
           </e>
-          <e p="SnowSnakeBody.png" t="Include" />
-          <e p="SnowSnakeHead.png" t="Include" />
+          <e p="SnowWormBody.png" t="Include" />
+          <e p="SnowWormHead.png" t="Include" />
         </e>
       </e>
       <e p="bin" t="ExcludeRecursive" />
@@ -68,6 +75,8 @@
           <e p="Player.cs" t="Include" />
           <e p="SnowSlime.cs" t="Include" />
           <e p="Worm" t="Include">
+            <e p="IceSnake.cs" t="Include" />
+            <e p="SnowWorm.cs" t="Include" />
             <e p="WormHead.cs" t="Include" />
             <e p="WormSegment.cs" t="Include" />
           </e>
@@ -79,6 +88,7 @@
         <e p="Item" t="Include">
           <e p="Arrow.cs" t="Include" />
           <e p="Bow.cs" t="Include" />
+          <e p="Flamethrower.cs" t="Include" />
           <e p="FrostSword.cs" t="Include" />
           <e p="GroundItem.cs" t="Include" />
           <e p="Item.cs" t="Include" />
@@ -101,6 +111,7 @@
         <e p="Projectiles" t="Include">
           <e p="ArrowProjectile.cs" t="Include" />
           <e p="MeleeAttack.cs" t="Include" />
+          <e p="PixelFlame.cs" t="Include" />
           <e p="Projectile.cs" t="Include" />
           <e p="RubberArrowProjectile.cs" t="Include" />
           <e p="ShurikenProjectile.cs" t="Include" />

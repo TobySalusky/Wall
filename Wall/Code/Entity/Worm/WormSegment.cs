@@ -12,8 +12,6 @@ namespace Wall {
 
             hasCollision = false;
             hasGravity = false;
-            
-            initTexture("SnowSnakeBody");
         }
 
         public override void die() {

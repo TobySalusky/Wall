@@ -23,8 +23,10 @@ namespace Wall {
         public static Player player;
         public Vector2 dimen;
 
+        public float offset, angle;
+
         public enum type {
-            FrostSword, Bow, Shuriken, SnowBall, Arrow, RubberArrow
+            FrostSword, Bow, Shuriken, SnowBall, Arrow, RubberArrow, Flamethrower
         }
 
         public Item(int count) {

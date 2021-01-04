@@ -14,7 +14,7 @@ namespace Wall {
             
             initHealth(100);
 
-            initTexture("SnowSnakeHead");
+            initTexture(findIdentifier() + "Head");
             
             setup();
 
@@ -56,6 +56,10 @@ namespace Wall {
             return Util.angle(vel) + Maths.halfPI;
         }
 
+        public virtual string findIdentifier() {
+            return GetType().Name;
+        }
+
         public void genSegments() {
 
             segments = new WormSegment[segmentCount];
@@ -64,9 +68,13 @@ namespace Wall {
                 segments[i].inFront = (i == 0) ? this : segments[i - 1];
                 segments[i].head = this;
                 segments[i].segmentOffset = this.segmentOffset;
+                segments[i].initTexture(findIdentifier() + "Body");
+                editSegment(segments[i]);
                 Wall.entities.Add(segments[i]);
             }
         }
+
+        public virtual void editSegment(WormSegment segment) {}
 
         public WormSegment genSegment(Vector2 pos) {
             return new WormSegment(pos);

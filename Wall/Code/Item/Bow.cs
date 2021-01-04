@@ -6,11 +6,12 @@ namespace Wall {
     public class Bow : Item {
         public Texture2D baseTexture;
         public Texture2D[] pullTextures;
-        public float angle, velocity, offset = 1.5F;
+        public float velocity;
         
         public Bow(int count) : base(count) {
             useDelay = 0.5F;
             velocity = 70;
+            offset = 1.5F;
 
             allwaysRender = true;
             baseTexture = texture;

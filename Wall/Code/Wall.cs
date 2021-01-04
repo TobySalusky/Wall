@@ -30,9 +30,11 @@ namespace Wall
         public static ButtonState lastLeft, lastMiddle, lastRight;
         public static int lastScroll;
         public static KeyboardState lastKeyState;
+        public static MouseInfo lastMouseInfo;
 
         public static bool F3Enabled;
         public static bool paused;
+        public static int deaths;
         
         public Wall()
         {
@@ -91,9 +93,12 @@ namespace Wall
             str.AppendLine("Items: " + items.Count);
             str.AppendLine("");
             str.AppendLine("Player:");
-            string tab = "   ";
+            const string tab = "   ";
             str.AppendLine(tab + "Pos: <" + Math.Round(player.pos.X) + " " + Math.Round(player.pos.Y) + ">");
             str.AppendLine(tab + "Vel: <" + Math.Round(player.vel.X) + " " + Math.Round(player.vel.Y) + ">");
+            str.AppendLine(tab + "Deaths: " + deaths);
+            str.AppendLine("");
+            str.AppendLine("Mouse Angle: " + Util.angle(lastMouseInfo.pos - camera.toScreen(player.pos)));
             return str.ToString();
         }
 
@@ -130,12 +135,15 @@ namespace Wall
             int scroll = -Math.Sign(mouseState.ScrollWheelValue - lastScroll); // TODO: fix: WARNING: can only scroll in intervals of one per update
             lastScroll = mouseState.ScrollWheelValue;
 
+            MouseInfo mouseInfo = new MouseInfo(mouseState, leftChange, middleChange, rightChange, scroll);
+            lastMouseInfo = mouseInfo;
+            
             keyInput(keys);
             
             if (!paused) {
             
                 player.keyInput(mouseState, keys, deltaTime);
-                player.mouseInput(mouseState, leftChange, middleChange, rightChange, scroll, deltaTime);
+                player.mouseInput(mouseInfo, deltaTime);
                 player.update(deltaTime);
 
             
@@ -195,6 +203,7 @@ namespace Wall
 
             if (keys.pressed(Keys.F3))
                 F3Enabled = !F3Enabled;
+            if (keys.pressed(Keys.P))
             if (keys.pressed(Keys.P))
                 paused = !paused;
         }

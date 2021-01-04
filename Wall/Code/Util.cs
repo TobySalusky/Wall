@@ -69,6 +69,19 @@ namespace Wall {
             return (float) rand.NextDouble() * max;
         }
 
+        public static float random() { 
+            return (float) rand.NextDouble();
+        }
+
+        public static float randomPN() {
+            return random(-1, 1);
+        }
+
+        public static bool angleDir(float angle) { // true is facingLeft // TODO: WARNING: only works for default values given by atan2 (-pi to pi)
+            float abs = Math.Abs(angle);
+            return (abs > Maths.halfPI && abs < Maths.PI);
+        }
+
         public static float heightToJumpPower(float jumpHeight, float gravity) {
             return (float) Math.Sqrt(jumpHeight * 2 * gravity);
         }

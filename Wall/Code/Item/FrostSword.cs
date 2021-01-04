@@ -2,7 +2,7 @@
     
     public class FrostSword : Sword {
         
-        public FrostSword(int count) : base(type.FrostSword, count) {
+        public FrostSword(int count) : base(count) {
             chunkCount = 4;
             chunkSize = 1;
             

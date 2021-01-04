@@ -41,6 +41,7 @@ namespace Wall {
             hotbar[3] = new SnowBall(4);
             hotbar[4] = new RubberArrow(5);
             hotbar[5] = new Arrow(99);
+            hotbar[6] = new Flamethrower(99);
         }
 
         public void tryPickUp(GroundItem ground) {
@@ -132,6 +133,7 @@ namespace Wall {
 
         public override void die() {
             health = maxHealth;
+            Wall.deaths++;
         }
 
         public override float findRotation() {
@@ -139,23 +141,21 @@ namespace Wall {
             return Math.Sign(vel.X) * Math.Min(1, Math.Abs(vel.X) / 100F) * maxRot;
         }
 
-        public void mouseInput(MouseState state, bool leftChange, bool middleChange, bool rightChange, int scroll, float deltaTime) {
+        public void mouseInput(MouseInfo mouse, float deltaTime) {
 
-            MouseInfo mouse = new MouseInfo(state, leftChange, middleChange, rightChange);
 
-            int newIndex = selectedItemIndex + scroll;
-            if (selectedItemIndex < 0) {
+            int newIndex = selectedItemIndex + mouse.scroll;
+            if (newIndex < 0) {
                 newIndex = hotbar.Length + newIndex;
+
                 newIndex = Math.Max(newIndex, 0);
             }
             setSelectedItemIndex(newIndex % hotbar.Length);
             
-            Vector2 diff = mouse.pos - Wall.camera.toScreen(pos);
-
             currentItem?.update(deltaTime, mouse);
 
             if (mouse.middlePressed) {
-                Wall.entities.Add(new WormHead(Wall.camera.toWorld(mouse.pos)));
+                Wall.entities.Add(new IceSnake(Wall.camera.toWorld(mouse.pos)));
             }
 
             if (mouse.rightPressed) {
@@ -228,7 +228,7 @@ namespace Wall {
                 }
             }
             
-            if (grappleOut && ((keys.up(Keys.E)&&!terrariaMode)||(keys.down(Keys.Space)&&terrariaMode))) {
+            if (grappleOut && ((keys.up(Keys.E)&&!terrariaMode)||(keys.pressed(Keys.Space)&&terrariaMode))) {
 
                 grapple.deleteFlag = true;
                 grapple = null;
