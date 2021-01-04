@@ -67,6 +67,7 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="Code" t="Include">
         <e p="Array2DView.cs" t="Include" />
+        <e p="Bosses.cs" t="Include" />
         <e p="Camera.cs" t="Include" />
         <e p="Entity" t="Include">
           <e p="Enemy.cs" t="Include" />

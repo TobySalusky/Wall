@@ -22,6 +22,7 @@ namespace Wall
         public static Camera camera;
         public static ChunkMap map;
         public static List<Entity> entities = new List<Entity>();
+        public static List<Entity> bosses = new List<Entity>();
         public static List<Projectile> projectiles = new List<Projectile>();
         public static List<Particle> particles = new List<Particle>();
         public static List<Entity> playerList = new List<Entity>();
@@ -157,6 +158,14 @@ namespace Wall
 
                     entity.update(deltaTime);
                 }
+                
+                for (int i = bosses.Count - 1; i >= 0; i--) {
+                    Entity boss = bosses[i];
+
+                    if (boss.deleteFlag) {
+                        bosses.RemoveAt(i);
+                    }
+                }
 
                 for (int i = projectiles.Count - 1; i >= 0; i--) {
                     Projectile projectile = projectiles[i];
@@ -240,6 +249,10 @@ namespace Wall
             
             foreach (var particle in particles) {
                 particle.render(camera, spriteBatch);
+            }
+
+            foreach (var boss in bosses) {
+                Bosses.renderHealthBar(boss, 980, spriteBatch);
             }
 
             if (F3Enabled) { 

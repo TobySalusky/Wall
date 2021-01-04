@@ -30,6 +30,8 @@ namespace Wall
         public float health = 10, maxHealth = 10;
         public float timeSinceDamaged = 100;
 
+        public bool boss;
+
         public Entity(Vector2 pos) {
             this.pos = pos;
 
@@ -37,6 +39,10 @@ namespace Wall
             texture = Textures.get("bush");
 
             dimen = new Vector2(2, 2);
+        }
+
+        public void markBoss() {
+            Wall.bosses.Add(this);
         }
 
         public void initTexture(string identifier) {

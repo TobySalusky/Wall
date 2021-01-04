@@ -33,7 +33,7 @@ namespace Wall {
 
             inGround = collidesAt(pos);
             hasGravity = !inGround;
-
+            
 
             if (inGround) {
                 groundTime += deltaTime;

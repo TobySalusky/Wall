@@ -82,6 +82,10 @@ namespace Wall {
             return (abs > Maths.halfPI && abs < Maths.PI);
         }
 
+        public static Vector2 toVec(Point point) { 
+            return new Vector2(point.X, point.Y);
+        }
+
         public static float heightToJumpPower(float jumpHeight, float gravity) {
             return (float) Math.Sqrt(jumpHeight * 2 * gravity);
         }

@@ -4,6 +4,7 @@ namespace Wall {
     public class IceSnake : WormHead {
         public IceSnake(Vector2 pos) : base(pos) {
             dimen = Vector2.One * 8;
+            markBoss();
         }
 
         public override string findIdentifier() {
