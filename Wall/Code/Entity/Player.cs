@@ -38,8 +38,9 @@ namespace Wall {
             hotbar[0] = new FrostSword(1);
             hotbar[1] = new Bow(1);
             hotbar[2] = new Shuriken(99);
-            hotbar[3] = new SnowBall(99);
-            hotbar[4] = new RubberArrow(99);
+            hotbar[3] = new SnowBall(4);
+            hotbar[4] = new RubberArrow(5);
+            hotbar[5] = new Arrow(99);
         }
 
         public void tryPickUp(GroundItem ground) {
@@ -108,9 +109,18 @@ namespace Wall {
         }
 
         public override void update(float deltaTime) {
+            
+            for (int y = 0; y < inventory.GetLength(1); y++) {
+                for (int x = 0; x < inventory.GetLength(0); x++) {
+                    Item item = inventory[x, y];
+                    if (item != null && item.count <= 0) {
+                        inventory[x, y] = null;
+                    }
+                }
+            }
 
             currentItem = hotbar[selectedItemIndex];
-            
+
             if (grappleHit) { // grapple movement
                 Vector2 accel = Vector2.Normalize(grapple.pos - pos) * 90;
                 //accel += Vector2.UnitY * gravity;
@@ -141,7 +151,7 @@ namespace Wall {
             setSelectedItemIndex(newIndex % hotbar.Length);
             
             Vector2 diff = mouse.pos - Wall.camera.toScreen(pos);
-            
+
             currentItem?.update(deltaTime, mouse);
 
             if (mouse.middlePressed) {
@@ -154,45 +164,45 @@ namespace Wall {
 
         }
 
-        public void keyInput(MouseState mouseState, KeyboardState state, float deltaTime) {
+        public void keyInput(MouseState mouseState, KeyInfo keys, float deltaTime) {
             
             Vector2 diff = new Vector2(mouseState.X, mouseState.Y) - Wall.camera.toScreen(pos);
 
             int inputX = 0;
 
-            if (state.IsKeyDown(Keys.Tab)) {
+            if (keys.pressed(Keys.Tab)) {
                 terrariaMode = !terrariaMode;
             }
             
-            if (state.IsKeyDown(Keys.E) && !grappleOut) {
+            if (keys.pressed(Keys.E) && !grappleOut) {
                 grappleOut = true;
                 Wall.entities.Add(new Grapple(this, pos, Util.polar(150F, Util.angle(diff))));
             }
 
-            if (state.IsKeyDown(Keys.D1))
+            if (keys.pressed(Keys.D1))
                 setSelectedItemIndex(0);
-            if (state.IsKeyDown(Keys.D2))
+            if (keys.pressed(Keys.D2))
                 setSelectedItemIndex(1);
-            if (state.IsKeyDown(Keys.D3))
+            if (keys.pressed(Keys.D3))
                 setSelectedItemIndex(2);
-            if (state.IsKeyDown(Keys.D4))
+            if (keys.pressed(Keys.D4))
                 setSelectedItemIndex(3);
-            if (state.IsKeyDown(Keys.D5))
+            if (keys.pressed(Keys.D5))
                 setSelectedItemIndex(4);
-            if (state.IsKeyDown(Keys.D6))
+            if (keys.pressed(Keys.D6))
                 setSelectedItemIndex(5);
-            if (state.IsKeyDown(Keys.D7))
+            if (keys.pressed(Keys.D7))
                 setSelectedItemIndex(6);
-            if (state.IsKeyDown(Keys.D8))
+            if (keys.pressed(Keys.D8))
                 setSelectedItemIndex(7);
-            if (state.IsKeyDown(Keys.D9))
+            if (keys.pressed(Keys.D9))
                 setSelectedItemIndex(8);
             
             
 
-            if (state.IsKeyDown(Keys.A))
+            if (keys.down(Keys.A))
                 inputX--;
-            if (state.IsKeyDown(Keys.D))
+            if (keys.down(Keys.D))
                 inputX++;
 
             if (inputX > 0) {
@@ -207,18 +217,18 @@ namespace Wall {
                 float accelSpeed = (inputX == 0 && grounded) ? 5 : 2.5F;
                 vel.X += ((inputX * speed) - vel.X) * deltaTime * accelSpeed;
 
-                if (grounded && jumpPressed(state) && jumpTime < jumpTimeStart - 0.1F) {
+                if (grounded && jumpPressed(keys) && jumpTime < jumpTimeStart - 0.1F) {
 
                     jump(jumpHeight);
                 }
 
-                if (!grounded && jumpPressed(state) && jumpTime > 0) {
+                if (!grounded && jumpPressed(keys) && jumpTime > 0) {
                     float fade = jumpTime / jumpTimeStart;
                     vel.Y -= 50F * deltaTime * fade;
                 }
             }
             
-            if (grappleOut && ((state.IsKeyUp(Keys.E)&&!terrariaMode)||(state.IsKeyDown(Keys.Space)&&terrariaMode))) {
+            if (grappleOut && ((keys.up(Keys.E)&&!terrariaMode)||(keys.down(Keys.Space)&&terrariaMode))) {
                 grapple.deleteFlag = true;
                 grapple = null;
                 grappleOut = false;
@@ -226,7 +236,7 @@ namespace Wall {
                 hasGravity = true;
             }
 
-            if (state.IsKeyDown(Keys.Space)) {
+            if (keys.down(Keys.Space)) {
                 tryWallBounce();
             }
         }
@@ -256,8 +266,8 @@ namespace Wall {
             }
         }
 
-        public bool jumpPressed(KeyboardState state) {
-            return state.IsKeyDown(Keys.W) || state.IsKeyDown(Keys.Space);
+        public bool jumpPressed(KeyInfo keys) {
+            return keys.down(Keys.W) || keys.down(Keys.Space);
         }
 
         public override void render(Camera camera, SpriteBatch spriteBatch) {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -28,6 +29,10 @@ namespace Wall
 
         public static ButtonState lastLeft, lastMiddle, lastRight;
         public static int lastScroll;
+        public static KeyboardState lastKeyState;
+
+        public static bool F3Enabled;
+        public static bool paused;
         
         public Wall()
         {
@@ -78,6 +83,20 @@ namespace Wall
             return (float) gameTime.ElapsedGameTime.TotalSeconds;
         }
 
+        public string F3Info() { 
+            StringBuilder str = new StringBuilder();
+            str.AppendLine("Entities: " + entities.Count);
+            str.AppendLine("Particles: " + particles.Count);
+            str.AppendLine("Projectiles: " + projectiles.Count);
+            str.AppendLine("Items: " + items.Count);
+            str.AppendLine("");
+            str.AppendLine("Player:");
+            string tab = "   ";
+            str.AppendLine(tab + "Pos: <" + Math.Round(player.pos.X) + " " + Math.Round(player.pos.Y) + ">");
+            str.AppendLine(tab + "Vel: <" + Math.Round(player.vel.X) + " " + Math.Round(player.vel.Y) + ">");
+            return str.ToString();
+        }
+
         protected override void Update(GameTime gameTime) {
 
             float deltaTime = delta(gameTime);
@@ -87,7 +106,16 @@ namespace Wall
                 Window.Title = "FPS: " + (int) fpsCounter.AverageFramesPerSecond;
             }
 
+            if (lastKeyState == null) { 
+                lastKeyState = Keyboard.GetState();
+            }
+
             KeyboardState keyState = Keyboard.GetState();
+            
+            KeyInfo keys = new KeyInfo(keyState, lastKeyState);
+            lastKeyState = keyState;
+            
+            
             MouseState mouseState = Mouse.GetState();
 
             bool leftChange = lastLeft != mouseState.LeftButton;
@@ -102,63 +130,73 @@ namespace Wall
             int scroll = -Math.Sign(mouseState.ScrollWheelValue - lastScroll); // TODO: fix: WARNING: can only scroll in intervals of one per update
             lastScroll = mouseState.ScrollWheelValue;
 
-            keyInput(keyState);
-            player.keyInput(mouseState, keyState, deltaTime);
-            player.mouseInput(mouseState, leftChange, middleChange, rightChange, scroll, deltaTime);
-            player.update(deltaTime);
+            keyInput(keys);
             
-            for (int i = entities.Count - 1; i >= 0; i--) {
-                Entity entity = entities[i];
-                
-                if (entity.deleteFlag) {
-                    entities.RemoveAt(i);
-                    continue;
-                }
-                
-                entity.update(deltaTime);
-            }
+            if (!paused) {
             
-            for (int i = projectiles.Count - 1; i >= 0; i--) {
-                Projectile projectile = projectiles[i];
-                
-                if (projectile.deleteFlag) {
-                    projectiles.RemoveAt(i);
-                    continue;
-                }
-                
-                projectile.update(deltaTime);
-            }
+                player.keyInput(mouseState, keys, deltaTime);
+                player.mouseInput(mouseState, leftChange, middleChange, rightChange, scroll, deltaTime);
+                player.update(deltaTime);
+
             
-            for (int i = particles.Count - 1; i >= 0; i--) {
-                Particle particle = particles[i];
-                
-                if (particle.deleteFlag) {
-                    particles.RemoveAt(i);
-                    continue;
+                for (int i = entities.Count - 1; i >= 0; i--) {
+                    Entity entity = entities[i];
+
+                    if (entity.deleteFlag) {
+                        entities.RemoveAt(i);
+                        continue;
+                    }
+
+                    entity.update(deltaTime);
                 }
-                
-                particle.update(deltaTime);
-            }
-            
-            for (int i = items.Count - 1; i >= 0; i--) {
-                GroundItem item = items[i];
-                
-                if (item.deleteFlag) {
-                    items.RemoveAt(i);
-                    continue;
+
+                for (int i = projectiles.Count - 1; i >= 0; i--) {
+                    Projectile projectile = projectiles[i];
+
+                    if (projectile.deleteFlag) {
+                        projectiles.RemoveAt(i);
+                        continue;
+                    }
+
+                    projectile.update(deltaTime);
                 }
-                
-                item.update(deltaTime);
+
+                for (int i = particles.Count - 1; i >= 0; i--) {
+                    Particle particle = particles[i];
+
+                    if (particle.deleteFlag) {
+                        particles.RemoveAt(i);
+                        continue;
+                    }
+
+                    particle.update(deltaTime);
+                }
+
+                for (int i = items.Count - 1; i >= 0; i--) {
+                    GroundItem item = items[i];
+
+                    if (item.deleteFlag) {
+                        items.RemoveAt(i);
+                        continue;
+                    }
+
+                    item.update(deltaTime);
+                }
+
+                camera.pos = player.pos;
             }
 
-            camera.pos = player.pos;
-            
             base.Update(gameTime);
         }
 
-        private void keyInput(KeyboardState state) {
-            if (state.IsKeyDown(Keys.Escape))
+        private void keyInput(KeyInfo keys) {
+            if (keys.down(Keys.Escape))
                 closeGame();
+
+            if (keys.pressed(Keys.F3))
+                F3Enabled = !F3Enabled;
+            if (keys.pressed(Keys.P))
+                paused = !paused;
         }
 
         
@@ -193,6 +231,10 @@ namespace Wall
             
             foreach (var particle in particles) {
                 particle.render(camera, spriteBatch);
+            }
+
+            if (F3Enabled) { 
+                spriteBatch.DrawString(Fonts.arial, F3Info(), new Vector2(50, 200), Color.White);
             }
 
             spriteBatch.End();

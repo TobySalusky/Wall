@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Wall
 {
-    public class Entity
+    public class Entity // TODO: make entities and such only render while onscreen
     {
         public Vector2 pos, vel;
         

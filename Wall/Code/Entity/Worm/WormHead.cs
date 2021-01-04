@@ -8,6 +8,7 @@ namespace Wall {
         public WormSegment[] segments;
 
         public bool inGround;
+        public float groundTime, chargeTime;
 
         public WormHead(Vector2 pos) : base(pos) {
             
@@ -33,11 +34,16 @@ namespace Wall {
             inGround = collidesAt(pos);
             hasGravity = !inGround;
 
-            
 
             if (inGround) {
-                Vector2 desiredVel = Util.polar(40, angleToPlayer());
+                groundTime += deltaTime;
+                
+                Vector2 desiredVel = (groundTime > chargeTime) ? Util.polar(40, angleToPlayer()) : Util.polar(30, Util.angle(player.pos + 25 * Vector2.UnitY - pos));
+                
                 vel += (desiredVel - vel) * deltaTime * 2;
+            } else {
+                groundTime = 0;
+                chargeTime = Util.random(0.75F, 2F);
             }
         }
 

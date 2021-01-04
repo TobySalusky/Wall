@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Toby\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Toby\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_.19.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Toby\Documents\GitHub\wall\wall" t="IncludeRecursive">
+    <e p="C:\Users\Tobafett\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Tobafett\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_.19.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Tobafett\Documents\GitHub\wall\wall" t="IncludeRecursive">
       <e p="app.manifest" t="Include" />
       <e p="Assets" t="Include">
         <e p="Textures" t="Include">
@@ -86,6 +86,7 @@
           <e p="SnowBall.cs" t="Include" />
           <e p="Sword.cs" t="Include" />
         </e>
+        <e p="KeyInfo.cs" t="Include" />
         <e p="Maths.cs" t="Include" />
         <e p="MouseInfo.cs" t="Include" />
         <e p="OutsideSamples" t="Include">
