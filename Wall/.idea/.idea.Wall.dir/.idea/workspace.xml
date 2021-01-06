@@ -26,12 +26,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Code/Bosses.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/OldYotsugiHat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/YotsugiHat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/YotsugiHatBody.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/YotsugiHatEarLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/YotsugiHatEarRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 1337.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 1733.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 1791.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 3358.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 5174.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 665.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 7439.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 8316.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 9690.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/oldYotsugiHatEarLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/oldYotsugiHatEarRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Item/Armor/Armor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Item/Armor/YotsugiHat.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Entity/Worm/IceSnake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Worm/IceSnake.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Item.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Util.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Wall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Wall.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
@@ -50,6 +68,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Code/Projectiles/ArrowProjectile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Code/Projectiles/RubberArrowProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/KeyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" root0="FORCE_HIGHLIGHTING" />
@@ -69,6 +88,7 @@
     <setting file="file://$PROJECT_DIR$/Code/Entity/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/Entity/Grapple.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/Entity/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Code/Item/Armor/Armor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/Entity/SnowSlime.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/Item/SnowBall.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/Item/Sword.cs" root0="FORCE_HIGHLIGHTING" />
@@ -84,6 +104,7 @@
     <setting file="file://$PROJECT_DIR$/Code/Projectiles/PixelFlame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/Item/Flamethrower.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/Wall.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Code/Item/Armor/YotsugiHat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/Item/Arrow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/Item/GroundItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Code/Textures.cs" root0="FORCE_HIGHLIGHTING" />
@@ -95,7 +116,6 @@
       <list>
         <option value="$PROJECT_DIR$/Code/KeyInfo.cs" />
         <option value="$PROJECT_DIR$/Code/Item/Bow.cs" />
-        <option value="$PROJECT_DIR$/Code/Item/Item.cs" />
         <option value="$PROJECT_DIR$/Code/Item/FrostSword.cs" />
         <option value="$PROJECT_DIR$/Code/Item/Sword.cs" />
         <option value="$PROJECT_DIR$/Code/Textures.cs" />
@@ -104,13 +124,17 @@
         <option value="$PROJECT_DIR$/Code/Item/Flamethrower.cs" />
         <option value="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" />
         <option value="$PROJECT_DIR$/Code/Entity/Worm/SnowWorm.cs" />
-        <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
         <option value="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" />
-        <option value="$PROJECT_DIR$/Code/Entity/Worm/IceSnake.cs" />
         <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
-        <option value="$PROJECT_DIR$/Code/Util.cs" />
         <option value="$PROJECT_DIR$/Code/Bosses.cs" />
         <option value="$PROJECT_DIR$/Code/Wall.cs" />
+        <option value="$PROJECT_DIR$/Code/Entity/YotsugiHat.cs" />
+        <option value="$PROJECT_DIR$/Code/Item/Item.cs" />
+        <option value="$PROJECT_DIR$/Code/Item/Armor/Armor.cs" />
+        <option value="$PROJECT_DIR$/Code/Util.cs" />
+        <option value="$PROJECT_DIR$/Code/Item/Armor/YotsugiHat.cs" />
+        <option value="$PROJECT_DIR$/Code/Entity/Worm/IceSnake.cs" />
+        <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
       </list>
     </option>
   </component>
@@ -169,6 +193,10 @@
       <workItem from="1609613172640" duration="25425000" />
       <workItem from="1609650348373" duration="4426000" />
       <workItem from="1609699728959" duration="714000" />
+      <workItem from="1609793276593" duration="1276000" />
+      <workItem from="1609857667019" duration="4000" />
+      <workItem from="1609868153957" duration="2315000" />
+      <workItem from="1609876189314" duration="7721000" />
     </task>
     <servers />
   </component>
@@ -194,25 +222,25 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1609743032338">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1609883917748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609743032338" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1609743032338">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609883917748" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1609883917748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609743032338" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1609743032337">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609883917748" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1609883917748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609743032337" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1609743032338">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609883917748" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1609883917748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609743032338" />
-    <state x="638" y="253" width="644" height="534" key="find.popup" timestamp="1609743026740">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609883917748" />
+    <state x="638" y="253" width="644" height="534" key="find.popup" timestamp="1609883775763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="638" y="253" width="644" height="534" key="find.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609743026740" />
+    <state x="638" y="253" width="644" height="534" key="find.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1609883775763" />
   </component>
 </project>

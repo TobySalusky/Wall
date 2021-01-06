@@ -86,7 +86,9 @@ namespace Wall
             return (float) gameTime.ElapsedGameTime.TotalSeconds;
         }
 
-        public string F3Info() { 
+        public string F3Info() {
+            const string tab = "   ";
+            
             StringBuilder str = new StringBuilder();
             str.AppendLine("Entities: " + entities.Count);
             str.AppendLine("Particles: " + particles.Count);
@@ -94,7 +96,6 @@ namespace Wall
             str.AppendLine("Items: " + items.Count);
             str.AppendLine("");
             str.AppendLine("Player:");
-            const string tab = "   ";
             str.AppendLine(tab + "Pos: <" + Math.Round(player.pos.X) + " " + Math.Round(player.pos.Y) + ">");
             str.AppendLine(tab + "Vel: <" + Math.Round(player.vel.X) + " " + Math.Round(player.vel.Y) + ">");
             str.AppendLine(tab + "Deaths: " + deaths);

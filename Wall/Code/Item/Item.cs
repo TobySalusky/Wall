@@ -26,7 +26,7 @@ namespace Wall {
         public float offset, angle;
 
         public enum type {
-            FrostSword, Bow, Shuriken, SnowBall, Arrow, RubberArrow, Flamethrower
+            FrostSword, Bow, Shuriken, SnowBall, Arrow, RubberArrow, Flamethrower, YotsugiHat
         }
 
         public Item(int count) {

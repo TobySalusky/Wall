@@ -1,10 +1,16 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 
 namespace Wall {
     public class IceSnake : WormHead {
         public IceSnake(Vector2 pos) : base(pos) {
             dimen = Vector2.One * 8;
             markBoss();
+        }
+
+        public override void die() {
+            base.die();
+            dropItem(new YotsugiHat());
         }
 
         public override string findIdentifier() {

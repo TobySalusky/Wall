@@ -18,9 +18,11 @@ namespace Wall {
         public bool canGrapple = true;
         public bool canNotBounce = false;
 
-
         public Item[,] inventory;
         public Array2DView<Item> hotbar;
+        public bool inventoryOpen = true;
+
+        public Armor[] armor;
         
         public int selectedItemIndex;
         
@@ -33,6 +35,7 @@ namespace Wall {
             Item.player = this;
             
             inventory = new Item[9, 4];
+            armor = new Armor[3];
             hotbar = new Array2DView<Item>(inventory, 0);
 
             hotbar[0] = new FrostSword(1);
@@ -42,6 +45,8 @@ namespace Wall {
             hotbar[4] = new RubberArrow(5);
             hotbar[5] = new Arrow(99);
             hotbar[6] = new Flamethrower(99);
+            
+            armor[0] = new YotsugiHat();
         }
 
         public void tryPickUp(GroundItem ground) {
@@ -170,8 +175,12 @@ namespace Wall {
 
             int inputX = 0;
 
-            if (keys.pressed(Keys.Tab)) {
+            if (keys.pressed(Keys.T)) {
                 terrariaMode = !terrariaMode;
+            }
+            
+            if (keys.pressed(Keys.Tab)) {
+                inventoryOpen = !inventoryOpen;
             }
             
             if (keys.pressed(Keys.E) && !grappleOut) {
@@ -290,39 +299,65 @@ namespace Wall {
 
         public override void render(Camera camera, SpriteBatch spriteBatch) {
             base.render(camera, spriteBatch);
+            
+            foreach (var piece in armor) {
+                piece?.renderWearing(camera, spriteBatch);
+            }
+            
             currentItem?.render(camera, spriteBatch);
 
             renderUI(camera, spriteBatch);
         }
 
+        public void renderSlot(Item item, Rectangle rect, Camera camera, SpriteBatch spriteBatch, bool isSelected = false) {
+            Texture2D itemSlot = Textures.get("ItemSlot");
+            if (isSelected) {
+                spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.6F));
+            }
+            else {
+                spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.3F));
+            }
+
+            if (item != null) {
+                spriteBatch.Draw(item.texture, Util.useRatio(item.dimen, rect), Color.White);
+
+                if (item.maxStack != 1) {
+                    spriteBatch.DrawString(Fonts.arial, "" + item.count, new Vector2(rect.Left + 40, rect.Top + 40), Color.White);
+                }
+            }
+        }
+
         public void renderUI(Camera camera, SpriteBatch spriteBatch) {
             
-            
-            // hotbar
-            int x = 20, y = 20;
             Texture2D itemSlot = Textures.get("ItemSlot");
-            for (int i = 0; i < hotbar.Length; i++) {
-                Rectangle rect = new Rectangle(x, y, 64, 64);
 
-                if (i == selectedItemIndex) {
-                    spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.6F));
-                }
-                else {
-                    spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.3F));
-                }
 
-                Item item = hotbar[i];
-                if (item != null) {
-                    spriteBatch.Draw(hotbar[i].texture, Util.useRatio(item.dimen, rect), Color.White);
+            int x = 20, y = 20;
+            if (inventoryOpen) { 
+                // inventory
+                for (int j = 0; j < inventory.GetLength(1); j++) {
+                    for (int i = 0; i < inventory.GetLength(0); i++) {
+                        Rectangle rect = new Rectangle(x, y, 64, 64);
 
-                    if (item.maxStack != 1) {
-                        spriteBatch.DrawString(Fonts.arial, "" + item.count, new Vector2(x + 40, y + 40), Color.White);
+                        renderSlot(inventory[i, j], rect, camera, spriteBatch, j == 0 && i == selectedItemIndex);
+
+                        x += 70;
                     }
-                }
 
-                x += 70;
+                    x = 20;
+                    y += 70;
+                }
+            } else {
+                // hotbar
+                for (int i = 0; i < hotbar.Length; i++) {
+                    Rectangle rect = new Rectangle(x, y, 64, 64);
+
+                    renderSlot(hotbar[i], rect, camera, spriteBatch, i == selectedItemIndex);
+
+                    x += 70;
+                }
             }
-            
+
             // health bar
             Rectangle healthRect = new Rectangle(1500, 10, 300, 30);
             spriteBatch.Draw(itemSlot, healthRect, new Color(Color.White, 0.4F));
