@@ -18,7 +18,7 @@ namespace Wall {
             earDimen = Util.dimen(leftEar);
         }
 
-        public YotsugiHat() {
+        public YotsugiHat(int count) : base(count) {
             wearOffset = -Vector2.UnitY * player.dimen.Y / 2;
         }
 

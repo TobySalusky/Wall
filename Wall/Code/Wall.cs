@@ -66,6 +66,7 @@ namespace Wall
             
             Textures.loadTextures();
             Chunk.loadMapData();
+            Item.loadItems();
 
             map = new ChunkMap();
             player = new Player(new Vector2(25, 400));

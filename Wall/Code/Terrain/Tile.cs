@@ -18,6 +18,8 @@ namespace Wall {
         public const float pixelSize = 1/8F;
 
         public bool background;
+        public bool specialCollide;
+        public int specialCollideType;
 
         static Tile() {
             genAtlas();
@@ -93,15 +95,79 @@ namespace Wall {
             return tileType != type.air;
         }
 
+        public bool specialCollideWithRect(Vector2 center, Vector2 dimen) {
+            if (specialCollideType == 1) {
+                Vector2 corner = center + dimen / 2;
+                Vector2 diff = corner - pos;
+                diff.X = Math.Clamp(diff.X, 0, 1F);
+                diff.Y = Math.Clamp(diff.Y, 0, 1F);
+
+                return diff.X + diff.Y > 1F;
+            }
+            
+            if (specialCollideType == -1) {
+                Vector2 corner = center + dimen / 2 * new Vector2(-1, 1);
+                Vector2 diff = corner - pos;
+                diff.X = Math.Clamp(diff.X, 0, 1F);
+                diff.Y = Math.Clamp(diff.Y, 0, 1F);
+
+                return diff.Y > diff.X; // kinda sus ngl
+            }
+
+            return false;
+        }
+
         public void findTexture() {
 
             //texture = (tileType == type.air) ? null : Textures.get(tileType.ToString());
             texture = fullAtlas;
 
+            if (tileType == type.air) {
+                if (blockMasks(
+                    -1, -1, -1,
+                    -1, -1, 1,
+                    0, 1, 0)) {
+                    specialCollide = true;
+                    specialCollideType = 1;
+                }
+                
+                if (blockMasks(
+                    -1, -1, -1,
+                    1, -1, -1,
+                    0, 1, 0)) { 
+                    specialCollide = true;
+                    specialCollideType = -1;
+                }
+            }
+
             if (texture != null)
                 findAtlasRect(findAtlasIndex());
         }
-        
+
+        public bool blockMasks(int a, int b, int c, int d, int e, int f, int g, int h, int i) {
+
+            if (!blockMask(a, pos - Vector2.One)) return false;
+            if (!blockMask(b, pos - Vector2.UnitY)) return false;
+            if (!blockMask(c, pos + new Vector2(1, -1))) return false;
+            
+            if (!blockMask(d, pos - Vector2.UnitX)) return false;
+            if (!blockMask(e, pos)) return false;
+            if (!blockMask(f, pos + Vector2.UnitX)) return false;
+            
+            if (!blockMask(g, pos + new Vector2(-1, 1))) return false;
+            if (!blockMask(h, pos + Vector2.UnitY)) return false;
+            if (!blockMask(i, pos + Vector2.One)) return false;
+
+            return true;
+        }
+
+        public bool blockMask(int i, Vector2 pos) {
+            if (i == 0) return true;
+
+            bool air = !isAirAt(pos);
+            return (i == 1) == air;
+        }
+
         public void render(Camera camera, SpriteBatch spriteBatch) { // TODO: make more efficient
             
             if (tileType == type.air) return;
@@ -150,13 +216,14 @@ namespace Wall {
             return 4;
         }
 
-        private static bool isAirAt(Vector2 pos, bool background) { // TODO: unscuff
+        private bool isAirAt(Vector2 pos, bool background = false) { // TODO: unscuff
 
             if (background) {
                 return Wall.map.getRawBack(pos).tileType == type.air;
             }
 
-            return Wall.map.getRawTile(pos).tileType == type.air;
+            return
+                Wall.map.getRawTile(pos).tileType == type.air; //|| (tileType == type.ice && Wall.map.getRawTile(pos).tileType == type.snow);
         }
 
         private bool airAbove() {

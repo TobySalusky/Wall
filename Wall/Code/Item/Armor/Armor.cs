@@ -13,7 +13,15 @@ namespace Wall {
             helmet, chest, boots
         }
 
-        public Armor() : base(1) { }
+        public Armor(int count) : base(count) { }
+        
+        public new static Armor create(ItemType itemType, int count) {
+            return (Armor) Item.create(itemType, count);
+        }
+        
+        public new static Armor create(ItemType itemType) {
+            return (Armor) Item.create(itemType);
+        }
 
         public virtual Texture2D wearingTexture() {
             return texture;

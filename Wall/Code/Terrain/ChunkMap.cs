@@ -4,7 +4,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Wall {
-    public class ChunkMap {
+    public 
+        class ChunkMap {
         private readonly Dictionary<Point, Chunk> chunks;
 
         public ChunkMap() {
@@ -117,7 +118,7 @@ namespace Wall {
                 for (int j = from.Y; j <= to.Y; j++) {
                     Tile tile = getTile(new Point(i, j));
 
-                    if (tile.isSolid())
+                    if ((tile.isSolid() || tile.specialCollide) && (!tile.specialCollide || tile.specialCollideWithRect(center, dimen)))
                         return true;
                 }
             }

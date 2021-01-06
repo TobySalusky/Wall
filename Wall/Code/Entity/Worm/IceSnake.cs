@@ -10,7 +10,7 @@ namespace Wall {
 
         public override void die() {
             base.die();
-            dropItem(new YotsugiHat());
+            dropItem(new YotsugiHat(1));
         }
 
         public override string findIdentifier() {

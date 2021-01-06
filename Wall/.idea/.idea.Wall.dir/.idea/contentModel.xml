@@ -113,6 +113,7 @@
           <e p="FrostSword.cs" t="Include" />
           <e p="GroundItem.cs" t="Include" />
           <e p="Item.cs" t="Include" />
+          <e p="ItemType.cs" t="Include" />
           <e p="Shuriken.cs" t="Include" />
           <e p="SnowBall.cs" t="Include" />
           <e p="Sword.cs" t="Include" />

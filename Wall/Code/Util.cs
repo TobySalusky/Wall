@@ -76,6 +76,17 @@ namespace Wall {
             return spaced.ToString();
         }
 
+        // FROM: https://stackoverflow.com/questions/8928464/for-an-object-can-i-get-all-its-subclasses-using-reflection-or-other-ways
+        public static IEnumerable<Type> subClassesOf(Type super) {
+            
+            var subclasses =
+                from assembly in AppDomain.CurrentDomain.GetAssemblies()
+                from type in assembly.GetTypes()
+                where type.IsSubclassOf(super)
+                select type;
+            return subclasses;
+        }
+
         public static Vector2 textureVec(Texture2D texture) {
             return new Vector2(texture.Width, texture.Height);
         }

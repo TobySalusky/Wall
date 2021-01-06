@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Wall {
     public class Item {
 
-        public type itemType;
+        public ItemType itemType;
         public int count;
 
         public int maxStack = 1;
@@ -25,16 +26,44 @@ namespace Wall {
 
         public float offset, angle;
 
-        public enum type {
-            FrostSword, Bow, Shuriken, SnowBall, Arrow, RubberArrow, Flamethrower, YotsugiHat
-        }
+        private static Dictionary<ItemType, Type> typeDict;
 
         public Item(int count) {
-            itemType = Enum.Parse<type>(GetType().Name);
+            itemType = Enum.Parse<ItemType>(GetType().Name);
             this.count = count;
 
             texture = Textures.get(GetType().Name);
             dimen = new Vector2(texture.Width, texture.Height) * Tile.pixelSize;
+        }
+
+        public static Item create(ItemType itemType, int count) {
+            var construct = typeDict[itemType].GetConstructor(new [] {typeof(int)});
+
+            return (Item) construct.Invoke(new object[] {count});
+        }
+        
+        public static Item create(ItemType itemType) {
+            var construct = typeDict[itemType].GetConstructor(new [] {typeof(int)});
+
+            return (Item) construct.Invoke(new object[] {1});
+        }
+
+        public static void loadItems() {
+            
+            typeDict = new Dictionary<ItemType, Type>();
+            
+            var types = Util.subClassesOf(typeof(Item));
+
+            foreach (Type itemClass in types) {
+                try {
+                    ItemType itemType = Enum.Parse<ItemType>(itemClass.Name);
+
+                    typeDict[itemType] = itemClass;
+                }
+                catch {
+                    // ignore items without enum-counterparts
+                }
+            }
         }
 
         public virtual void switchOff() {

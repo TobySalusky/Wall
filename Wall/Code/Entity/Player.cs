@@ -20,7 +20,7 @@ namespace Wall {
 
         public Item[,] inventory;
         public Array2DView<Item> hotbar;
-        public bool inventoryOpen = true;
+        public bool inventoryOpen;
 
         public Armor[] armor;
         
@@ -38,21 +38,21 @@ namespace Wall {
             armor = new Armor[3];
             hotbar = new Array2DView<Item>(inventory, 0);
 
-            hotbar[0] = new FrostSword(1);
-            hotbar[1] = new Bow(1);
-            hotbar[2] = new Shuriken(99);
-            hotbar[3] = new SnowBall(4);
-            hotbar[4] = new RubberArrow(5);
-            hotbar[5] = new Arrow(99);
-            hotbar[6] = new Flamethrower(99);
+            hotbar[0] = Item.create(ItemType.FrostSword);
+            hotbar[1] = Item.create(ItemType.Bow);
+            hotbar[2] = Item.create(ItemType.Shuriken, 99);
+            hotbar[3] = Item.create(ItemType.SnowBall, 30);
+            hotbar[4] = Item.create(ItemType.RubberArrow, 20);
+            hotbar[5] = Item.create(ItemType.Arrow, 99);
+            hotbar[6] = Item.create(ItemType.Flamethrower);
             
-            armor[0] = new YotsugiHat();
+            armor[0] = Armor.create(ItemType.YotsugiHat);
         }
 
         public void tryPickUp(GroundItem ground) {
 
             Item item = ground.item;
-            Item.type type = item.itemType;
+            ItemType type = item.itemType;
             
             // first tries to stack the item with others
             for (int y = 0; y < inventory.GetLength(1); y++) {
@@ -345,6 +345,14 @@ namespace Wall {
                     }
 
                     x = 20;
+                    y += 70;
+                }
+
+                x = 20;
+                y = 400;
+                for (int i = 0; i < armor.Length; i++) {
+                    Rectangle rect = new Rectangle(x, y, 64, 64);
+                    renderSlot(armor[i], rect, camera, spriteBatch);
                     y += 70;
                 }
             } else {
