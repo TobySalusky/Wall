@@ -10,6 +10,19 @@ namespace Wall {
 
         private static Random rand = new Random();
 
+        public static float nearestAngle(float angle, float targetAngle) {
+            float diff = targetAngle - angle;
+            if (Math.Abs(diff) < Maths.PI) {
+                return angle;
+            }
+            
+            if (diff > 0) {
+                return angle + Maths.twoPI;
+            }
+
+            return angle - Maths.twoPI;
+        }
+
         public static Vector2 rotate(Vector2 vec, float rotateBy) {
             return Util.polar(mag(vec), angle(vec) + rotateBy);
         }
@@ -159,8 +172,9 @@ namespace Wall {
         
         public static Color randomColor(Texture2D texture, Rectangle rect) { // TODO:  WARNING:does not guarantee a non invisible color
             var arr = colorArray(texture);
-            int x = randInt(rect.Width + rect.X);
-            int y = randInt(rect.Height + rect.Y);
+            int x = randInt(rect.Width)+ rect.X;
+            int y = randInt(rect.Height)+ rect.Y;
+            
             return arr[x + y * texture.Width];
         }
 

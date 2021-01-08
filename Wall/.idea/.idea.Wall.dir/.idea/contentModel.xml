@@ -16,6 +16,7 @@
             <e p="autosave Untitled 1791.art" t="Include" />
             <e p="autosave Untitled 223.art" t="Include" />
             <e p="autosave Untitled 2850.art" t="Include" />
+            <e p="autosave Untitled 3089.art" t="Include" />
             <e p="autosave Untitled 3358.art" t="Include" />
             <e p="autosave Untitled 3496.art" t="Include" />
             <e p="autosave Untitled 3918.art" t="Include" />
@@ -26,6 +27,7 @@
             <e p="autosave Untitled 5069.art" t="Include" />
             <e p="autosave Untitled 5174.art" t="Include" />
             <e p="autosave Untitled 5220.art" t="Include" />
+            <e p="autosave Untitled 5543.art" t="Include" />
             <e p="autosave Untitled 5790.art" t="Include" />
             <e p="autosave Untitled 6594.art" t="Include" />
             <e p="autosave Untitled 665.art" t="Include" />
@@ -84,6 +86,7 @@
           </e>
           <e p="SnowWormBody.png" t="Include" />
           <e p="SnowWormHead.png" t="Include" />
+          <e p="StoneSpear.png" t="Include" />
           <e p="YotsugiHat.png" t="Include" />
           <e p="YotsugiHatBody.png" t="Include" />
           <e p="YotsugiHatEarLeft.png" t="Include" />
@@ -125,8 +128,10 @@
           <e p="GroundItem.cs" t="Include" />
           <e p="Item.cs" t="Include" />
           <e p="ItemType.cs" t="Include" />
+          <e p="MeleeWeapon.cs" t="Include" />
           <e p="Shuriken.cs" t="Include" />
           <e p="SnowBall.cs" t="Include" />
+          <e p="Spear.cs" t="Include" />
           <e p="Sword.cs" t="Include" />
         </e>
         <e p="KeyInfo.cs" t="Include" />

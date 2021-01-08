@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Input;
 namespace Wall {
     public class Player : Entity {
 
-        private bool terrariaMode = true;
+        public bool terrariaMode = true;
         
         private float jumpHeight = 4;
         private float jumpTime;
@@ -45,6 +45,7 @@ namespace Wall {
             hotbar[4] = Item.create(ItemType.RubberArrow, 20);
             hotbar[5] = Item.create(ItemType.Arrow, 99);
             hotbar[6] = Item.create(ItemType.Flamethrower);
+            hotbar[7] = Item.create(ItemType.StoneSpear);
             
             armor[0] = Armor.create(ItemType.YotsugiHat);
         }

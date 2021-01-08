@@ -4,16 +4,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Wall {
-    public class Sword : Item {
+    public class Sword : MeleeWeapon {
 
-        public MeleeAttack[] chunks;
         public int chunkCount;
         public float chunkSize;
-        public float damage;
-        public float knockback;
-
-        public float angle, offset;
-
+        
         public float swingTime;
         public int swingDir;
 
@@ -24,21 +19,6 @@ namespace Wall {
 
         public override bool canUse() {
             return base.canUse() && chunks == null;
-        }
-
-        public override void update(float deltaTime, MouseInfo mouse) {
-            base.update(deltaTime, mouse);
-
-            if (isUsing()) {
-                positionChunks(deltaTime);
-            } else {
-                if (chunks != null) {
-                    foreach (var chunk in chunks) {
-                        chunk.deleteFlag = true;
-                    }
-                    chunks = null;
-                }
-            }
         }
 
         public override void use(float angle, float distance) {
@@ -61,7 +41,7 @@ namespace Wall {
             return Maths.PI * 0.85F / swingTime;
         }
 
-        public void positionChunks(float deltaTime) {
+        public override void positionChunks(float deltaTime) {
             angle += deltaTime * findSwingSpeed() * swingDir;
 
             Vector2 start = player.pos + Util.polar(offset, angle);

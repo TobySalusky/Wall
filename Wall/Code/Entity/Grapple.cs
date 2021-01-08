@@ -24,6 +24,9 @@ namespace Wall {
             chain = Textures.get("grapple_chain");
         }
 
+        public override void die() {
+        }
+
         public override void update(float deltaTime) {
 
             if (!hit && collidesAt(pos, dimen * 1.3F)) {

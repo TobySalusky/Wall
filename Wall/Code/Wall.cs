@@ -103,6 +103,7 @@ namespace Wall
             str.AppendLine(tab + "Deaths: " + deaths);
             str.AppendLine("");
             str.AppendLine("Mouse Angle: " + Util.angle(lastMouseInfo.pos - camera.toScreen(player.pos)));
+            str.AppendLine("TerrariaMode: " + player.terrariaMode);
             return str.ToString();
         }
 

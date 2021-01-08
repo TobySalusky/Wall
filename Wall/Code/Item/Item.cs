@@ -48,6 +48,14 @@ namespace Wall {
             return (Item) construct.Invoke(new object[] {1});
         }
 
+        public static Vector2 mouseDiff(MouseInfo mouse) {
+            return mouse.pos - Wall.camera.toScreen(player.pos);
+        }
+
+        public static float mousePlayerAngle(MouseInfo mouse) {
+            return Util.angle(mouseDiff(mouse));
+        }
+
         public static void loadItems() {
             
             typeDict = new Dictionary<ItemType, Type>();
@@ -82,8 +90,12 @@ namespace Wall {
             }
         }
 
-        public bool isUsing() {
+        public virtual bool isUsing() {
             return useTimer > 0 && !useCancelled;
+        }
+
+        public float usedAmount() { // turns time though delay into float of 0-1
+            return (useDelay - useTimer) / useDelay;
         }
 
         public virtual void update(float deltaTime, MouseInfo mouse) {

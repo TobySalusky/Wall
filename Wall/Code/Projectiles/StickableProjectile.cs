@@ -33,7 +33,7 @@ namespace Wall {
             vel = Vector2.Zero;
             hasGravity = false;
             stuck = true;
-            timeLeft = 2F;
+            timeLeft = 5F;
         }
 
         public override void render(Camera camera, SpriteBatch spriteBatch) { // TODO: perhaps use more efficient drawing unless needed, also add rotation
