@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Wall {
     public class Sword : Item {
 
-        public Projectile[] chunks;
+        public MeleeAttack[] chunks;
         public int chunkCount;
         public float chunkSize;
         public float damage;
@@ -50,7 +50,7 @@ namespace Wall {
 
             var hasHit = new List<Entity>();
 
-            chunks = new Projectile[chunkCount];
+            chunks = new MeleeAttack[chunkCount];
             for (int i = 0; i < chunkCount; i++) {
                 chunks[i] = new MeleeAttack(player.pos, true) {hasHit = hasHit, damage = damage, knockback = knockback, dimen = Vector2.One * chunkSize};
                 Wall.projectiles.Add(chunks[i]);
@@ -68,6 +68,7 @@ namespace Wall {
             
             for (int i = 0; i < chunks.Length; i++) {
                 chunks[i].pos = start + Util.polar(chunkSize, angle) * i;
+                chunks[i].knockbackAngle = angle;
             }
         }
 

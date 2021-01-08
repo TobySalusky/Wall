@@ -9,15 +9,21 @@
         <e p="Textures" t="Include">
           <e p="Arrow.png" t="Include" />
           <e p="autosaves" t="Include">
+            <e p="autosave Untitled 112.art" t="Include" />
+            <e p="autosave Untitled 1261.art" t="Include" />
             <e p="autosave Untitled 1337.art" t="Include" />
             <e p="autosave Untitled 1733.art" t="Include" />
             <e p="autosave Untitled 1791.art" t="Include" />
+            <e p="autosave Untitled 223.art" t="Include" />
             <e p="autosave Untitled 2850.art" t="Include" />
             <e p="autosave Untitled 3358.art" t="Include" />
             <e p="autosave Untitled 3496.art" t="Include" />
             <e p="autosave Untitled 3918.art" t="Include" />
             <e p="autosave Untitled 403.art" t="Include" />
+            <e p="autosave Untitled 4231.art" t="Include" />
+            <e p="autosave Untitled 4252.art" t="Include" />
             <e p="autosave Untitled 4270.art" t="Include" />
+            <e p="autosave Untitled 5069.art" t="Include" />
             <e p="autosave Untitled 5174.art" t="Include" />
             <e p="autosave Untitled 5220.art" t="Include" />
             <e p="autosave Untitled 5790.art" t="Include" />
@@ -25,13 +31,17 @@
             <e p="autosave Untitled 665.art" t="Include" />
             <e p="autosave Untitled 6730.art" t="Include" />
             <e p="autosave Untitled 7240.art" t="Include" />
+            <e p="autosave Untitled 7254.art" t="Include" />
             <e p="autosave Untitled 727.art" t="Include" />
+            <e p="autosave Untitled 736.art" t="Include" />
             <e p="autosave Untitled 7439.art" t="Include" />
             <e p="autosave Untitled 7836.art" t="Include" />
             <e p="autosave Untitled 79.art" t="Include" />
             <e p="autosave Untitled 8316.art" t="Include" />
+            <e p="autosave Untitled 8321.art" t="Include" />
             <e p="autosave Untitled 857.art" t="Include" />
             <e p="autosave Untitled 8826.art" t="Include" />
+            <e p="autosave Untitled 8978.art" t="Include" />
             <e p="autosave Untitled 9231.art" t="Include" />
             <e p="autosave Untitled 9690.art" t="Include" />
             <e p="autosave Untitled 9910.art" t="Include" />
@@ -43,6 +53,9 @@
           <e p="BowPull3.png" t="Include" />
           <e p="bush.png" t="Include" />
           <e p="Flamethrower.png" t="Include" />
+          <e p="frostStone - Copy.png" t="Include" />
+          <e p="frostStone.png" t="Include" />
+          <e p="frostStoneDark.png" t="Include" />
           <e p="FrostSword.png" t="Include" />
           <e p="grapple.png" t="Include" />
           <e p="grapple_chain.png" t="Include" />
@@ -51,7 +64,6 @@
           <e p="null.png" t="Include" />
           <e p="old_grapple_chain.png" t="Include" />
           <e p="oldgrapple.png" t="Include" />
-          <e p="oldice.png" t="Include" />
           <e p="oldsnow.png" t="Include" />
           <e p="OldYotsugiHat.png" t="Include" />
           <e p="oldYotsugiHatEarLeft.png" t="Include" />
@@ -61,8 +73,6 @@
           <e p="snake_grapple.png" t="Include" />
           <e p="snake_grapple_chain.png" t="Include" />
           <e p="snow.png" t="Include" />
-          <e p="snowAtlas.png" t="Include" />
-          <e p="snowBack.png" t="Include" />
           <e p="SnowBall.png" t="Include" />
           <e p="snowSlime" t="Include">
             <e p="SnowSlimeIdle.png" t="Include" />
@@ -88,6 +98,7 @@
         <e p="Entity" t="Include">
           <e p="Enemy.cs" t="Include" />
           <e p="Entity.cs" t="Include" />
+          <e p="EntityType.cs" t="Include" />
           <e p="Grapple.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="SnowSlime.cs" t="Include" />

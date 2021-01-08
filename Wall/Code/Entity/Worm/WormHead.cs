@@ -12,10 +12,11 @@ namespace Wall {
 
         public WormHead(Vector2 pos) : base(pos) {
             
+            isHead = true;
             initHealth(100);
 
             initTexture(findIdentifier() + "Head");
-            
+
             setup();
 
             genSegments();

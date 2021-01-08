@@ -26,10 +26,28 @@ namespace Wall {
         }
 
         public enum type {
-            air, snow, ice, 
-            snowBack
+            air, snow, ice, frostStone, 
+            snowBack, frostStoneBack
         }
 
+        public static Dictionary<Color, int> genTileTable() {
+            var table = new Dictionary<Color, int>();
+
+            tableAdd(table, Color.White, type.snow);
+            tableAdd(table, Color.Red, type.ice);
+            tableAdd(table, Color.Blue, type.frostStone);
+            
+            return table;
+        }
+        
+        public static Dictionary<Color, int> genBackTable() {
+            var table = new Dictionary<Color, int>();
+
+            tableAdd(table, Color.Red, type.snowBack);
+            
+            return table;
+        }
+        
         public static void genAtlas() {
 
             var types = Util.GetValues<type>();
@@ -43,7 +61,9 @@ namespace Wall {
                     continue;
                 }
 
-                Texture2D atlas = Textures.get(tile.ToString());
+                string identifier = tile.ToString();
+                
+                Texture2D atlas = (!Textures.has(identifier) && identifier.Contains("Back")) ? genBackAtlas(identifier) : Textures.get(identifier);
                 var atlasCol = Util.colorArray(atlas);
                 
                 for (int x = 0; x < atlas.Width; x++) {
@@ -62,21 +82,22 @@ namespace Wall {
             fullAtlas.SetData(colorArr);
         }
 
-        public static Dictionary<Color, int> genTileTable() {
-            var table = new Dictionary<Color, int>();
+        private static Texture2D genBackAtlas(string identifier) {
+            string blockIdentifier = identifier.Substring(0, identifier.IndexOf("Back"));
 
-            tableAdd(table, Color.White, type.snow);
-            tableAdd(table, Color.Red, type.ice);
-            
-            return table;
-        }
-        
-        public static Dictionary<Color, int> genBackTable() {
-            var table = new Dictionary<Color, int>();
+            Texture2D texture = Textures.get(blockIdentifier);
+            var arr = Util.colorArray(texture);
+            var newArr = new Color[arr.Length];
 
-            tableAdd(table, Color.Red, type.snowBack);
+            for (int i = 0; i < arr.Length; i++) {
+                Color col = arr[i];
+                newArr[i] = Color.Lerp(arr[i], new Color(Color.Black, col.A / 255F), 0.3F);
+            }
             
-            return table;
+            var back = new Texture2D(Wall.getGraphicsDevice(), texture.Width, texture.Height);
+            back.SetData(newArr);
+            
+            return back;
         }
 
         private static void tableAdd(Dictionary<Color, int> dict, Color color, type tileType) {

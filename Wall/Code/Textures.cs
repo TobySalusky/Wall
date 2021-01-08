@@ -58,6 +58,10 @@ namespace Wall {
             textures[identifier] = texture;
         }
 
+        public static bool has(string identifier) {
+            return textures.ContainsKey(identifier);
+        }
+
         public static Texture2D get(string identifier) {
             
             textures.TryGetValue(identifier, out var texture);

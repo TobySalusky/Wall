@@ -87,9 +87,13 @@ namespace Wall {
             return Wall.map.rectangleCollide(pos, dimen);
         }
 
+        public virtual float knockbackDir() {
+            return Util.angle(vel);
+        }
+
         public virtual void hit(Entity entity) {
             hitsLeft--;
-            entity.knockedBack(knockback, Util.angle(vel));
+            entity.knockedBack(knockback, knockbackDir());
             entity.damaged(damage);
 
             if (hitsLeft != 0) {

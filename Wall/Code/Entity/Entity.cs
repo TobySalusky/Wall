@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -32,6 +33,8 @@ namespace Wall
 
         public bool boss;
 
+        private static Dictionary<EntityType, Type> typeDict;
+
         public Entity(Vector2 pos) {
             this.pos = pos;
 
@@ -41,6 +44,30 @@ namespace Wall
             dimen = new Vector2(2, 2);
         }
 
+        public static Entity create(EntityType entityType, Vector2 pos) {
+            var construct = typeDict[entityType].GetConstructor(new [] {typeof(Vector2)});
+
+            return (Entity) construct.Invoke(new object[] {pos});
+        }
+        
+        public static void loadEntities() {
+            
+            typeDict = new Dictionary<EntityType, Type>();
+            
+            var types = Util.subClassesOf(typeof(Entity));
+
+            foreach (Type entityClass in types) {
+                try {
+                    EntityType entityType = Enum.Parse<EntityType>(entityClass.Name);
+
+                    typeDict[entityType] = entityClass;
+                }
+                catch {
+                    // ignore items without enum-counterparts
+                }
+            }
+        }
+        
         public void markBoss() {
             Wall.bosses.Add(this);
         }

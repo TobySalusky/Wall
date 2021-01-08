@@ -160,11 +160,11 @@ namespace Wall {
             currentItem?.update(deltaTime, mouse);
 
             if (mouse.middlePressed) {
-                Wall.entities.Add(new IceSnake(Wall.camera.toWorld(mouse.pos)));
+                Wall.entities.Add(create(EntityType.SnowWorm, Wall.camera.toWorld(mouse.pos)));
             }
 
             if (mouse.rightPressed) {
-                Wall.entities.Add(new SnowSlime(Wall.camera.toWorld(mouse.pos)));
+                Wall.entities.Add(create(EntityType.SnowSlime, Wall.camera.toWorld(mouse.pos)));
             }
 
         }

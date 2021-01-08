@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 
 namespace Wall {
     public class WormSegment : Enemy {
@@ -6,7 +7,7 @@ namespace Wall {
         public float segmentOffset = 5;
         public WormSegment inFront;
         public WormHead head;
-        public bool shareHealth = true;
+        public bool shareHealth = true, isHead;
         
         public WormSegment(Vector2 pos) : base(pos) {
 
@@ -24,7 +25,7 @@ namespace Wall {
         }
 
         public override void damaged(float damage) {
-            if (shareHealth && !Util.isClassOrSub(this, typeof(WormHead))) {
+            if (shareHealth && !isHead) {
                 float saveTime = head.timeSinceDamaged;
                 head.damaged(damage);
                 head.timeSinceDamaged = saveTime;
@@ -34,12 +35,13 @@ namespace Wall {
         }
 
         public override bool shouldDieDamaged() {
-            return base.shouldDieDamaged() && (!shareHealth || Util.isClassOrSub(this, typeof(WormHead)));
+            return base.shouldDieDamaged() && (!shareHealth || isHead);
         }
 
         public virtual void wormUpdate(float deltaTime) {
             float angle = Util.angle(inFront.pos - pos);
             pos = inFront.pos - Util.polar(segmentOffset, angle);
+            vel *= Math.Max(0, 1 - deltaTime);
         }
 
         public override void update(float deltaTime) {
