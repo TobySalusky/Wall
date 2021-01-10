@@ -17,6 +17,7 @@ namespace Wall {
 
         public bool canGrapple = true;
         public bool canNotBounce = false;
+        public bool canBounce = true;
 
         public Item[,] inventory;
         public Array2DView<Item> hotbar;
@@ -190,6 +191,15 @@ namespace Wall {
                 Wall.entities.Add(new Grapple(this, pos, Util.polar(150F, Util.angle(diff))));
             }
 
+            if (keys.up(Keys.Space)) {
+                canBounce = true;
+            }
+
+            if (grounded) {
+                canBounce = false;
+            }
+
+
             if (keys.pressed(Keys.D1))
                 setSelectedItemIndex(0);
             if (keys.pressed(Keys.D2))
@@ -264,7 +274,7 @@ namespace Wall {
             
             for (int dir = -1; dir <= 1; dir += 2) {
                 if (collidesAt(pos + (Vector2.UnitX * 0.2F) * dir, dimen)) {
-                    if (!collidesAt(pos + Vector2.UnitY * 2) && !canNotBounce) {
+                    if (!collidesAt(pos + Vector2.UnitY * 2) && canBounce) {
                         bounced = true;
                         
                         vel.X = -30 * dir;
@@ -288,10 +298,6 @@ namespace Wall {
                         break;
                     }
                 }
-            }
-
-            if (!bounced) {
-                canNotBounce = false;
             }
         }
 
