@@ -46,6 +46,7 @@ namespace Wall {
             hotbar[5] = Item.create(ItemType.Arrow, 99);
             hotbar[6] = Item.create(ItemType.Flamethrower);
             hotbar[7] = Item.create(ItemType.StoneSpear);
+            hotbar[8] = Item.create(ItemType.IcicleSpear);
             
             armor[0] = Armor.create(ItemType.YotsugiHat);
         }
@@ -72,7 +73,7 @@ namespace Wall {
             if (item.count == 0) {
                 ground.deleteFlag = true;
             } else if (item.count < 0) {
-                Console.WriteLine("Something clearly went wrong here, you see " + item + " wound up with a count less than 0");
+                Logger.log("Something clearly went wrong here, you see " + item + " wound up with a count less than 0");
             } else {
                 // checks for empty slots
                 for (int y = 0; y < inventory.GetLength(1); y++) {
@@ -160,11 +161,11 @@ namespace Wall {
             
             currentItem?.update(deltaTime, mouse);
 
-            if (mouse.middlePressed) {
+            if (mouse.leftDown && mouse.middlePressed) {
                 Wall.entities.Add(create(EntityType.SnowWorm, Wall.camera.toWorld(mouse.pos)));
             }
 
-            if (mouse.rightPressed) {
+            if (!mouse.leftDown && mouse.middlePressed) {
                 Wall.entities.Add(create(EntityType.SnowSlime, Wall.camera.toWorld(mouse.pos)));
             }
 
@@ -374,6 +375,15 @@ namespace Wall {
                 new Color(Color.White, 0.4F));
             
 
+            // Debug
+            if (currentItem != null) {
+                healthRect = new Rectangle(1600, 950, 200, 30);
+                spriteBatch.Draw(itemSlot, healthRect, new Color(Color.White, 0.4F));
+                spriteBatch.Draw(Textures.get("HealthBar"),
+                    new Rectangle(healthRect.X, healthRect.Y, (int) (healthRect.Width * (currentItem.specialChargeAmount())),
+                        healthRect.Height),
+                    new Color(Color.White, 0.4F));
+            }
         }
     }
 }

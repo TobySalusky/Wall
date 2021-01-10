@@ -21,6 +21,23 @@ namespace Wall {
             for (int i = 0; i < 3; i++) {
                 pullTextures[i] = Textures.get(name + "Pull" + (i + 1));
             }
+
+            maxSpecialChargeTime = 1F;
+        }
+
+        public override void holdSpecial(float deltaTime, MouseInfo mouse) {
+            base.holdSpecial(deltaTime, mouse);
+            
+            int index = Math.Clamp((int) (((specialChargeAmount())) / (1 / 3F)) - 1, 0, 2);
+            texture = pullTextures[index];
+        }
+
+        public override void useSpecial(float angle, float mag) {
+            if (canUse()) {
+                specialUse = true;
+                use(angle, mag);
+                player.vel -= Util.polar(specialChargeAmount() * 20, angle);
+            }
         }
 
         public override bool canUse() {
@@ -36,18 +53,17 @@ namespace Wall {
 
             Arrow arrow = topArrow();
 
-            Wall.projectiles.Add(arrow.createArrow(player.pos + Util.polar(offset, angle), Util.polar(velocity, angle)));
+            float mult = (specialUse) ? 1 + specialChargeAmount() : 1;
+            Projectile proj = arrow.createArrow(player.pos + Util.polar(offset, angle), Util.polar(velocity * mult, angle));
+            proj.damage *= mult;
+            Wall.projectiles.Add(proj);
             arrow.count --;
         }
 
         public override void update(float deltaTime, MouseInfo mouse) {
             base.update(deltaTime, mouse);
 
-            if (isUsing()) {
-                int index = (int) ((1 - (useTimer / useDelay)) / (1 / 3F));
-                texture = pullTextures[index];
-            }
-            else {
+            if (!holdingSpecial() || specialUse) {
                 texture = baseTexture;
             }
 

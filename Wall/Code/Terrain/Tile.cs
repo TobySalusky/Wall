@@ -27,7 +27,7 @@ namespace Wall {
 
         public enum type {
             air, snow, ice, frostStone, 
-            snowBack, frostStoneBack
+            snowBack, iceBack, frostStoneBack
         }
 
         public static Dictionary<Color, int> genTileTable() {
@@ -44,6 +44,7 @@ namespace Wall {
             var table = new Dictionary<Color, int>();
 
             tableAdd(table, Color.Red, type.snowBack);
+            tableAdd(table, Color.Blue, type.frostStoneBack);
             
             return table;
         }

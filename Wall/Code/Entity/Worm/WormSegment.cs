@@ -13,6 +13,7 @@ namespace Wall {
 
             hasCollision = false;
             hasGravity = false;
+            runParticles = false;
         }
 
         public override void die() {

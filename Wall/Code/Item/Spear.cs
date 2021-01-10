@@ -69,4 +69,19 @@ namespace Wall {
             swingTime = useDelay * 0.75F;
         }
     }
+    
+    public class IcicleSpear : Spear {
+        public IcicleSpear(int count) : base(count) {
+            tipSize = 1.5F;
+            tipOffset = 2;
+            maxExtent = 6;
+            
+            damage = 5F;
+            knockback = 20;
+            
+            offset = 1;
+            useDelay = 0.7F;
+            swingTime = useDelay * 0.75F;
+        }
+    }
 }

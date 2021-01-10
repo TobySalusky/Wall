@@ -15,6 +15,24 @@ namespace Wall {
         public Sword(int count) : base(count) {
 
             swingTime = useDelay;
+            maxSpecialChargeTime = 0.5F;
+        }
+
+        public override void useSpecial(float angle, float mag) {
+
+            if (canUse()) {
+                specialUse = true;
+                use(angle, mag);
+                player.vel += Util.polar(specialChargeAmount() * 20, angle);
+            }
+        }
+
+        public override void holdSpecial(float deltaTime, MouseInfo mouse) {
+            base.holdSpecial(deltaTime, mouse);
+            
+            swingDir = player.facingLeft ? -1 : 1;
+            float diff = - Maths.PI * 0.2F * swingDir;
+            angle = -Maths.halfPI + diff * specialChargeAmount();
         }
 
         public override bool canUse() {
@@ -30,9 +48,11 @@ namespace Wall {
 
             var hasHit = new List<Entity>();
 
+            float mult = (specialUse) ? 1 + specialChargeAmount() : 1;
+            
             chunks = new MeleeAttack[chunkCount];
             for (int i = 0; i < chunkCount; i++) {
-                chunks[i] = new MeleeAttack(player.pos, true) {hasHit = hasHit, damage = damage, knockback = knockback, dimen = Vector2.One * chunkSize};
+                chunks[i] = new MeleeAttack(player.pos, true) {hasHit = hasHit, damage = damage * mult, knockback = knockback, dimen = Vector2.One * chunkSize};
                 Wall.projectiles.Add(chunks[i]);
             }
         }

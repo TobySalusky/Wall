@@ -26,6 +26,9 @@ namespace Wall {
 
         public float offset, angle;
 
+        public float specialTimeCharging, maxSpecialChargeTime = 5;
+        public bool specialUse;
+
         private static Dictionary<ItemType, Type> typeDict;
 
         public Item(int count) {
@@ -98,11 +101,40 @@ namespace Wall {
             return (useDelay - useTimer) / useDelay;
         }
 
+        public bool holdingSpecial() {
+            return specialTimeCharging > 0;
+        }
+
+        public virtual void holdSpecial(float deltaTime, MouseInfo mouse) {
+            specialTimeCharging += deltaTime;
+        }
+
+        public float specialChargeAmount() {
+            return Math.Min(specialTimeCharging / maxSpecialChargeTime, 1F);
+        }
+
+        public virtual void useSpecial(float angle, float mag) {
+            
+        }
+
         public virtual void update(float deltaTime, MouseInfo mouse) {
             useTimer -= deltaTime;
 
+            if (mouse.rightUnpressed) {
+                Vector2 diff = mouse.pos - Wall.camera.toScreen(player.pos);
+                useSpecial(Util.angle(diff), Util.mag(diff));
+            }
+
             if (useTimer <= 0) {
                 useCancelled = false;
+                if (!mouse.rightDown || specialUse) {
+                    specialTimeCharging = 0;
+                    specialUse = false;
+                }
+            }
+
+            if (mouse.rightDown && !mouse.leftDown && canUse() && !specialUse) {
+                holdSpecial(deltaTime, mouse);
             }
 
             if (((autoSwing && mouse.leftDown) || mouse.leftPressed) && canUse()) {
@@ -115,8 +147,12 @@ namespace Wall {
             maxStack = stackSize;
         }
 
+        public virtual bool renderInHand() {
+            return allwaysRender || isUsing() || holdingSpecial();
+        }
+
         public void render(Camera camera, SpriteBatch spriteBatch) {
-            if (allwaysRender || isUsing()) {
+            if (renderInHand()) {
                 renderInHand(camera, spriteBatch);
             }
         }

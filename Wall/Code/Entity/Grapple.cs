@@ -27,16 +27,18 @@ namespace Wall {
         public override void die() {
         }
 
-        public override void update(float deltaTime) {
-
-            if (!hit && collidesAt(pos, dimen * 1.3F)) {
+        public override void bonk(Vector2 newPos) {
+            if (!hit) {
                 hit = true;
-                vel = Vector2.Zero;
                 user.grappleHit = true;
                 user.hasGravity = false;
             }
-            
-            collisionMove(vel * deltaTime);
+        }
+
+        public override void update(float deltaTime) {
+
+            if (!hit)
+                collisionMove(vel * deltaTime);
         }
 
         public override void render(Camera camera, SpriteBatch spriteBatch) {

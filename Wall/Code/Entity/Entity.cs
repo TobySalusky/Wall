@@ -32,6 +32,7 @@ namespace Wall
         public float timeSinceDamaged = 100;
 
         public bool boss;
+        public bool runParticles = true;
 
         private static Dictionary<EntityType, Type> typeDict;
 
@@ -153,7 +154,8 @@ namespace Wall
                     vel.Y = groundGrav;*/
             }
 
-            snowRunningPuffs(deltaTime);
+            if (runParticles)
+                snowRunningPuffs(deltaTime);
 
             if (hasCollision) {
                 collisionMove(vel * deltaTime);
@@ -185,23 +187,31 @@ namespace Wall
             return collidesWith(entity, pos, dimen);
         }
 
+        public virtual void bonk(Vector2 newPos) {
+            
+        }
+
         public virtual void bonkX(Vector2 newPos) {
             vel.X = 0;
+            bonk(newPos);
         }
         
         public virtual void bonkY(Vector2 newPos) {
-            
+
             Tile tileOn = getTileOn(newPos);
-            if (tileOn.tileType == Tile.type.snow) { //TODO: for some reason causes particles when program is unfocused?!!
-                
+            if (tileOn.tileType == Tile.type.snow) {
+                //TODO: for some reason causes particles when program is unfocused?!!
+
                 float intensity = Math.Min(vel.Y * 0.4F / 30, 1);
 
                 int count = (int) (intensity * 30);
-                
+
                 snowImpactPuff(count, intensity, newPos, tileOn);
             }
-            
+
             vel.Y = 0;
+            
+            bonk(newPos);
         }
 
         public void dropItem(Item item) {

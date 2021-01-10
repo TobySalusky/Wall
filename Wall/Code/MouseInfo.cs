@@ -6,6 +6,7 @@ namespace Wall {
         
         public bool leftDown, middleDown, rightDown;
         public bool leftPressed, middlePressed, rightPressed;
+        public bool leftUnpressed, middleUnpressed, rightUnpressed;
         public Vector2 pos;
         public int scroll;
         
@@ -17,6 +18,10 @@ namespace Wall {
             leftPressed = leftDown && leftChange;
             middlePressed = middleDown && middleChange;
             rightPressed = rightDown && rightChange;
+            
+            leftUnpressed = !leftDown && leftChange;
+            middleUnpressed = !middleDown && middleChange;
+            rightUnpressed = !rightDown && rightChange;
 
             this.scroll = scroll;
 

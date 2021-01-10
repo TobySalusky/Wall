@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Wall {
@@ -7,6 +8,30 @@ namespace Wall {
         public Flamethrower(int count) : base(count) {
             useDelay = 0.01F;
             offset = 2F;
+
+            allwaysRender = true;
+            maxSpecialChargeTime = 1F;
+        }
+
+        public override void useSpecial(float angle, float mag) {
+            base.useSpecial(angle, mag);
+            if (canUse()) {
+                useTimer = useDelay;
+                specialUse = true;
+                if (specialChargeAmount() > 0.5F) {
+                    for (int i = 0; i < 200 * specialChargeAmount(); i++) {
+
+                        float velAngle = angle + Util.randomPN() * Maths.PI * 0.15F;
+                        float dot = Vector2.Dot(Util.polar(1, angle), Util.polar(1, velAngle));
+                        Vector2 vel = Util.polar(Util.random(15, 20 + 50 * (float) Math.Pow(dot, 60)) * specialChargeAmount(),
+                            velAngle);
+                        
+                        Wall.projectiles.Add(new PixelFlame(player.pos + Util.polar(offset + dimen.X / 2, angle),
+                                vel, true)
+                            {tint = new Color(1F, Util.random(), 0F)});
+                    }
+                }
+            }
         }
 
         public override void update(float deltaTime, MouseInfo mouse) {

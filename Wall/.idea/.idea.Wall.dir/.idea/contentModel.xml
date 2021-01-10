@@ -27,6 +27,7 @@
             <e p="autosave Untitled 5069.art" t="Include" />
             <e p="autosave Untitled 5174.art" t="Include" />
             <e p="autosave Untitled 5220.art" t="Include" />
+            <e p="autosave Untitled 5321.art" t="Include" />
             <e p="autosave Untitled 5543.art" t="Include" />
             <e p="autosave Untitled 5790.art" t="Include" />
             <e p="autosave Untitled 6594.art" t="Include" />
@@ -41,11 +42,14 @@
             <e p="autosave Untitled 79.art" t="Include" />
             <e p="autosave Untitled 8316.art" t="Include" />
             <e p="autosave Untitled 8321.art" t="Include" />
+            <e p="autosave Untitled 8477.art" t="Include" />
             <e p="autosave Untitled 857.art" t="Include" />
             <e p="autosave Untitled 8826.art" t="Include" />
+            <e p="autosave Untitled 8970.art" t="Include" />
             <e p="autosave Untitled 8978.art" t="Include" />
             <e p="autosave Untitled 9231.art" t="Include" />
             <e p="autosave Untitled 9690.art" t="Include" />
+            <e p="autosave Untitled 9834.art" t="Include" />
             <e p="autosave Untitled 9910.art" t="Include" />
           </e>
           <e p="backMapData.png" t="Include" />
@@ -62,6 +66,7 @@
           <e p="grapple.png" t="Include" />
           <e p="grapple_chain.png" t="Include" />
           <e p="ice.png" t="Include" />
+          <e p="IcicleSpear.png" t="Include" />
           <e p="mapData.png" t="Include" />
           <e p="null.png" t="Include" />
           <e p="old_grapple_chain.png" t="Include" />
@@ -135,6 +140,7 @@
           <e p="Sword.cs" t="Include" />
         </e>
         <e p="KeyInfo.cs" t="Include" />
+        <e p="Logger.cs" t="Include" />
         <e p="Maths.cs" t="Include" />
         <e p="MouseInfo.cs" t="Include" />
         <e p="OutsideSamples" t="Include">
