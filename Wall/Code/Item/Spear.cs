@@ -8,6 +8,7 @@ namespace Wall {
         public float tipSize, tipOffset, maxExtent, swingTime, angleSpeed = Maths.PI;
         
         public Spear(int count) : base(count) {
+            maxSpecialChargeTime = 1;
         }
 
         public override void update(float deltaTime, MouseInfo mouse) {
@@ -16,8 +17,14 @@ namespace Wall {
             if (isUsing()) {
                 angle = Util.nearestAngle(angle, 0);
                 angle += Math.Sign(Util.nearestAngle(mousePlayerAngle(mouse), angle) - angle) * angleSpeed * deltaTime;
-                offset = maxExtent * (float) Math.Sin(Maths.PI * swingAmount());
+                float mult = (specialUse) ? 1 + specialChargeAmount() * 0.5F : 1;
+                offset = maxExtent * (float) Math.Sin(Maths.PI * swingAmount()) * mult;
             }
+        }
+
+        public override void holdSpecial(float deltaTime, MouseInfo mouse) {
+            base.holdSpecial(deltaTime, mouse);
+            angle = mousePlayerAngle(mouse);
         }
 
         public float swingAmount() { // turns time though delay into float of 0-1
@@ -28,10 +35,18 @@ namespace Wall {
             return base.canUse() && useTimer <= -(useDelay - swingTime);
         }
 
+        public override void useSpecial(float angle, float mag) {
+            if (canUse()) {
+                specialUse = true;
+                use(angle, mag);
+            }
+        }
+
         public override void use(float angle, float distance) {
             base.use(angle, distance);
 
-            chunks = new [] {new MeleeAttack(player.pos, true) {damage = damage, knockback = knockback, dimen = Vector2.One * tipSize}};
+            float mult = (specialUse) ? 1 + specialChargeAmount() * 0.5F : 1;
+            chunks = new [] {new MeleeAttack(player.pos, true) {damage = damage * mult, knockback = knockback, dimen = Vector2.One * tipSize}};
             Wall.projectiles.Add(chunks[0]);
 
             useTimer = swingTime;

@@ -26,32 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/IcicleSpear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 5321.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 8477.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 8970.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 9834.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Logger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/backMapData.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/backMapData.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/mapData.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/mapData.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Grapple.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Grapple.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Bow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Bow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Flamethrower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Flamethrower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/FrostSword.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/FrostSword.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/ItemType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/ItemType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Item/Spear.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Spear.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Sword.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Sword.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/MouseInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/MouseInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Terrain/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Terrain/Tile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
     </list>
@@ -140,7 +118,6 @@
         <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
         <option value="$PROJECT_DIR$/Code/Terrain/Tile.cs" />
         <option value="$PROJECT_DIR$/Code/Item/ItemType.cs" />
-        <option value="$PROJECT_DIR$/Code/Item/Spear.cs" />
         <option value="$PROJECT_DIR$/Code/Entity/Grapple.cs" />
         <option value="$PROJECT_DIR$/Code/MouseInfo.cs" />
         <option value="$PROJECT_DIR$/Code/Logger.cs" />
@@ -150,6 +127,7 @@
         <option value="$PROJECT_DIR$/Code/Item/Sword.cs" />
         <option value="$PROJECT_DIR$/Code/Item/Flamethrower.cs" />
         <option value="$PROJECT_DIR$/Code/Item/Item.cs" />
+        <option value="$PROJECT_DIR$/Code/Item/Spear.cs" />
       </list>
     </option>
   </component>
@@ -218,7 +196,7 @@
       <workItem from="1610082461632" duration="604000" />
       <workItem from="1610116945471" duration="7255000" />
       <workItem from="1610133432963" duration="17098000" />
-      <workItem from="1610235744247" duration="9539000" />
+      <workItem from="1610235744247" duration="11336000" />
     </task>
     <servers />
   </component>
@@ -244,22 +222,22 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1610244095070">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1610261274210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610244095070" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1610244095070">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610261274210" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1610261274210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610244095070" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1610244095070">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610261274210" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1610261274210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610244095070" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1610244095070">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610261274210" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1610261274210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610244095070" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610261274210" />
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1610135136109">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
