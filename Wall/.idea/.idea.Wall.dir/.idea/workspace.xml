@@ -196,7 +196,11 @@
       <workItem from="1610082461632" duration="604000" />
       <workItem from="1610116945471" duration="7255000" />
       <workItem from="1610133432963" duration="17098000" />
+<<<<<<< Updated upstream
       <workItem from="1610235744247" duration="11336000" />
+=======
+      <workItem from="1610235744247" duration="11212000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
@@ -222,6 +226,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+<<<<<<< Updated upstream
     <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1610261274210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -238,6 +243,24 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610261274210" />
+=======
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1610260843306">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610260843306" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1610260843306">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610260843306" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1610260843305">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610260843305" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1610260843306">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1610260843306" />
+>>>>>>> Stashed changes
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1610135136109">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

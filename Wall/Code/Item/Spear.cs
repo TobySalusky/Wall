@@ -86,6 +86,8 @@ namespace Wall {
     }
     
     public class IcicleSpear : Spear {
+
+        public bool popped;
         public IcicleSpear(int count) : base(count) {
             tipSize = 1.5F;
             tipOffset = 2;
@@ -97,6 +99,33 @@ namespace Wall {
             offset = 1;
             useDelay = 0.7F;
             swingTime = useDelay * 0.75F;
+        }
+
+        public override void use(float angle, float distance) {
+            base.use(angle, distance);
+            popped = false;
+        }
+
+        public override void update(float deltaTime, MouseInfo mouse) {
+            base.update(deltaTime, mouse);
+
+            if (isUsing()) {
+
+                if (specialUse && chunks[0].hasHit != null && chunks[0].hasHit.Count > 0) {
+                    popped = true;
+                }
+
+                if (specialUse && usedAmount() >= 0.5F && !popped) {
+                    texture = Textures.get("IcicleSpearShaft");
+                    chunks[0].deleteFlag = true;
+                    Projectile proj = new IcicleProjectile(player.pos + Util.polar(offset + tipOffset, angle), Util.polar(40, angle), true);
+                    Wall.projectiles.Add(proj);
+                    popped = true;
+                }
+            }
+            else {
+                texture = Textures.get("IcicleSpear");
+            }
         }
     }
 }

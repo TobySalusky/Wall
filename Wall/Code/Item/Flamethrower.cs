@@ -19,6 +19,9 @@ namespace Wall {
                 useTimer = useDelay;
                 specialUse = true;
                 if (specialChargeAmount() > 0.5F) {
+                    
+                    player.vel -= Util.polar(specialChargeAmount() * 30, angle);
+                    
                     for (int i = 0; i < 200 * specialChargeAmount(); i++) {
 
                         float velAngle = angle + Util.randomPN() * Maths.PI * 0.15F;

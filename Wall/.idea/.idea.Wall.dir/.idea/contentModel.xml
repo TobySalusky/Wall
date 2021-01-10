@@ -17,6 +17,7 @@
             <e p="autosave Untitled 223.art" t="Include" />
             <e p="autosave Untitled 2850.art" t="Include" />
             <e p="autosave Untitled 3089.art" t="Include" />
+            <e p="autosave Untitled 3249.art" t="Include" />
             <e p="autosave Untitled 3358.art" t="Include" />
             <e p="autosave Untitled 3496.art" t="Include" />
             <e p="autosave Untitled 3918.art" t="Include" />
@@ -30,6 +31,7 @@
             <e p="autosave Untitled 5321.art" t="Include" />
             <e p="autosave Untitled 5543.art" t="Include" />
             <e p="autosave Untitled 5790.art" t="Include" />
+            <e p="autosave Untitled 6375.art" t="Include" />
             <e p="autosave Untitled 6594.art" t="Include" />
             <e p="autosave Untitled 665.art" t="Include" />
             <e p="autosave Untitled 6730.art" t="Include" />
@@ -48,6 +50,7 @@
             <e p="autosave Untitled 8970.art" t="Include" />
             <e p="autosave Untitled 8978.art" t="Include" />
             <e p="autosave Untitled 9231.art" t="Include" />
+            <e p="autosave Untitled 9323.art" t="Include" />
             <e p="autosave Untitled 9690.art" t="Include" />
             <e p="autosave Untitled 9834.art" t="Include" />
             <e p="autosave Untitled 9910.art" t="Include" />
@@ -66,7 +69,9 @@
           <e p="grapple.png" t="Include" />
           <e p="grapple_chain.png" t="Include" />
           <e p="ice.png" t="Include" />
+          <e p="Icicle.png" t="Include" />
           <e p="IcicleSpear.png" t="Include" />
+          <e p="IcicleSpearShaft.png" t="Include" />
           <e p="mapData.png" t="Include" />
           <e p="null.png" t="Include" />
           <e p="old_grapple_chain.png" t="Include" />
@@ -154,6 +159,7 @@
         <e p="Program.cs" t="Include" />
         <e p="Projectiles" t="Include">
           <e p="ArrowProjectile.cs" t="Include" />
+          <e p="IcicleProjectile.cs" t="Include" />
           <e p="MeleeAttack.cs" t="Include" />
           <e p="PixelFlame.cs" t="Include" />
           <e p="Projectile.cs" t="Include" />
