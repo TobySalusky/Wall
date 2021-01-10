@@ -6,7 +6,9 @@ namespace Wall {
     public class Bow : Item {
         public Texture2D baseTexture;
         public Texture2D[] pullTextures;
+        public float[] pullArrowOffsets;
         public float velocity;
+        public int arrowPosIndex;
         
         public Bow(int count) : base(count) {
             useDelay = 0.5F;
@@ -22,6 +24,8 @@ namespace Wall {
                 pullTextures[i] = Textures.get(name + "Pull" + (i + 1));
             }
 
+            pullArrowOffsets = new float[] {1, 0.7F, 0.4F};
+
             maxSpecialChargeTime = 1F;
         }
 
@@ -29,6 +33,7 @@ namespace Wall {
             base.holdSpecial(deltaTime, mouse);
             
             int index = Math.Clamp((int) (((specialChargeAmount())) / (1 / 3F)) - 1, 0, 2);
+            arrowPosIndex = index;
             texture = pullTextures[index];
         }
 
@@ -76,6 +81,15 @@ namespace Wall {
 
             float renderAngle = (player.facingLeft) ? angle + Maths.PI / 4F : angle + Maths.PI * 3 / 4F;
             Util.render(texture, pos, dimen, renderAngle, camera, spriteBatch, !player.facingLeft);
+
+            if (holdingSpecial() && !specialUse) {
+                Arrow arrow = topArrow();
+                var (arrowTexture, arrowDimen) = (arrow.texture, arrow.dimen);
+                
+                Vector2 origin = new Vector2(0.5F, 1) * Util.textureVec(arrowTexture);
+                
+                Util.render(arrowTexture, player.pos + Util.polar(pullArrowOffsets[arrowPosIndex], angle), arrowDimen, angle + Maths.halfPI, camera, spriteBatch, false, origin);
+            }
         }
     }
 }

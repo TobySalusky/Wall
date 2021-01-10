@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Tobafett\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Tobafett\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_.19.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Tobafett\Documents\GitHub\wall\wall" t="IncludeRecursive">
+    <e p="C:\Users\Toby\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Toby\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_.19.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Toby\Documents\GitHub\wall\wall" t="IncludeRecursive">
       <e p="app.manifest" t="Include" />
       <e p="Assets" t="Include">
         <e p="Textures" t="Include">
@@ -15,6 +15,7 @@
             <e p="autosave Untitled 1733.art" t="Include" />
             <e p="autosave Untitled 1791.art" t="Include" />
             <e p="autosave Untitled 223.art" t="Include" />
+            <e p="autosave Untitled 2810.art" t="Include" />
             <e p="autosave Untitled 2850.art" t="Include" />
             <e p="autosave Untitled 3089.art" t="Include" />
             <e p="autosave Untitled 3249.art" t="Include" />
@@ -25,6 +26,7 @@
             <e p="autosave Untitled 4231.art" t="Include" />
             <e p="autosave Untitled 4252.art" t="Include" />
             <e p="autosave Untitled 4270.art" t="Include" />
+            <e p="autosave Untitled 4561.art" t="Include" />
             <e p="autosave Untitled 5069.art" t="Include" />
             <e p="autosave Untitled 5174.art" t="Include" />
             <e p="autosave Untitled 5220.art" t="Include" />
@@ -34,6 +36,7 @@
             <e p="autosave Untitled 6375.art" t="Include" />
             <e p="autosave Untitled 6594.art" t="Include" />
             <e p="autosave Untitled 665.art" t="Include" />
+            <e p="autosave Untitled 6686.art" t="Include" />
             <e p="autosave Untitled 6730.art" t="Include" />
             <e p="autosave Untitled 7240.art" t="Include" />
             <e p="autosave Untitled 7254.art" t="Include" />
@@ -61,6 +64,7 @@
           <e p="BowPull2.png" t="Include" />
           <e p="BowPull3.png" t="Include" />
           <e p="bush.png" t="Include" />
+          <e p="Cursor.png" t="Include" />
           <e p="Flamethrower.png" t="Include" />
           <e p="frostStone - Copy.png" t="Include" />
           <e p="frostStone.png" t="Include" />
@@ -122,6 +126,7 @@
             <e p="WormSegment.cs" t="Include" />
           </e>
         </e>
+        <e p="EntityHandler.cs" t="Include" />
         <e p="FileUtil" t="Include">
           <e p="Paths.cs" t="Include" />
         </e>

@@ -52,7 +52,7 @@ namespace Wall {
                 jumped = false;
             }
 
-            if (Util.mag(diff) < 40) {
+            if (Util.mag(diff) < 80) {
                 facingLeft = diff.X < 0;
                 texture = look;
 

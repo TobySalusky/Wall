@@ -15,6 +15,7 @@ namespace Wall {
             hasGravity = false;
             this.user = user;
             user.grapple = this;
+            useSpawnSlot = false;
 
             rotation = Util.angle(vel) + (float) Math.PI / 2;
 
@@ -22,6 +23,8 @@ namespace Wall {
             dimen = new Vector2(texture.Width, texture.Height) * Tile.pixelSize;
             
             chain = Textures.get("grapple_chain");
+
+            canDespawn = false;
         }
 
         public override void die() {

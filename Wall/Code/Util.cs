@@ -23,6 +23,35 @@ namespace Wall {
             return angle - Maths.twoPI;
         }
 
+        // TODO: optimise, honestly seems super inefficient
+        public static Vector2 randomInOut(Rectangle inside, Rectangle outside) { // 'outside' should be a subsection of 'inside'
+            float vol = area(inside) - area(outside);
+
+            Rectangle r1 = new Rectangle(inside.X, inside.Y, inside.Width, outside.Y - inside.Y);
+            Rectangle r2 = new Rectangle(inside.X, inside.Y, outside.X - inside.X, inside.Y);
+            Rectangle r3 = new Rectangle(outside.X + outside.Width, inside.Y, (inside.Right - outside.Right), inside.Y);
+            Rectangle r4 = new Rectangle(inside.X, outside.Y + outside.Height, inside.Width, inside.Y + inside.Height - (outside.Y + outside.Height));
+
+            float chance = random();
+            float parVol = area(r1) / vol;
+            if (chance <= parVol) return randomIn(r1);
+            
+            parVol += area(r2) / vol;
+            if (chance <= parVol) return randomIn(r2);
+            
+            parVol += area(r3) / vol;
+            if (chance <= parVol) return randomIn(r3);
+            return randomIn(r4);
+        }
+
+        public static Vector2 randomIn(Rectangle inside) {
+            return new Vector2(inside.X + random(inside.Width), inside.Y + random(inside.Height));
+        }
+
+        public static float area(Rectangle rect) {
+            return rect.Width * rect.Height;
+        }
+
         public static Vector2 rotate(Vector2 vec, float rotateBy) {
             return Util.polar(mag(vec), angle(vec) + rotateBy);
         }

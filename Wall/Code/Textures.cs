@@ -18,6 +18,7 @@ namespace Wall {
             textures["ItemSlot"] = genRect(Color.Black);
             textures["ItemSlotSelect"] = genRect(Color.DarkGray);
             textures["HealthBar"] = genRect(Color.Red);
+            textures["SpecialBar"] = genRect(Color.Purple);
 
             processFolder(Paths.texturePath);
         }

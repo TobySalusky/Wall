@@ -11,7 +11,9 @@ namespace Wall {
         public float groundTime, chargeTime;
 
         public WormHead(Vector2 pos) : base(pos) {
-            
+
+            canDespawn = true;
+            useSpawnSlot = true;
             isHead = true;
             initHealth(100);
 
@@ -27,6 +29,14 @@ namespace Wall {
 
             foreach (var segment in segments) {
                 segment.die();
+            }
+        }
+
+        public override void despawn() {
+            base.despawn();
+            
+            foreach (var segment in segments) {
+                segment.despawn();
             }
         }
 
@@ -64,8 +74,10 @@ namespace Wall {
         public void genSegments() {
 
             segments = new WormSegment[segmentCount];
+
+            Vector2 diff = Util.polar(segmentCount, angleToPlayer());
             for (int i = 0; i < segmentCount; i++) {
-                segments[i] = genSegment(pos + Vector2.UnitY * segmentOffset);
+                segments[i] = genSegment(pos - diff * (i + 1));
                 segments[i].inFront = (i == 0) ? this : segments[i - 1];
                 segments[i].head = this;
                 segments[i].segmentOffset = this.segmentOffset;

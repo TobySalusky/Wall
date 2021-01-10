@@ -12,6 +12,10 @@ namespace Wall {
             this.scale = scale;
         }
 
+        public Rectangle worldViewRect() {
+            return Util.center(pos, new Vector2(1920, 1080) / scale);
+        }
+
         public Vector2 toWorld(Vector2 screenPos) {
             return (screenPos - screenCenter) / scale + pos;
         }

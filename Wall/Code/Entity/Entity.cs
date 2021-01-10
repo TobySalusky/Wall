@@ -34,6 +34,10 @@ namespace Wall
         public bool boss;
         public bool runParticles = true;
 
+        public bool useSpawnSlot = true;
+        public bool mustCollideOnSpawn = false, canSpawnInAir = false;
+        public bool canDespawn = true;
+        
         private static Dictionary<EntityType, Type> typeDict;
 
         public Entity(Vector2 pos) {
@@ -43,6 +47,10 @@ namespace Wall
             texture = Textures.get("bush");
 
             dimen = new Vector2(2, 2);
+        }
+
+        public virtual void despawn() {
+            deleteFlag = true;
         }
 
         public static Entity create(EntityType entityType, Vector2 pos) {
@@ -210,7 +218,7 @@ namespace Wall
             }
 
             vel.Y = 0;
-            
+
             bonk(newPos);
         }
 

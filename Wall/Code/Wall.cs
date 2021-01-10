@@ -34,14 +34,20 @@ namespace Wall
         public static MouseInfo lastMouseInfo;
 
         public static bool F3Enabled;
+        public static bool entitySpawning = true;
         public static bool paused;
         public static int deaths;
+
+        public static EntityHandler entityHandler;
+
+        public static Texture2D cursor;
+        public static Vector2 cursorDimen;
         
         public Wall()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
+            IsMouseVisible = false;
             
             // These remove the framerate limit
             graphics.SynchronizeWithVerticalRetrace = false;
@@ -73,6 +79,11 @@ namespace Wall
             player = new Player(new Vector2(25, 400));
             playerList.Add(player);
             camera = new Camera(new Vector2(0, 0), 24F);
+
+            entityHandler = new EntityHandler();
+            
+            cursor = Textures.get("Cursor");
+            cursorDimen = Vector2.One * 30;
         }
 
         protected override void LoadContent()
@@ -92,7 +103,8 @@ namespace Wall
             const string tab = "   ";
             
             StringBuilder str = new StringBuilder();
-            str.AppendLine("Entities: " + entities.Count);
+            str.AppendLine("Entities: " + entityHandler.entityCount());
+            str.AppendLine("All Entities: " + entities.Count);
             str.AppendLine("Particles: " + particles.Count);
             str.AppendLine("Projectiles: " + projectiles.Count);
             str.AppendLine("Items: " + items.Count);
@@ -104,11 +116,13 @@ namespace Wall
             str.AppendLine("");
             str.AppendLine("Mouse Angle: " + Util.angle(lastMouseInfo.pos - camera.toScreen(player.pos)));
             str.AppendLine("TerrariaMode: " + player.terrariaMode);
+            str.AppendLine("Entity Spawning: " + entitySpawning);
             return str.ToString();
         }
 
         protected override void Update(GameTime gameTime) {
 
+            
             float deltaTime = delta(gameTime);
             fpsCounter.update(deltaTime);
             if (gameTime.TotalGameTime.Seconds > secondsPassed) {
@@ -124,8 +138,15 @@ namespace Wall
             
             KeyInfo keys = new KeyInfo(keyState, lastKeyState);
             lastKeyState = keyState;
-            
-            
+
+            if (keys.pressed(Keys.L)) {
+                entitySpawning = !entitySpawning;
+                foreach (var entity in entities) {
+                    if (entity.canDespawn)
+                        entity.despawn();
+                }
+            }
+
             MouseState mouseState = Mouse.GetState();
 
             bool leftChange = lastLeft != mouseState.LeftButton;
@@ -147,10 +168,13 @@ namespace Wall
             
             if (!paused) {
             
+                if (entitySpawning)
+                    entityHandler.update(camera, deltaTime);
+                
                 player.keyInput(mouseState, keys, deltaTime);
                 player.mouseInput(mouseInfo, deltaTime);
                 player.update(deltaTime);
-
+                
             
                 for (int i = entities.Count - 1; i >= 0; i--) {
                     Entity entity = entities[i];
@@ -221,8 +245,10 @@ namespace Wall
                 paused = !paused;
         }
 
-        
-        
+        public void renderCursor(Vector2 pos) {
+            spriteBatch.Draw(cursor, Util.center(pos, cursorDimen), Color.White);
+        }
+
         protected override void Draw(GameTime gameTime)
         {
             
@@ -259,6 +285,10 @@ namespace Wall
                 Bosses.renderHealthBar(boss, 980, spriteBatch);
             }
 
+            MouseState mouseState = Mouse.GetState();
+            Vector2 mousePos = new Vector2(mouseState.X, mouseState.Y);
+            renderCursor(mousePos);
+            
             if (F3Enabled) { 
                 spriteBatch.DrawString(Fonts.arial, F3Info(), new Vector2(50, 200), Color.White);
             }

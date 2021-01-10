@@ -14,6 +14,9 @@ namespace Wall {
             hasCollision = false;
             hasGravity = false;
             runParticles = false;
+            mustCollideOnSpawn = true;
+            canDespawn = false;
+            useSpawnSlot = false;
         }
 
         public override void die() {

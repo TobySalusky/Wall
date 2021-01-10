@@ -385,7 +385,7 @@ namespace Wall {
             if (currentItem != null) {
                 healthRect = new Rectangle(1600, 950, 200, 30);
                 spriteBatch.Draw(itemSlot, healthRect, new Color(Color.White, 0.4F));
-                spriteBatch.Draw(Textures.get("HealthBar"),
+                spriteBatch.Draw(Textures.get("SpecialBar"),
                     new Rectangle(healthRect.X, healthRect.Y, (int) (healthRect.Width * (currentItem.specialChargeAmount())),
                         healthRect.Height),
                     new Color(Color.White, 0.4F));
