@@ -10,6 +10,7 @@
           <e p="Arrow.png" t="Include" />
           <e p="autosaves" t="Include">
             <e p="autosave Untitled 112.art" t="Include" />
+            <e p="autosave Untitled 1139.art" t="Include" />
             <e p="autosave Untitled 1261.art" t="Include" />
             <e p="autosave Untitled 1337.art" t="Include" />
             <e p="autosave Untitled 1733.art" t="Include" />
@@ -20,9 +21,11 @@
             <e p="autosave Untitled 3089.art" t="Include" />
             <e p="autosave Untitled 3249.art" t="Include" />
             <e p="autosave Untitled 3358.art" t="Include" />
+            <e p="autosave Untitled 3419.art" t="Include" />
             <e p="autosave Untitled 3496.art" t="Include" />
             <e p="autosave Untitled 3918.art" t="Include" />
             <e p="autosave Untitled 403.art" t="Include" />
+            <e p="autosave Untitled 4031.art" t="Include" />
             <e p="autosave Untitled 4231.art" t="Include" />
             <e p="autosave Untitled 4252.art" t="Include" />
             <e p="autosave Untitled 4270.art" t="Include" />
@@ -52,6 +55,7 @@
             <e p="autosave Untitled 8826.art" t="Include" />
             <e p="autosave Untitled 8970.art" t="Include" />
             <e p="autosave Untitled 8978.art" t="Include" />
+            <e p="autosave Untitled 9055.art" t="Include" />
             <e p="autosave Untitled 9231.art" t="Include" />
             <e p="autosave Untitled 9323.art" t="Include" />
             <e p="autosave Untitled 9690.art" t="Include" />
@@ -89,6 +93,7 @@
           <e p="snake_grapple.png" t="Include" />
           <e p="snake_grapple_chain.png" t="Include" />
           <e p="snow.png" t="Include" />
+          <e p="snow_wip.png" t="Include" />
           <e p="SnowBall.png" t="Include" />
           <e p="snowSlime" t="Include">
             <e p="SnowSlimeIdle.png" t="Include" />
@@ -145,6 +150,9 @@
           <e p="ItemType.cs" t="Include" />
           <e p="MeleeWeapon.cs" t="Include" />
           <e p="Shuriken.cs" t="Include" />
+          <e p="Slots" t="Include">
+            <e p="ItemSLot.cs" t="Include" />
+          </e>
           <e p="SnowBall.cs" t="Include" />
           <e p="Spear.cs" t="Include" />
           <e p="Sword.cs" t="Include" />

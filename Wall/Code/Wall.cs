@@ -92,7 +92,14 @@ namespace Wall
             
             Fonts.arial = Content.Load<SpriteFont>("BaseFont");
             
-            
+        }
+
+        public void reloadTextures() {
+            Textures.loadTextures();
+            Tile.genAtlas();
+            foreach (var chunk in map.chunks.Values) {
+                chunk.loaded = false;
+            }
         }
 
         private float delta(GameTime gameTime) {
@@ -138,6 +145,10 @@ namespace Wall
             
             KeyInfo keys = new KeyInfo(keyState, lastKeyState);
             lastKeyState = keyState;
+
+            if (keys.pressed(Keys.R) && keys.down(Keys.LeftShift)) {
+                reloadTextures();
+            }
 
             if (keys.pressed(Keys.L)) {
                 entitySpawning = !entitySpawning;

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Wall {
     public 
         class ChunkMap {
-        private readonly Dictionary<Point, Chunk> chunks;
+        public readonly Dictionary<Point, Chunk> chunks;
 
         public ChunkMap() {
             chunks = new Dictionary<Point, Chunk>();

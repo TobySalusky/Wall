@@ -19,8 +19,8 @@ namespace Wall {
         public bool canNotBounce = false;
         public bool canBounce = true;
 
-        public Item[,] inventory;
-        public Array2DView<Item> hotbar;
+        public ItemSlot[,] inventory;
+        public Array2DView<ItemSlot> hotbar;
         public bool inventoryOpen;
 
         public Armor[] armor;
@@ -35,19 +35,24 @@ namespace Wall {
             initHealth(50);
             Item.player = this;
             
-            inventory = new Item[9, 4];
+            inventory = new ItemSlot[9, 4];
+            for (int y = 0; y < inventory.GetLength(1); y++) {
+                for (int x = 0; x < inventory.GetLength(0); x++) {
+                    inventory[x, y] = new ItemSlot();
+                }
+            }
             armor = new Armor[3];
-            hotbar = new Array2DView<Item>(inventory, 0);
+            hotbar = new Array2DView<ItemSlot>(inventory, 0);
 
-            hotbar[0] = Item.create(ItemType.FrostSword);
-            hotbar[1] = Item.create(ItemType.Bow);
-            hotbar[2] = Item.create(ItemType.Shuriken, 99);
-            hotbar[3] = Item.create(ItemType.SnowBall, 30);
-            hotbar[4] = Item.create(ItemType.RubberArrow, 20);
-            hotbar[5] = Item.create(ItemType.Arrow, 99);
-            hotbar[6] = Item.create(ItemType.Flamethrower);
-            hotbar[7] = Item.create(ItemType.StoneSpear);
-            hotbar[8] = Item.create(ItemType.IcicleSpear);
+            hotbar[0].item = Item.create(ItemType.FrostSword);
+            hotbar[1].item = Item.create(ItemType.Bow);
+            hotbar[2].item = Item.create(ItemType.Shuriken, 99);
+            hotbar[3].item = Item.create(ItemType.SnowBall, 30);
+            hotbar[4].item = Item.create(ItemType.RubberArrow, 20);
+            hotbar[5].item = Item.create(ItemType.Arrow, 99);
+            hotbar[6].item = Item.create(ItemType.Flamethrower);
+            hotbar[7].item = Item.create(ItemType.StoneSpear);
+            hotbar[8].item = Item.create(ItemType.IcicleSpear);
             
             armor[0] = Armor.create(ItemType.YotsugiHat);
         }
@@ -60,7 +65,7 @@ namespace Wall {
             // first tries to stack the item with others
             for (int y = 0; y < inventory.GetLength(1); y++) {
                 for (int x = 0; x < inventory.GetLength(0); x++) {
-                    Item thisItem = inventory[x, y];
+                    Item thisItem = inventory[x, y].item;
                     if (thisItem != null && thisItem.itemType == type) {
                         int canTake = thisItem.maxStack - thisItem.count;
                         int take = Math.Min(item.count, canTake);
@@ -79,9 +84,9 @@ namespace Wall {
                 // checks for empty slots
                 for (int y = 0; y < inventory.GetLength(1); y++) {
                     for (int x = 0; x < inventory.GetLength(0); x++) {
-                        Item thisItem = inventory[x, y];
+                        Item thisItem = inventory[x, y].item;
                         if (thisItem == null) {
-                            inventory[x, y] = item;
+                            inventory[x, y].item = item;
                             ground.deleteFlag = true;
                             return;
                         }
@@ -93,7 +98,7 @@ namespace Wall {
         public Item firstItem(Predicate<Item> pred) {
             for (int y = 0; y < inventory.GetLength(1); y++) {
                 for (int x = 0; x < inventory.GetLength(0); x++) {
-                    Item item = inventory[x, y];
+                    Item item = inventory[x, y].item;
                     if (item != null && pred(item)) {
                         return item;
                     }
@@ -106,7 +111,7 @@ namespace Wall {
         public void setSelectedItemIndex(int index) {
 
             if (index != selectedItemIndex) {
-                hotbar[selectedItemIndex]?.switchOff();
+                hotbar[selectedItemIndex].item?.switchOff();
             }
 
             selectedItemIndex = index;
@@ -121,14 +126,14 @@ namespace Wall {
             
             for (int y = 0; y < inventory.GetLength(1); y++) {
                 for (int x = 0; x < inventory.GetLength(0); x++) {
-                    Item item = inventory[x, y];
+                    Item item = inventory[x, y].item;
                     if (item != null && item.count <= 0) {
-                        inventory[x, y] = null;
+                        inventory[x, y].item = null;
                     }
                 }
             }
 
-            currentItem = hotbar[selectedItemIndex];
+            currentItem = hotbar[selectedItemIndex].item;
 
             if (grappleHit) { // grapple movement
                 Vector2 accel = Vector2.Normalize(grapple.pos - pos) * 90;
@@ -161,13 +166,9 @@ namespace Wall {
             setSelectedItemIndex(newIndex % hotbar.Length);
             
             currentItem?.update(deltaTime, mouse);
-
-            if (mouse.leftDown && mouse.middlePressed) {
-                Wall.entities.Add(create(EntityType.SnowWorm, Wall.camera.toWorld(mouse.pos)));
-            }
-
-            if (!mouse.leftDown && mouse.middlePressed) {
-                Wall.entities.Add(create(EntityType.SnowSlime, Wall.camera.toWorld(mouse.pos)));
+            
+            if (mouse.middlePressed) {
+                Wall.entities.Add(create(EntityType.IceSnake, Wall.camera.toWorld(mouse.pos)));
             }
 
         }
@@ -347,7 +348,7 @@ namespace Wall {
                     for (int i = 0; i < inventory.GetLength(0); i++) {
                         Rectangle rect = new Rectangle(x, y, 64, 64);
 
-                        renderSlot(inventory[i, j], rect, camera, spriteBatch, j == 0 && i == selectedItemIndex);
+                        renderSlot(inventory[i, j].item, rect, camera, spriteBatch, j == 0 && i == selectedItemIndex);
 
                         x += 70;
                     }
@@ -368,7 +369,7 @@ namespace Wall {
                 for (int i = 0; i < hotbar.Length; i++) {
                     Rectangle rect = new Rectangle(x, y, 64, 64);
 
-                    renderSlot(hotbar[i], rect, camera, spriteBatch, i == selectedItemIndex);
+                    renderSlot(hotbar[i].item, rect, camera, spriteBatch, i == selectedItemIndex);
 
                     x += 70;
                 }

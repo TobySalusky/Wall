@@ -9,9 +9,11 @@ using Wall.File;
 namespace Wall {
     public class Textures {
 
-        private static Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
+        private static Dictionary<string, Texture2D> textures;
 
         public static void loadTextures() {
+
+            textures = new Dictionary<string, Texture2D>();
 
             textures["pixel"] = genRect(Color.White);
             textures["PixelFlame"] = genRect(Color.White);

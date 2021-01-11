@@ -49,7 +49,7 @@ namespace Wall {
             if (inGround) {
                 groundTime += deltaTime;
                 
-                Vector2 desiredVel = (groundTime > chargeTime) ? Util.polar(40, angleToPlayer()) : Util.polar(30, Util.angle(player.pos + 25 * Vector2.UnitY - pos));
+                Vector2 desiredVel = (groundTime > chargeTime) ? Util.polar(50, angleToPlayer()) : Util.polar(30, Util.angle(player.pos + 25 * Vector2.UnitY - pos));
                 
                 vel += (desiredVel - vel) * deltaTime * 2;
             } else {

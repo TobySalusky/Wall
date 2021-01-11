@@ -79,6 +79,7 @@ namespace Wall
         
         public void markBoss() {
             Wall.bosses.Add(this);
+            canDespawn = false;
         }
 
         public void initTexture(string identifier) {

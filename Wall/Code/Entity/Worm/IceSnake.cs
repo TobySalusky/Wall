@@ -6,6 +6,8 @@ namespace Wall {
         public IceSnake(Vector2 pos) : base(pos) {
             dimen = Vector2.One * 8;
             markBoss();
+            
+            initHealth(500);
         }
 
         public override void die() {
