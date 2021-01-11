@@ -151,6 +151,7 @@
           <e p="MeleeWeapon.cs" t="Include" />
           <e p="Shuriken.cs" t="Include" />
           <e p="Slots" t="Include">
+            <e p="ArmorSlot.cs" t="Include" />
             <e p="ItemSLot.cs" t="Include" />
           </e>
           <e p="SnowBall.cs" t="Include" />

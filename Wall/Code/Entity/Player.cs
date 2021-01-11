@@ -23,7 +23,8 @@ namespace Wall {
         public Array2DView<ItemSlot> hotbar;
         public bool inventoryOpen;
 
-        public Armor[] armor;
+        public ArmorSlot[] armor;
+        public ItemSlot handSlot;
         
         public int selectedItemIndex;
         
@@ -34,14 +35,17 @@ namespace Wall {
             speed = 25F;
             initHealth(50);
             Item.player = this;
-            
+
+            handSlot = new ItemSlot();
             inventory = new ItemSlot[9, 4];
             for (int y = 0; y < inventory.GetLength(1); y++) {
                 for (int x = 0; x < inventory.GetLength(0); x++) {
                     inventory[x, y] = new ItemSlot();
                 }
             }
-            armor = new Armor[3];
+            armor = new []{new ArmorSlot(Armor.armorType.helmet), new ArmorSlot(Armor.armorType.chest), new ArmorSlot(Armor.armorType.boots)};
+            
+
             hotbar = new Array2DView<ItemSlot>(inventory, 0);
 
             hotbar[0].item = Item.create(ItemType.FrostSword);
@@ -54,7 +58,29 @@ namespace Wall {
             hotbar[7].item = Item.create(ItemType.StoneSpear);
             hotbar[8].item = Item.create(ItemType.IcicleSpear);
             
-            armor[0] = Armor.create(ItemType.YotsugiHat);
+            armor[0].item = Armor.create(ItemType.YotsugiHat);
+        }
+
+        public ItemSlot mouseToSlot(Vector2 mousePos) {
+            
+            Vector2 invStart = Vector2.One * 20;
+            Vector2 ind = (mousePos - invStart) / 70;
+            var (x, y) = ((int) Math.Floor(ind.X), (int) Math.Floor(ind.Y));
+            if (x >= 0 && x < hotbar.Length) {
+                if (y >= 0 && y < inventory.GetLength(1)) {
+                    return inventory[x, y];
+                }
+            }
+            
+            invStart = new Vector2(20, 400);
+            ind = (mousePos - invStart) / 70;
+            (x, y) = ((int) Math.Floor(ind.X), (int) Math.Floor(ind.Y));
+
+            if (x == 0 && y >= 0 && y < armor.Length) {
+                return armor[y];
+            }
+
+            return null;
         }
 
         public void tryPickUp(GroundItem ground) {
@@ -154,6 +180,16 @@ namespace Wall {
             return Math.Sign(vel.X) * Math.Min(1, Math.Abs(vel.X) / 100F) * maxRot;
         }
 
+        public void inventoryMouseInput(MouseInfo mouse, float deltaTime) {
+            ItemSlot slotOver = mouseToSlot(mouse.pos);
+
+            if (mouse.leftPressed) {
+                if (slotOver != null) {
+                    handSlot.trySwap(slotOver);
+                }
+            }
+        }
+
         public void mouseInput(MouseInfo mouse, float deltaTime) {
 
 
@@ -182,11 +218,7 @@ namespace Wall {
             if (keys.pressed(Keys.T)) {
                 terrariaMode = !terrariaMode;
             }
-            
-            if (keys.pressed(Keys.Tab)) {
-                inventoryOpen = !inventoryOpen;
-            }
-            
+
             if (keys.pressed(Keys.E) && !grappleOut) {
                 grappleOut = true;
                 Wall.entities.Add(new Grapple(this, pos, Util.polar(150F, Util.angle(diff))));
@@ -310,7 +342,7 @@ namespace Wall {
             base.render(camera, spriteBatch);
             
             foreach (var piece in armor) {
-                piece?.renderWearing(camera, spriteBatch);
+                piece.armor?.renderWearing(camera, spriteBatch);
             }
             
             currentItem?.render(camera, spriteBatch);
@@ -318,13 +350,15 @@ namespace Wall {
             renderUI(camera, spriteBatch);
         }
 
-        public void renderSlot(Item item, Rectangle rect, Camera camera, SpriteBatch spriteBatch, bool isSelected = false) {
-            Texture2D itemSlot = Textures.get("ItemSlot");
-            if (isSelected) {
-                spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.6F));
-            }
-            else {
-                spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.3F));
+        public void renderSlot(Item item, Rectangle rect, Camera camera, SpriteBatch spriteBatch, bool isSelected = false, bool background = true) {
+            if (background) {
+                Texture2D itemSlot = Textures.get("ItemSlot");
+                if (isSelected) {
+                    spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.6F));
+                }
+                else {
+                    spriteBatch.Draw(itemSlot, rect, new Color(Color.White, 0.3F));
+                }
             }
 
             if (item != null) {
@@ -361,7 +395,7 @@ namespace Wall {
                 y = 400;
                 for (int i = 0; i < armor.Length; i++) {
                     Rectangle rect = new Rectangle(x, y, 64, 64);
-                    renderSlot(armor[i], rect, camera, spriteBatch);
+                    renderSlot(armor[i].item, rect, camera, spriteBatch);
                     y += 70;
                 }
             } else {
@@ -382,7 +416,7 @@ namespace Wall {
                 new Color(Color.White, 0.4F));
             
 
-            // Debug
+            // special charge bar
             if (currentItem != null) {
                 healthRect = new Rectangle(1600, 950, 200, 30);
                 spriteBatch.Draw(itemSlot, healthRect, new Color(Color.White, 0.4F));
@@ -390,6 +424,15 @@ namespace Wall {
                     new Rectangle(healthRect.X, healthRect.Y, (int) (healthRect.Width * (currentItem.specialChargeAmount())),
                         healthRect.Height),
                     new Color(Color.White, 0.4F));
+            }
+
+            // item hover text
+            if (inventoryOpen) {
+                Vector2 mousePos = Wall.lastMouseInfo.pos;
+                ItemSlot slot = mouseToSlot(mousePos);
+
+                slot?.item?.renderHoverInfo(mousePos, spriteBatch);
+                renderSlot(handSlot.item, Util.center(mousePos, Vector2.One * 64), camera, spriteBatch, false, false);
             }
         }
     }

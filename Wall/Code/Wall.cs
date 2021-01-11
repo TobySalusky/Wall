@@ -146,6 +146,11 @@ namespace Wall
             KeyInfo keys = new KeyInfo(keyState, lastKeyState);
             lastKeyState = keyState;
 
+            if (keys.pressed(Keys.Tab)) {
+                player.inventoryOpen = !player.inventoryOpen;
+                paused = player.inventoryOpen;
+            }
+            
             if (keys.pressed(Keys.R) && keys.down(Keys.LeftShift)) {
                 reloadTextures();
             }
@@ -240,6 +245,8 @@ namespace Wall
                 }
 
                 camera.pos = player.pos;
+            } else if (player.inventoryOpen) {
+                player.inventoryMouseInput(mouseInfo, deltaTime);
             }
 
             base.Update(gameTime);

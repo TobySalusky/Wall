@@ -29,14 +29,18 @@ namespace Wall {
         public float specialTimeCharging, maxSpecialChargeTime = 5;
         public bool specialUse;
 
+        public string name;
+
         private static Dictionary<ItemType, Type> typeDict;
 
         public Item(int count) {
             itemType = Enum.Parse<ItemType>(GetType().Name);
             this.count = count;
-
+            
             texture = Textures.get(GetType().Name);
             dimen = new Vector2(texture.Width, texture.Height) * Tile.pixelSize;
+            
+            name = Util.spacedName(GetType().Name);
         }
 
         public static Item create(ItemType itemType, int count) {
@@ -49,6 +53,18 @@ namespace Wall {
             var construct = typeDict[itemType].GetConstructor(new [] {typeof(int)});
 
             return (Item) construct.Invoke(new object[] {1});
+        }
+
+        public void renderHoverInfo(Vector2 mousePos, SpriteBatch spriteBatch) {
+            
+            mousePos += Vector2.One * 20;
+            
+            Texture2D itemSlot = Textures.get("ItemSlot");
+            Vector2 infoDimen = new Vector2(200, 200);
+            Vector2 center = mousePos + infoDimen / 2;
+            
+            spriteBatch.Draw(itemSlot, Util.center(center, infoDimen), new Color(Color.White, 0.4F));
+            spriteBatch.DrawString(Fonts.arial, name, mousePos, Color.White);
         }
 
         public static Vector2 mouseDiff(MouseInfo mouse) {

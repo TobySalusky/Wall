@@ -109,7 +109,7 @@ namespace Wall {
                 char c = arr[i];
 
                 if (i > 0 && c >= 'A' && c <= 'Z') {
-                    spaced.Append(c.ToString() + " ");
+                    spaced.Append(" " + c);
                 } else { 
                     spaced.Append(c.ToString());
                 }
