@@ -93,3 +93,9 @@ C:\Users\PKMNt\OneDrive\Documents\GitHub\Wall\Wall\obj\Debug\netcoreapp3.1\Wall.
 C:\Users\PKMNt\OneDrive\Documents\GitHub\Wall\Wall\obj\Debug\netcoreapp3.1\Wall.dll
 C:\Users\PKMNt\OneDrive\Documents\GitHub\Wall\Wall\obj\Debug\netcoreapp3.1\Wall.pdb
 C:\Users\PKMNt\OneDrive\Documents\GitHub\Wall\Wall\obj\Debug\netcoreapp3.1\Wall.genruntimeconfig.cache
+C:\Users\PKMNt\OneDrive\Documents\GitHub\Wall\Wall\bin\Debug\netcoreapp3.1\Content\icewallcave.ogg
+C:\Users\PKMNt\OneDrive\Documents\GitHub\Wall\Wall\bin\Debug\netcoreapp3.1\Content\icewallcave.xnb
+C:\Users\PKMNt\OneDrive\Documents\GitHub\Wall\Wall\bin\Debug\netcoreapp3.1\Content\icewalllab.ogg
+C:\Users\PKMNt\OneDrive\Documents\GitHub\Wall\Wall\bin\Debug\netcoreapp3.1\Content\icewalllab.xnb
+C:\Users\PKMNt\OneDrive\Documents\GitHub\Wall\Wall\bin\Debug\netcoreapp3.1\Content\the_snake.ogg
+C:\Users\PKMNt\OneDrive\Documents\GitHub\Wall\Wall\bin\Debug\netcoreapp3.1\Content\the_snake.xnb

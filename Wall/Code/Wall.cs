@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using Wall.OutsideSamples;
 
 namespace Wall
@@ -36,6 +37,9 @@ namespace Wall
         public static bool F3Enabled;
         public static bool paused;
         public static int deaths;
+
+        public static MusicPlayer musicPlayer;
+        public static Dictionary<string, Song> songs;
         
         public Wall()
         {
@@ -73,15 +77,27 @@ namespace Wall
             player = new Player(new Vector2(25, 400));
             playerList.Add(player);
             camera = new Camera(new Vector2(0, 0), 24F);
+
+            
+
+            //song stuff
         }
 
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+
             Fonts.arial = Content.Load<SpriteFont>("BaseFont");
-            
-            
+
+            songs = new Dictionary<string, Song>();
+            musicPlayer = new MusicPlayer(songs);
+
+            songs["Cave"] = Content.Load<Song>("icewallcave");
+            songs["Snake"] = Content.Load<Song>("the_snake");
+            songs["Lab"] = Content.Load<Song>("icewalllab");
+            musicPlayer.songs = songs;
+
+
         }
 
         private float delta(GameTime gameTime) {
@@ -219,6 +235,14 @@ namespace Wall
             if (keys.pressed(Keys.P))
             if (keys.pressed(Keys.P))
                 paused = !paused;
+
+            //yet more song stuff
+            if (keys.pressed(Keys.NumPad1))
+                musicPlayer.play("Cave");
+            if (keys.pressed(Keys.NumPad2))
+                musicPlayer.play("Snake");
+            if (keys.pressed(Keys.NumPad3))
+                musicPlayer.play("Lab");
         }
 
         

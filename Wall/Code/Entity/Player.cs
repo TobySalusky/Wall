@@ -182,7 +182,7 @@ namespace Wall {
                 terrariaMode = !terrariaMode;
             }
             
-            if (keys.pressed(Keys.Tab)) {
+            if (keys.pressed(Keys.Tab)) { 
                 inventoryOpen = !inventoryOpen;
             }
             
