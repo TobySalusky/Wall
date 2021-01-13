@@ -35,6 +35,7 @@
             <e p="autosave Untitled 5220.art" t="Include" />
             <e p="autosave Untitled 5321.art" t="Include" />
             <e p="autosave Untitled 5543.art" t="Include" />
+            <e p="autosave Untitled 5768.art" t="Include" />
             <e p="autosave Untitled 5790.art" t="Include" />
             <e p="autosave Untitled 6375.art" t="Include" />
             <e p="autosave Untitled 6594.art" t="Include" />
@@ -122,6 +123,7 @@
           <e p="Entity.cs" t="Include" />
           <e p="EntityType.cs" t="Include" />
           <e p="Grapple.cs" t="Include" />
+          <e p="LivingSnowball.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="SnowSlime.cs" t="Include" />
           <e p="Worm" t="Include">

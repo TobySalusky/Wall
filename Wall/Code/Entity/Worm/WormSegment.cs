@@ -24,7 +24,7 @@ namespace Wall {
             snowPuffDeath();
         }
         
-        public override float findRotation() {
+        public override float findRotation(float deltaTime) {
             return Util.angle(inFront.pos - pos) + Maths.halfPI;
         }
 

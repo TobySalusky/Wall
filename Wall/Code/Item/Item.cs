@@ -95,6 +95,7 @@ namespace Wall {
 
         public virtual void switchOff() {
             useCancelled = true;
+            specialTimeCharging = 0;
         }
 
         public virtual bool canUse() {

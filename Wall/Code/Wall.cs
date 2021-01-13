@@ -146,23 +146,6 @@ namespace Wall
             KeyInfo keys = new KeyInfo(keyState, lastKeyState);
             lastKeyState = keyState;
 
-            if (keys.pressed(Keys.Tab)) {
-                player.inventoryOpen = !player.inventoryOpen;
-                paused = player.inventoryOpen;
-            }
-            
-            if (keys.pressed(Keys.R) && keys.down(Keys.LeftShift)) {
-                reloadTextures();
-            }
-
-            if (keys.pressed(Keys.L)) {
-                entitySpawning = !entitySpawning;
-                foreach (var entity in entities) {
-                    if (entity.canDespawn)
-                        entity.despawn();
-                }
-            }
-
             MouseState mouseState = Mouse.GetState();
 
             bool leftChange = lastLeft != mouseState.LeftButton;
@@ -259,8 +242,24 @@ namespace Wall
             if (keys.pressed(Keys.F3))
                 F3Enabled = !F3Enabled;
             if (keys.pressed(Keys.P))
-            if (keys.pressed(Keys.P))
                 paused = !paused;
+            
+            if (keys.pressed(Keys.Tab)) {
+                player.inventoryOpen = !player.inventoryOpen;
+                paused = player.inventoryOpen;
+            }
+            
+            if (keys.pressed(Keys.R) && keys.down(Keys.LeftShift)) {
+                reloadTextures();
+            }
+
+            if (keys.pressed(Keys.L)) {
+                entitySpawning = !entitySpawning;
+                foreach (var entity in entities) {
+                    if (entity.canDespawn)
+                        entity.despawn();
+                }
+            }
         }
 
         public void renderCursor(Vector2 pos) {

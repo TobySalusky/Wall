@@ -34,6 +34,8 @@ namespace Wall
         public bool boss;
         public bool runParticles = true;
 
+        public float bonkMult = 0;
+        
         public bool useSpawnSlot = true;
         public bool mustCollideOnSpawn = false, canSpawnInAir = false;
         public bool canDespawn = true;
@@ -145,13 +147,13 @@ namespace Wall
             knockedBack(Util.polar(mag, angle));
         }
 
-        public virtual float findRotation() {
+        public virtual float findRotation(float deltaTime) {
             return 0;
         }
 
         public virtual void update(float deltaTime) {
             timeSinceDamaged += deltaTime;
-            rotation = findRotation();
+            rotation = findRotation(deltaTime);
             
             grounded = collidesAt(pos + Vector2.UnitY * 0.1F);
 
@@ -201,7 +203,7 @@ namespace Wall
         }
 
         public virtual void bonkX(Vector2 newPos) {
-            vel.X = 0;
+            vel.X *= bonkMult;
             bonk(newPos);
         }
         
@@ -218,7 +220,7 @@ namespace Wall
                 snowImpactPuff(count, intensity, newPos, tileOn);
             }
 
-            vel.Y = 0;
+            vel.Y *= bonkMult;
 
             bonk(newPos);
         }

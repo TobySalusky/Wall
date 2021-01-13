@@ -175,7 +175,7 @@ namespace Wall {
             Wall.deaths++;
         }
 
-        public override float findRotation() {
+        public override float findRotation(float deltaTime) {
             const float maxRot = (float) Math.PI * 0.4F;
             return Math.Sign(vel.X) * Math.Min(1, Math.Abs(vel.X) / 100F) * maxRot;
         }
@@ -376,21 +376,24 @@ namespace Wall {
 
 
             int x = 20, y = 20;
-            if (inventoryOpen) { 
-                // inventory
-                for (int j = 0; j < inventory.GetLength(1); j++) {
-                    for (int i = 0; i < inventory.GetLength(0); i++) {
-                        Rectangle rect = new Rectangle(x, y, 64, 64);
+            
+            // inventory
+            for (int j = 0; j < inventory.GetLength(1); j++) {
+                for (int i = 0; i < inventory.GetLength(0); i++) {
+                    Rectangle rect = new Rectangle(x, y, 64, 64);
 
-                        renderSlot(inventory[i, j].item, rect, camera, spriteBatch, j == 0 && i == selectedItemIndex);
+                    renderSlot(inventory[i, j].item, rect, camera, spriteBatch, j == 0 && i == selectedItemIndex);
 
-                        x += 70;
-                    }
-
-                    x = 20;
-                    y += 70;
+                    x += 70;
                 }
 
+                if (!inventoryOpen) break;
+
+                x = 20;
+                y += 70;
+            }
+
+            if (inventoryOpen) {
                 x = 20;
                 y = 400;
                 for (int i = 0; i < armor.Length; i++) {
@@ -398,16 +401,8 @@ namespace Wall {
                     renderSlot(armor[i].item, rect, camera, spriteBatch);
                     y += 70;
                 }
-            } else {
-                // hotbar
-                for (int i = 0; i < hotbar.Length; i++) {
-                    Rectangle rect = new Rectangle(x, y, 64, 64);
-
-                    renderSlot(hotbar[i].item, rect, camera, spriteBatch, i == selectedItemIndex);
-
-                    x += 70;
-                }
             }
+
 
             // health bar
             Rectangle healthRect = new Rectangle(1500, 10, 300, 30);

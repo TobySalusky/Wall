@@ -90,7 +90,8 @@ namespace Wall {
         }
 
         public override void attackTick(float deltaTime) {
-            meleeAttack(player, 7, 40);
+            
+            meleeAttack(player, 7, 20);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Wall {
         public Player player;
         public List<Entity> entities;
 
-        public int targetCount = 7;
+        public int targetCount = 15;
 
         public EntityHandler() {
             player = Wall.player;
@@ -63,8 +63,11 @@ namespace Wall {
         }
 
         public EntityType getEntityType(Vector2 pos) {
-            if (Util.chance(0.98F)) {
+            if (Util.chance(0.7F)) {
                 return EntityType.SnowSlime;
+            }
+            if (Util.chance(0.9F)) {
+                return EntityType.LivingSnowBall;
             }
 
             return EntityType.SnowWorm;

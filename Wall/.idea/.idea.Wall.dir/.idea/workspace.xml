@@ -8,12 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Code/Item/Slots/ArmorSlot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 5768.art" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Entity/LivingSnowBall.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/EntityType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/EntityType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/EntityHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/EntityHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Slots/ItemSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Slots/ItemSlot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Util.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Wall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Wall.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
@@ -32,19 +39,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Code/Projectiles/ShurikenProjectile.cs" />
-      <option value="$PROJECT_DIR$/Code/Projectiles/SnowBallProjectile.cs" />
-      <option value="$PROJECT_DIR$/Code/Fonts.cs" />
-      <option value="$PROJECT_DIR$/Code/Wall.cs" />
-      <option value="$PROJECT_DIR$/Content/BaseFont.spritefont" />
-      <option value="$PROJECT_DIR$/Code/Array2DView.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Enemy.cs" />
-      <option value="$PROJECT_DIR$/Code/Textures.cs" />
-      <option value="$PROJECT_DIR$/Code/Projectiles/ArrowProjectile.cs" />
-      <option value="$PROJECT_DIR$/Code/Item/SnowBall.cs" />
-      <option value="$PROJECT_DIR$/Code/Item/Sword.cs" />
       <option value="$PROJECT_DIR$/Code/Item/Shuriken.cs" />
       <option value="$PROJECT_DIR$/Code/Item/Bow.cs" />
       <option value="$PROJECT_DIR$/Code/Item/Arrow.cs" />
@@ -77,12 +71,25 @@
       <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
       <option value="$PROJECT_DIR$/Code/Textures.cs" />
       <option value="$PROJECT_DIR$/Code/Terrain/ChunkMap.cs" />
-      <option value="$PROJECT_DIR$/Code/Util.cs" />
-      <option value="$PROJECT_DIR$/Code/Item/Item.cs" />
-      <option value="$PROJECT_DIR$/Code/Wall.cs" />
       <option value="$PROJECT_DIR$/Code/Item/Slots/ItemSlot.cs" />
       <option value="$PROJECT_DIR$/Code/Item/Slots/ArmorSlot.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/Item.cs" />
+      <option value="$PROJECT_DIR$/Code/Wall.cs" />
+      <option value="$PROJECT_DIR$/Code/Util.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/ConciousSnowball.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/EntityType.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Enemy.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/SnowSlime.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/LivingSnowBall.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Enemy.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/LivingSnowBall.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
+      <option value="$PROJECT_DIR$/Code/EntityHandler.cs" />
+      <option value="$PROJECT_DIR$/Code/Wall.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mOQNeJbHdjMoHHcoB1BpLaoLCl" />
@@ -139,7 +146,10 @@
       <workItem from="1609699728959" duration="715000" />
       <workItem from="1610306215551" duration="34000" />
       <workItem from="1610306272645" duration="15664000" />
-      <workItem from="1610330000270" duration="4843000" />
+      <workItem from="1610330000270" duration="9281000" />
+      <workItem from="1610340241566" duration="3654000" />
+      <workItem from="1610431107268" duration="1263000" />
+      <workItem from="1610477526751" duration="479000" />
     </task>
     <servers />
   </component>

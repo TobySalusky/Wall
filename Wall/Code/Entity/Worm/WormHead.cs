@@ -63,7 +63,7 @@ namespace Wall {
             segmentOffset = 1.5F;
         }
 
-        public override float findRotation() {
+        public override float findRotation(float deltaTime) {
             return Util.angle(vel) + Maths.halfPI;
         }
 

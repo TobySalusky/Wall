@@ -23,6 +23,10 @@ namespace Wall {
             return angle - Maths.twoPI;
         }
 
+        public static int randomIntPN() {
+            return randInt(0, 2) * 2 - 1;
+        }
+
         // TODO: optimise, honestly seems super inefficient
         public static Vector2 randomInOut(Rectangle inside, Rectangle outside) { // 'outside' should be a subsection of 'inside'
             float vol = area(inside) - area(outside);

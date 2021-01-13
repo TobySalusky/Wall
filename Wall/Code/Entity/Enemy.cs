@@ -29,16 +29,29 @@ namespace Wall {
             return Util.angle(player.pos - pos);
         }
 
-        public void meleeAttack(Entity target, float damage, float knockBack) {
+        public virtual float knockBackDir(Entity target) {
+            return Util.angle(target.pos - pos);
+        }
+
+        public virtual bool meleeAttack(Entity target, float damage, float knockBack) {
             if (collidesWith(target) && meleeTimer <= 0) {
                 meleeTimer = meleeDelay;
                 target.damaged(damage);
                 target.knockedBack(knockBack, pos);
+                target.knockedBack(knockBack, knockBackDir(target));
+                return true;
             }
+
+            return false;
         }
         
         // FOR SNOW SLIMES
         public void snowPuffDeath() {
+
+            if (!Wall.camera.worldViewRect().Contains(pos)) {
+                return;
+            }
+
             Color[] colorArray = Util.colorArray(texture);
             
             Vector2 tMid = new Vector2(texture.Width, texture.Height) / 2;
