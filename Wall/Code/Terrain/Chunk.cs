@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Wall {
     public class Chunk {
 
-        public static int[,] mapData, backMapData; // TODO: do this in chunks or something (perhaps load on the fly) because this can be a huge memory-use
+        public static int[,] mapData, backMapData, shadeData; // TODO: do this in chunks or something (perhaps load on the fly) because this can be a huge memory-use
         
         public const int chunkSize = 8;
         public readonly Tile[,] tiles = new Tile[chunkSize, chunkSize];
@@ -26,8 +26,55 @@ namespace Wall {
 
             mapData = loadColorMap(Textures.get("mapData"), Tile.genTileTable());
             backMapData = loadColorMap(Textures.get("backMapData"), Tile.genBackTable());
+            
+            Texture2D shadeImage = Textures.get("shadeMapData");
+            if (shadeImage != Textures.nullTexture && shadeImage.Width == mapData.GetLength(0) && shadeImage.Height == mapData.GetLength(1)) {
+                shadeData = loadColorMap(shadeImage, Tile.genShadeTable());
+            }
+            else {
+                shadeData = new int[mapData.GetLength(0), mapData.GetLength(1)];
+            }
         }
-        
+
+        public static void shadeMap() {
+            int width = mapData.GetLength(0), height = mapData.GetLength(1);
+
+            var col = new Color[width * height];
+            
+            Logger.log("Starting Map Shading Process:");
+
+            // load all chunks
+            for (int x = 0; x < width; x += chunkSize) {
+                for (int y = 0; y < height; y += chunkSize) {
+                    Wall.map.getRawChunk(new Vector2(x, y));
+                }
+            }
+
+            Logger.log("All Map-Chunks Loaded.");
+
+            int progReport = width * height / 10;
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    int index = x + y * width;
+                    col[index] = Wall.map.getRawTile(new Point(x, y)).findShade();
+                    if (index % progReport == 0 && index != 0) {
+                        Logger.log("Progress: " + (int) ((float) index / (width * height) * 100F) + "%" + index);
+                    }
+                }
+            }
+
+            Logger.log("Finished Shading.");
+            
+            Texture2D shadeImage = new Texture2D(Wall.getGraphicsDevice(), width, height);
+            shadeImage.SetData(col);
+            Textures.exportTexture(shadeImage, Paths.texturePath, "shadeMapData");
+            Logger.log("Shade Data Exported.");
+            Textures.debugTexturesGrab()["shadeMapData"] = shadeImage;
+            shadeData = loadColorMap(shadeImage, Tile.genShadeTable());
+            
+            Wall.map.chunks.Clear();
+        }
+
         public static int[,] loadColorMap(Texture2D texture, Dictionary<Color, int> table) { // TODO: change colors to ints here
             
             var colorData = new Color[texture.Width * texture.Height];
@@ -68,14 +115,19 @@ namespace Wall {
         }
 
         private Tile genTile(int x, int y) {
+            const int airID = (int) Tile.type.air;
+            int ID = airID;
 
-            int ID = (int) Tile.type.air;
-            
+            Color shade = Color.White;
             if (x >= 0 && x < mapData.GetLength(0) && y >= 0 && y < mapData.GetLength(1)) {
                 ID = mapData[x, y];
+
+                if (ID != airID) {
+                    shade = Tile.shades[shadeData[x, y]];
+                }
             }
 
-            return new Tile((Tile.type) ID, new Vector2(x, y));
+            return new Tile((Tile.type) ID, new Vector2(x, y)) {shade = shade};
         }
         
         private Tile genBack(int x, int y) {

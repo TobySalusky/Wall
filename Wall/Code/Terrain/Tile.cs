@@ -15,19 +15,34 @@ namespace Wall {
         private Rectangle atlasRect; // TODO:
 
         public const int pixelCount = 8;
-        public const float pixelSize = 1/8F;
+        public const float pixelSize = 1 / 8F;
 
         public bool background;
         public bool specialCollide;
         public int specialCollideType;
 
+        public Color shade = Color.White;
+        public static Color[] shades;
+        public const int shadeRange = 7;
+
         static Tile() {
             genAtlas();
+
+            shades = new Color[11];
+            for (int i = 0; i < 11; i++) {
+                float val = 1 - (i / 10F) * 0.9F;
+                shades[i] = new Color(val, val, val);
+            }
         }
 
         public enum type {
-            air, snow, ice, frostStone, 
-            snowBack, iceBack, frostStoneBack
+            air,
+            snow,
+            ice,
+            frostStone,
+            snowBack,
+            iceBack,
+            frostStoneBack
         }
 
         public static Dictionary<Color, int> genTileTable() {
@@ -36,23 +51,33 @@ namespace Wall {
             tableAdd(table, Color.White, type.snow);
             tableAdd(table, Color.Red, type.ice);
             tableAdd(table, Color.Blue, type.frostStone);
-            
+
             return table;
         }
-        
+
         public static Dictionary<Color, int> genBackTable() {
             var table = new Dictionary<Color, int>();
 
             tableAdd(table, Color.Red, type.snowBack);
             tableAdd(table, Color.Blue, type.frostStoneBack);
-            
+
             return table;
         }
         
+        public static Dictionary<Color, int> genShadeTable() {
+            var table = new Dictionary<Color, int>();
+
+            for (int i = 0; i < 11; i++) {
+                table[shades[i]] = i;
+            }
+
+            return table;
+        }
+
         public static void genAtlas() {
 
             var types = Util.GetValues<type>();
-            
+
             fullAtlas = new Texture2D(Wall.getGraphicsDevice(), 24, 24 * (types.Count() - 1));
             var colorArr = new Color[fullAtlas.Width * fullAtlas.Height];
 
@@ -63,10 +88,12 @@ namespace Wall {
                 }
 
                 string identifier = tile.ToString();
-                
-                Texture2D atlas = (!Textures.has(identifier) && identifier.Contains("Back")) ? genBackAtlas(identifier) : Textures.get(identifier);
+
+                Texture2D atlas = (!Textures.has(identifier) && identifier.Contains("Back"))
+                    ? genBackAtlas(identifier)
+                    : Textures.get(identifier);
                 var atlasCol = Util.colorArray(atlas);
-                
+
                 for (int x = 0; x < atlas.Width; x++) {
                     for (int y = 0; y < atlas.Height; y++) {
 
@@ -94,10 +121,10 @@ namespace Wall {
                 Color col = arr[i];
                 newArr[i] = Color.Lerp(arr[i], new Color(Color.Black, col.A / 255F), 0.3F);
             }
-            
+
             var back = new Texture2D(Wall.getGraphicsDevice(), texture.Width, texture.Height);
             back.SetData(newArr);
-            
+
             return back;
         }
 
@@ -126,7 +153,7 @@ namespace Wall {
 
                 return diff.X + diff.Y > 1F;
             }
-            
+
             if (specialCollideType == -1) {
                 Vector2 corner = center + dimen / 2 * new Vector2(-1, 1);
                 Vector2 diff = corner - pos;
@@ -152,11 +179,11 @@ namespace Wall {
                     specialCollide = true;
                     specialCollideType = 1;
                 }
-                
+
                 if (blockMasks(
                     -1, -1, -1,
                     1, -1, -1,
-                    0, 1, 0)) { 
+                    0, 1, 0)) {
                     specialCollide = true;
                     specialCollideType = -1;
                 }
@@ -164,6 +191,26 @@ namespace Wall {
 
             if (texture != null)
                 findAtlasRect(findAtlasIndex());
+        }
+
+        public Color findShade() {
+            
+            float minMag = shadeRange;
+            for (int x = -shadeRange; x <= shadeRange; x++) {
+                for (int y = -shadeRange; y <= shadeRange; y++) {
+                    Vector2 diff = new Vector2(x, y);
+                    if (isAirAt(pos + diff)) {
+                        float mag = Util.mag(diff);
+                        if (mag < minMag) {
+                            minMag = mag;
+                        }
+                    }
+                }
+            }
+
+            float darkness = minMag/shadeRange;
+
+            return shades[(int) (darkness * 10)];
         }
 
         public bool blockMasks(int a, int b, int c, int d, int e, int f, int g, int h, int i) {
@@ -198,7 +245,7 @@ namespace Wall {
             int size = (int) camera.scale;
             Rectangle rect = new Rectangle((int) screen.X, (int) screen.Y, size, size);
                 
-            spriteBatch.Draw(texture, rect, atlasRect, Color.White);
+            spriteBatch.Draw(texture, rect, atlasRect, shade);
         }
 
         public Rectangle textureAtlasRect() {

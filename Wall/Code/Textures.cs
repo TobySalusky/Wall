@@ -9,6 +9,7 @@ namespace Wall {
     public class Textures {
 
         private static Dictionary<string, Texture2D> textures;
+        public static Texture2D nullTexture;
 
         public static void loadTextures() {
 
@@ -22,6 +23,8 @@ namespace Wall {
             textures["SpecialBar"] = genRect(Color.Purple);
 
             processFolder(Paths.texturePath);
+
+            nullTexture = textures["null"];
         }
 
         public static Dictionary<string, Texture2D> debugTexturesGrab() {
@@ -74,5 +77,17 @@ namespace Wall {
             return texture;
         }
 
+        public static void exportTexture(Texture2D texture, string location, string identifier) {
+            Stream stream = File.Create(location + identifier + ".png");
+            texture.SaveAsPng( stream, texture.Width, texture.Height );
+            stream.Dispose();
+        }
+        
+        public static void exportTexture(Texture2D texture, string absolutePath) {
+            Logger.log("test: " + absolutePath);
+            Stream stream = File.Create(absolutePath);
+            texture.SaveAsPng( stream, texture.Width, texture.Height );
+            stream.Dispose();
+        }
     }
 }

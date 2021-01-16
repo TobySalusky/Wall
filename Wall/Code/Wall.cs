@@ -257,6 +257,10 @@ namespace Wall
             if (keys.pressed(Keys.R) && keys.down(Keys.LeftShift)) {
                 reloadTextures();
             }
+            
+            if (keys.pressed(Keys.S) && keys.down(Keys.LeftShift) && keys.down(Keys.LeftControl)) {
+                Chunk.shadeMap();
+            }
 
             if (keys.pressed(Keys.L)) {
                 entitySpawning = !entitySpawning;
@@ -268,7 +272,7 @@ namespace Wall
             
             // song stuff
             if (keys.pressed(Keys.NumPad1))
-                musicPlayer.play("Cavee");
+                musicPlayer.play("Cave");
             if (keys.pressed(Keys.NumPad2))
                 musicPlayer.play("Snake");
             if (keys.pressed(Keys.NumPad3))
