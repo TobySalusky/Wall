@@ -5,8 +5,14 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/BaseFont.spritefont</File>
+    <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/icewallcave.wav</File>
+    <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/icewalllab.wav</File>
+    <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/the_snake.wav</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

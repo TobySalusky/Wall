@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using Wall.OutsideSamples;
 
 namespace Wall
@@ -42,6 +43,8 @@ namespace Wall
 
         public static Texture2D cursor;
         public static Vector2 cursorDimen;
+
+        public static MusicPlayer musicPlayer;
         
         public Wall()
         {
@@ -92,6 +95,13 @@ namespace Wall
             
             Fonts.arial = Content.Load<SpriteFont>("BaseFont");
             
+            // music
+            musicPlayer = new MusicPlayer();
+            var songs = musicPlayer.songs;
+
+            songs["Cave"] = Content.Load<Song>("icewallcave");
+            songs["Snake"] = Content.Load<Song>("the_snake");
+            songs["Lab"] = Content.Load<Song>("icewalllab");
         }
 
         public void reloadTextures() {
@@ -260,6 +270,14 @@ namespace Wall
                         entity.despawn();
                 }
             }
+            
+            // song stuff
+            if (keys.pressed(Keys.NumPad1))
+                musicPlayer.play("Cave");
+            if (keys.pressed(Keys.NumPad2))
+                musicPlayer.play("Snake");
+            if (keys.pressed(Keys.NumPad3))
+                musicPlayer.play("Lab");
         }
 
         public void renderCursor(Vector2 pos) {

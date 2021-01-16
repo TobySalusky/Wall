@@ -20,3 +20,21 @@
 /processorParam:TextureFormat=Compressed
 /build:BaseFont.spritefont
 
+#begin icewallcave.wav
+/importer:WavImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:icewallcave.wav
+
+#begin icewalllab.wav
+/importer:WavImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:icewalllab.wav
+
+#begin the_snake.wav
+/importer:WavImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:the_snake.wav
+
