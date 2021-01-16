@@ -19,6 +19,7 @@ namespace Wall {
         
         private const float collisionStep = 0.1F;
 
+        private const float bounceMult = -0.5F;
         
         public GroundItem(Item item, Vector2 pos, Vector2 vel) {
             this.pos = pos - item.dimen.Y / 2 * Vector2.UnitY;
@@ -30,7 +31,10 @@ namespace Wall {
         }
         
         protected bool collidesWith(Entity entity) {
-            return Util.center(pos, item.dimen + Vector2.One * 0.5F).Intersects(Util.center(entity.pos, entity.dimen));
+            return (pos.X + item.dimen.X / 2 > entity.pos.X - entity.dimen.X / 2 &&
+                    pos.X - item.dimen.X / 2 < entity.pos.X + entity.dimen.X / 2 &&
+                    pos.Y + item.dimen.Y / 2 > entity.pos.Y - entity.dimen.Y / 2 &&
+                    pos.Y - item.dimen.Y / 2 < entity.pos.Y + entity.dimen.Y / 2);
         }
         
         public virtual void update(float deltaTime) {
@@ -101,7 +105,7 @@ namespace Wall {
                         diffY += stepY;
                         if (collidesAt(pos + Vector2.UnitY * diffY)) {
                             diffY -= stepY;
-                            vel.Y = 0;
+                            vel.Y *= bounceMult;
                             break;
                         }
                     }

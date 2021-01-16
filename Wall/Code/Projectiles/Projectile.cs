@@ -58,7 +58,10 @@ namespace Wall {
         }
 
         public bool collidesWith(Entity entity, Vector2 pos, Vector2 dimen) {
-            return Util.center(pos, dimen).Intersects(Util.center(entity.pos, entity.dimen));
+            return (pos.X + dimen.X / 2 > entity.pos.X - entity.dimen.X / 2 &&
+                     pos.X - dimen.X / 2 < entity.pos.X + entity.dimen.X / 2 &&
+                    pos.Y + dimen.Y / 2 > entity.pos.Y - entity.dimen.Y / 2 &&
+                     pos.Y - dimen.Y / 2 < entity.pos.Y + entity.dimen.Y / 2);
         }
 
         public virtual void bonk(Vector2 newPos) {

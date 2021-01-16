@@ -154,7 +154,7 @@
           <e p="Shuriken.cs" t="Include" />
           <e p="Slots" t="Include">
             <e p="ArmorSlot.cs" t="Include" />
-            <e p="ItemSLot.cs" t="Include" />
+            <e p="ItemSlot.cs" t="Include" />
           </e>
           <e p="SnowBall.cs" t="Include" />
           <e p="Spear.cs" t="Include" />
@@ -199,6 +199,12 @@
           <e p="DesktopGL" t="Include">
             <e p="Content" t="Include">
               <e p="BaseFont.xnb" t="Include" />
+              <e p="icewallcave.ogg" t="Include" />
+              <e p="icewallcave.xnb" t="Include" />
+              <e p="icewalllab.ogg" t="Include" />
+              <e p="icewalllab.xnb" t="Include" />
+              <e p="the_snake.ogg" t="Include" />
+              <e p="the_snake.xnb" t="Include" />
             </e>
           </e>
         </e>
@@ -209,6 +215,9 @@
               <e p=".mgcontent" t="Include" />
               <e p=".mgstats" t="Include" />
               <e p="BaseFont.mgcontent" t="Include" />
+              <e p="icewallcave.mgcontent" t="Include" />
+              <e p="icewalllab.mgcontent" t="Include" />
+              <e p="the_snake.mgcontent" t="Include" />
             </e>
           </e>
         </e>
