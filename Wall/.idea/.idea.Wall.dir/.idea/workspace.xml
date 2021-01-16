@@ -8,25 +8,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Code/Music/MusicPlayer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/icewallcave.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/icewalllab.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/the_snake.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Music/Cave.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Music/Lab.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Music/Snake.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Music/VillagerNoise.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Music/null.ogg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/FileUtil/Paths.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/FileUtil/Paths.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Music/MusicPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Music/MusicPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Textures.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Textures.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Wall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Wall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BaseFont.spritefont" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BaseFont.spritefont" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgstats" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/BaseFont.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/BaseFont.mgcontent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +34,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" />
       <option value="$PROJECT_DIR$/Code/Textures.cs" />
       <option value="$PROJECT_DIR$/Code/Item/Bow.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Grapple.cs" />
@@ -87,8 +81,10 @@
       <option value="$PROJECT_DIR$/Code/Projectiles/Projectile.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
       <option value="$PROJECT_DIR$/Code/Item/GroundItem.cs" />
-      <option value="$PROJECT_DIR$/Code/Music/MusicPlayer.cs" />
+      <option value="$PROJECT_DIR$/Code/Textures.cs" />
+      <option value="$PROJECT_DIR$/Code/FileUtil/Paths.cs" />
       <option value="$PROJECT_DIR$/Code/Wall.cs" />
+      <option value="$PROJECT_DIR$/Code/Music/MusicPlayer.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mOQNeJbHdjMoHHcoB1BpLaoLCl" />
@@ -154,7 +150,7 @@
       <workItem from="1610686901732" duration="1858000" />
       <workItem from="1610746057936" duration="302000" />
       <workItem from="1610818045522" duration="343000" />
-      <workItem from="1610819765973" duration="715000" />
+      <workItem from="1610819765973" duration="3369000" />
     </task>
     <servers />
   </component>

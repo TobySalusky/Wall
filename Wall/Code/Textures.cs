@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Wall.File;
 
 namespace Wall {
     public class Textures {

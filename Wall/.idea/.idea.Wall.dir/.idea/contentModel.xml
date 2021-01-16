@@ -6,6 +6,13 @@
     <e p="C:\Users\Toby\Documents\GitHub\wall\wall" t="IncludeRecursive">
       <e p="app.manifest" t="Include" />
       <e p="Assets" t="Include">
+        <e p="Music" t="Include">
+          <e p="Cave.ogg" t="Include" />
+          <e p="Lab.ogg" t="Include" />
+          <e p="null.ogg" t="Include" />
+          <e p="Snake.ogg" t="Include" />
+          <e p="VillagerNoise.ogg" t="Include" />
+        </e>
         <e p="Textures" t="Include">
           <e p="Arrow.png" t="Include" />
           <e p="autosaves" t="Include">

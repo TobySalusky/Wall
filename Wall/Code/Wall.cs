@@ -77,6 +77,9 @@ namespace Wall
             Chunk.loadMapData();
             Item.loadItems();
             Entity.loadEntities();
+            MusicPlayer.loadSongs();
+            
+            musicPlayer = new MusicPlayer();
 
             map = new ChunkMap();
             player = new Player(new Vector2(25, 400));
@@ -94,14 +97,6 @@ namespace Wall
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
             Fonts.arial = Content.Load<SpriteFont>("BaseFont");
-            
-            // music
-            musicPlayer = new MusicPlayer();
-            var songs = musicPlayer.songs;
-
-            songs["Cave"] = Content.Load<Song>("icewallcave");
-            songs["Snake"] = Content.Load<Song>("the_snake");
-            songs["Lab"] = Content.Load<Song>("icewalllab");
         }
 
         public void reloadTextures() {
@@ -273,7 +268,7 @@ namespace Wall
             
             // song stuff
             if (keys.pressed(Keys.NumPad1))
-                musicPlayer.play("Cave");
+                musicPlayer.play("Cavee");
             if (keys.pressed(Keys.NumPad2))
                 musicPlayer.play("Snake");
             if (keys.pressed(Keys.NumPad3))
