@@ -50,7 +50,7 @@ namespace Wall {
         
         
         public virtual bool canHit(Entity entity) {
-            return hitsLeft != 0 && collidesWith(entity) && (hasHit == null || !hasHit.Contains(entity));
+            return hitsLeft != 0 && collidesWith(entity) && (hasHit == null || !hasHit.Contains(entity)) && !entity.invincible;
         }
 
         public bool collidesWith(Entity entity) {

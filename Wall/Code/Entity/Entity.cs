@@ -39,6 +39,9 @@ namespace Wall
         public bool useSpawnSlot = true;
         public bool mustCollideOnSpawn = false, canSpawnInAir = false;
         public bool canDespawn = true;
+
+        public float stunTimer = -1F;
+        public bool invincible = false;
         
         private static Dictionary<EntityType, Type> typeDict;
 
@@ -151,7 +154,16 @@ namespace Wall
             return 0;
         }
 
+        public bool isStunned() {
+            return stunTimer > 0;
+        }
+
+        public bool canUseAI() {
+            return !isStunned();
+        }
+
         public virtual void update(float deltaTime) {
+            stunTimer -= deltaTime;
             timeSinceDamaged += deltaTime;
             rotation = findRotation(deltaTime);
             
@@ -311,6 +323,16 @@ namespace Wall
             return new Color(1F, amount, amount);
         }
 
+        public void renderStunStars(Camera camera, SpriteBatch spriteBatch) {
+            Texture2D star = Textures.get("StunStar");
+            Vector2 starDimen = Util.dimen(star);
+            for (int i = 0; i < 3; i++) {
+                float time = stunTimer + i * 1 / 3F;
+                float angle = time * Maths.twoPI;
+                Util.render(star, pos - dimen.Y / 2 * Vector2.UnitY + Util.polar(1, angle) * new Vector2(1, 0.35F), starDimen, 0, camera, spriteBatch);
+            }
+        }
+
         public virtual void render(Camera camera, SpriteBatch spriteBatch) { // TODO: perhaps use more efficient drawing unless needed, also add rotation
             
             //spriteBatch.Draw(texture, camera.toScreen(pos, dimen), Color.White);
@@ -318,6 +340,10 @@ namespace Wall
             Vector2 textureSize = new Vector2(texture.Width, texture.Height);
             Vector2 scale = dimen * camera.scale / textureSize;
             spriteBatch.Draw(texture, camera.toScreen(pos), null, getTint(), rotation, textureSize / 2F, scale,  effects, 0);
+
+            if (isStunned()) {
+                renderStunStars(camera, spriteBatch);
+            }
         }
     }
 }

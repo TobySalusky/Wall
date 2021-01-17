@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -29,6 +30,8 @@ namespace Wall {
         public int selectedItemIndex;
         
         public Item currentItem;
+        public List<ItemPopUp> itemPopUps;
+        public static bool highlightPickups = true;
 
         public Player(Vector2 pos) : base(pos) {
             
@@ -55,10 +58,12 @@ namespace Wall {
             hotbar[4].item = Item.create(ItemType.RubberArrow, 20);
             hotbar[5].item = Item.create(ItemType.Arrow, 99);
             hotbar[6].item = Item.create(ItemType.Flamethrower);
-            hotbar[7].item = Item.create(ItemType.StoneSpear);
+            hotbar[7].item = Item.create(ItemType.FryingPan);
             hotbar[8].item = Item.create(ItemType.IcicleSpear);
             
             armor[0].item = Armor.create(ItemType.YotsugiHat);
+
+            itemPopUps = new List<ItemPopUp>();
         }
 
         public ItemSlot mouseToSlot(Vector2 mousePos) {
@@ -87,6 +92,8 @@ namespace Wall {
 
             Item item = ground.item;
             ItemType type = item.itemType;
+
+            int pickCount = 0;
             
             // first tries to stack the item with others
             for (int y = 0; y < inventory.GetLength(1); y++) {
@@ -98,6 +105,9 @@ namespace Wall {
 
                         item.count -= take;
                         thisItem.count += take;
+                        if (take > 0) {
+                            pickCount += take;
+                        }
                     }
                 }
             }
@@ -113,11 +123,16 @@ namespace Wall {
                         Item thisItem = inventory[x, y].item;
                         if (thisItem == null) {
                             inventory[x, y].item = item;
+                            pickCount += item.count;
                             ground.deleteFlag = true;
                             return;
                         }
                     }
                 }
+            }
+
+            if (pickCount > 0 && highlightPickups) {
+                itemPopUps.Add(new ItemPopUp(Item.create(item.itemType, pickCount)));
             }
         }
 
@@ -168,6 +183,13 @@ namespace Wall {
             }
             
             base.update(deltaTime);
+
+            if (itemPopUps.Count > 0) {
+                itemPopUps[0].update(deltaTime);
+                if (itemPopUps[0].time > ItemPopUp.endEnd) {
+                    itemPopUps.RemoveAt(0);
+                }
+            }
         }
 
         public override void die() {
@@ -204,7 +226,8 @@ namespace Wall {
             currentItem?.update(deltaTime, mouse);
             
             if (mouse.middlePressed) {
-                Wall.entities.Add(create(EntityType.IceSnake, Wall.camera.toWorld(mouse.pos)));
+                //Wall.items.Add(new GroundItem(Item.create(ItemType.Arrow, 99), Wall.camera.toWorld(mouse.pos), Vector2.Zero));
+                Wall.entities.Add(create(EntityType.SnowSlime, Wall.camera.toWorld(mouse.pos)));
             }
 
         }
@@ -421,6 +444,9 @@ namespace Wall {
                     new Color(Color.White, 0.4F));
             }
 
+            if (itemPopUps.Count > 0)
+                itemPopUps[0].render(this, camera, spriteBatch);
+            
             // item hover text
             if (inventoryOpen) {
                 Vector2 mousePos = Wall.lastMouseInfo.pos;

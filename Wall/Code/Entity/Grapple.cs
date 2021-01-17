@@ -25,9 +25,11 @@ namespace Wall {
             chain = Textures.get("grapple_chain");
 
             canDespawn = false;
+            invincible = true;
         }
 
         public override void die() {
+            Logger.log("grapple's die() was called!?");
         }
 
         public override void bonk(Vector2 newPos) {

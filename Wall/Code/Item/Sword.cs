@@ -36,12 +36,14 @@ namespace Wall {
         }
 
         public override bool canUse() {
-            return base.canUse() && chunks == null;
+            return base.canUse() && chunks == null && useTimer <= -(useDelay - swingTime);
         }
 
         public override void use(float angle, float distance) {
             base.use(angle, distance);
 
+            useTimer = swingTime;
+            
             swingDir = player.facingLeft ? -1 : 1;
             
             this.angle = -Maths.halfPI - Maths.PI * 0.2F * swingDir;
@@ -52,9 +54,13 @@ namespace Wall {
             
             chunks = new MeleeAttack[chunkCount];
             for (int i = 0; i < chunkCount; i++) {
-                chunks[i] = new MeleeAttack(player.pos, true) {hasHit = hasHit, damage = damage * mult, knockback = knockback, dimen = Vector2.One * chunkSize};
+                chunks[i] = createAttackChunk(hasHit, mult);
                 Wall.projectiles.Add(chunks[i]);
             }
+        }
+
+        public virtual MeleeAttack createAttackChunk(List<Entity> hasHit, float mult) {
+            return new MeleeAttack(player.pos, true) {hasHit = hasHit, damage = damage * mult, knockback = knockback, dimen = Vector2.One * chunkSize};
         }
 
         public float findSwingSpeed() {

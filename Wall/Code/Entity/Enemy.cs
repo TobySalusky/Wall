@@ -34,7 +34,7 @@ namespace Wall {
         }
 
         public virtual bool meleeAttack(Entity target, float damage, float knockBack) {
-            if (collidesWith(target) && meleeTimer <= 0) {
+            if (collidesWith(target) && meleeTimer <= 0 && !target.invincible && canUseAI()) {
                 meleeTimer = meleeDelay;
                 target.damaged(damage);
                 target.knockedBack(knockBack, pos);
