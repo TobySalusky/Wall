@@ -34,6 +34,7 @@
             <e p="autosave Untitled 3408.art" t="Include" />
             <e p="autosave Untitled 3419.art" t="Include" />
             <e p="autosave Untitled 3496.art" t="Include" />
+            <e p="autosave Untitled 3617.art" t="Include" />
             <e p="autosave Untitled 3725.art" t="Include" />
             <e p="autosave Untitled 3918.art" t="Include" />
             <e p="autosave Untitled 403.art" t="Include" />
@@ -57,17 +58,20 @@
             <e p="autosave Untitled 6652.art" t="Include" />
             <e p="autosave Untitled 6686.art" t="Include" />
             <e p="autosave Untitled 6730.art" t="Include" />
+            <e p="autosave Untitled 6796.art" t="Include" />
             <e p="autosave Untitled 7240.art" t="Include" />
             <e p="autosave Untitled 7254.art" t="Include" />
             <e p="autosave Untitled 727.art" t="Include" />
             <e p="autosave Untitled 7323.art" t="Include" />
             <e p="autosave Untitled 736.art" t="Include" />
             <e p="autosave Untitled 7439.art" t="Include" />
+            <e p="autosave Untitled 7444.art" t="Include" />
             <e p="autosave Untitled 7836.art" t="Include" />
             <e p="autosave Untitled 79.art" t="Include" />
             <e p="autosave Untitled 8316.art" t="Include" />
             <e p="autosave Untitled 8321.art" t="Include" />
             <e p="autosave Untitled 8477.art" t="Include" />
+            <e p="autosave Untitled 8556.art" t="Include" />
             <e p="autosave Untitled 857.art" t="Include" />
             <e p="autosave Untitled 8826.art" t="Include" />
             <e p="autosave Untitled 8970.art" t="Include" />
@@ -93,12 +97,17 @@
           <e p="FryingPan.png" t="Include" />
           <e p="grapple.png" t="Include" />
           <e p="grapple_chain.png" t="Include" />
+          <e p="HighTechBow.png" t="Include" />
+          <e p="HighTechBowPull1.png" t="Include" />
+          <e p="HighTechBowPull2.png" t="Include" />
+          <e p="HighTechBowPull3.png" t="Include" />
           <e p="ice.png" t="Include" />
           <e p="Icicle.png" t="Include" />
           <e p="IcicleSpear.png" t="Include" />
           <e p="IcicleSpearShaft.png" t="Include" />
           <e p="mapData.png" t="Include" />
           <e p="null.png" t="Include" />
+          <e p="PlayerDesign.art" t="Include" />
           <e p="RubberArrow.png" t="Include" />
           <e p="shadeMapData.png" t="Include" />
           <e p="Shuriken.png" t="Include" />
@@ -159,6 +168,7 @@
           <e p="FrostSword.cs" t="Include" />
           <e p="FryingPan.cs" t="Include" />
           <e p="GroundItem.cs" t="Include" />
+          <e p="HighTechBow.cs" t="Include" />
           <e p="Item.cs" t="Include" />
           <e p="ItemPopUp.cs" t="Include" />
           <e p="ItemType.cs" t="Include" />

@@ -53,6 +53,7 @@ namespace Wall {
 
             hotbar[0].item = Item.create(ItemType.FrostSword);
             hotbar[1].item = Item.create(ItemType.Bow);
+            inventory[1,1].item = Item.create(ItemType.HighTechBow);
             hotbar[2].item = Item.create(ItemType.StunFlask, 99);
             inventory[2, 1].item = Item.create(ItemType.Shuriken, 99);
             hotbar[3].item = Item.create(ItemType.SnowBall, 30);

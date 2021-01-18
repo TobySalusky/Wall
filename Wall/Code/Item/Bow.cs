@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -46,7 +47,11 @@ namespace Wall {
         }
 
         public override bool canUse() {
-            return base.canUse() && topArrow() != null;
+            return base.canUse() && hasArrow();
+        }
+
+        public bool hasArrow() {
+            return topArrow() != null;
         }
 
         public Arrow topArrow() {
@@ -63,6 +68,11 @@ namespace Wall {
             proj.damage *= mult;
             Wall.projectiles.Add(proj);
             arrow.count --;
+        }
+
+        public float findVelocity() {
+            float mult = 1 + specialChargeAmount();
+            return mult * velocity;
         }
 
         public override void update(float deltaTime, MouseInfo mouse) {

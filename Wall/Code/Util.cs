@@ -23,6 +23,11 @@ namespace Wall {
             return angle - Maths.twoPI;
         }
 
+        public static Vector2 setMag(Vector2 vec, float mag) {
+            return Vector2.Normalize(vec) * mag;
+        }
+
+
         public static int randomIntPN() {
             return randInt(0, 2) * 2 - 1;
         }
