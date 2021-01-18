@@ -20,6 +20,18 @@
 /processorParam:TextureFormat=Compressed
 /build:BaseFont.spritefont
 
+#begin Blur.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Blur.fx;Vertex.fx
+
+#begin File.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:File.fx;OffPixel.fx
+
 #begin icewallcave.wav
 /importer:WavImporter
 /processor:SongProcessor
@@ -31,6 +43,12 @@
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:icewalllab.wav
+
+#begin Pixel.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Pixel.fx
 
 #begin the_snake.wav
 /importer:WavImporter

@@ -10,7 +10,7 @@ namespace Wall {
             texture = null;
         }
 
-        public override float knockbackDir() {
+        public override float knockbackDir(Entity entity) {
             return knockbackAngle;
         }
     }

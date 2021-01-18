@@ -24,14 +24,17 @@
             <e p="autosave Untitled 1339.art" t="Include" />
             <e p="autosave Untitled 1733.art" t="Include" />
             <e p="autosave Untitled 1791.art" t="Include" />
+            <e p="autosave Untitled 2165.art" t="Include" />
             <e p="autosave Untitled 223.art" t="Include" />
             <e p="autosave Untitled 2810.art" t="Include" />
             <e p="autosave Untitled 2850.art" t="Include" />
             <e p="autosave Untitled 3089.art" t="Include" />
             <e p="autosave Untitled 3249.art" t="Include" />
             <e p="autosave Untitled 3358.art" t="Include" />
+            <e p="autosave Untitled 3408.art" t="Include" />
             <e p="autosave Untitled 3419.art" t="Include" />
             <e p="autosave Untitled 3496.art" t="Include" />
+            <e p="autosave Untitled 3725.art" t="Include" />
             <e p="autosave Untitled 3918.art" t="Include" />
             <e p="autosave Untitled 403.art" t="Include" />
             <e p="autosave Untitled 4031.art" t="Include" />
@@ -57,6 +60,7 @@
             <e p="autosave Untitled 7240.art" t="Include" />
             <e p="autosave Untitled 7254.art" t="Include" />
             <e p="autosave Untitled 727.art" t="Include" />
+            <e p="autosave Untitled 7323.art" t="Include" />
             <e p="autosave Untitled 736.art" t="Include" />
             <e p="autosave Untitled 7439.art" t="Include" />
             <e p="autosave Untitled 7836.art" t="Include" />
@@ -111,6 +115,7 @@
           <e p="SnowWormBody.png" t="Include" />
           <e p="SnowWormHead.png" t="Include" />
           <e p="StoneSpear.png" t="Include" />
+          <e p="StunFlask.png" t="Include" />
           <e p="StunStar.png" t="Include" />
           <e p="YotsugiHat.png" t="Include" />
           <e p="YotsugiHatBody.png" t="Include" />
@@ -165,6 +170,7 @@
           </e>
           <e p="SnowBall.cs" t="Include" />
           <e p="Spear.cs" t="Include" />
+          <e p="StunFlask.cs" t="Include" />
           <e p="Sword.cs" t="Include" />
         </e>
         <e p="KeyInfo.cs" t="Include" />
@@ -181,10 +187,12 @@
           <e p="Particle.cs" t="Include" />
           <e p="PixelParticle.cs" t="Include" />
           <e p="SnowPuffParticle.cs" t="Include" />
+          <e p="StunParticle.cs" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Projectiles" t="Include">
           <e p="ArrowProjectile.cs" t="Include" />
+          <e p="ExplosionProjectile.cs" t="Include" />
           <e p="IcicleProjectile.cs" t="Include" />
           <e p="MeleeAttack.cs" t="Include" />
           <e p="PixelFlame.cs" t="Include" />
@@ -193,6 +201,7 @@
           <e p="ShurikenProjectile.cs" t="Include" />
           <e p="SnowBallProjectile.cs" t="Include" />
           <e p="StickableProjectile.cs" t="Include" />
+          <e p="StunFlaskProjectile.cs" t="Include" />
         </e>
         <e p="Terrain" t="Include">
           <e p="Chunk.cs" t="Include" />
@@ -209,30 +218,42 @@
           <e p="DesktopGL" t="Include">
             <e p="Content" t="Include">
               <e p="BaseFont.xnb" t="Include" />
+              <e p="Blur.xnb" t="Include" />
               <e p="icewallcave.ogg" t="Include" />
               <e p="icewallcave.xnb" t="Include" />
               <e p="icewalllab.ogg" t="Include" />
               <e p="icewalllab.xnb" t="Include" />
+              <e p="OffPixel.xnb" t="Include" />
+              <e p="Pixel.xnb" t="Include" />
               <e p="the_snake.ogg" t="Include" />
               <e p="the_snake.xnb" t="Include" />
+              <e p="Vertex.xnb" t="Include" />
             </e>
           </e>
         </e>
+        <e p="Blur.fx" t="Include" />
         <e p="Content.mgcb" t="Include" />
+        <e p="File.fx" t="Include" />
         <e p="icewallcave.wav" t="Include" />
         <e p="icewalllab.wav" t="Include" />
         <e p="obj" t="Include">
           <e p="DesktopGL" t="Include">
+            <e p=".mgstats" t="Include" />
             <e p="Content" t="Include">
               <e p=".mgcontent" t="Include" />
               <e p=".mgstats" t="Include" />
               <e p="BaseFont.mgcontent" t="Include" />
+              <e p="Blur.mgcontent" t="Include" />
               <e p="icewallcave.mgcontent" t="Include" />
               <e p="icewalllab.mgcontent" t="Include" />
+              <e p="OffPixel.mgcontent" t="Include" />
+              <e p="Pixel.mgcontent" t="Include" />
               <e p="the_snake.mgcontent" t="Include" />
+              <e p="Vertex.mgcontent" t="Include" />
             </e>
           </e>
         </e>
+        <e p="Pixel.fx" t="Include" />
         <e p="the_snake.wav" t="Include" />
       </e>
       <e p="Icon.bmp" t="Include" />

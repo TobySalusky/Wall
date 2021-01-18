@@ -9,6 +9,7 @@ namespace Wall {
         
         public Spear(int count) : base(count) {
             maxSpecialChargeTime = 1;
+            angleFollow = false;
         }
 
         public override void update(float deltaTime, MouseInfo mouse) {

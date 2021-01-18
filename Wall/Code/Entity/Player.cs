@@ -53,7 +53,8 @@ namespace Wall {
 
             hotbar[0].item = Item.create(ItemType.FrostSword);
             hotbar[1].item = Item.create(ItemType.Bow);
-            hotbar[2].item = Item.create(ItemType.Shuriken, 99);
+            hotbar[2].item = Item.create(ItemType.StunFlask, 99);
+            inventory[2, 1].item = Item.create(ItemType.Shuriken, 99);
             hotbar[3].item = Item.create(ItemType.SnowBall, 30);
             hotbar[4].item = Item.create(ItemType.RubberArrow, 20);
             hotbar[5].item = Item.create(ItemType.Arrow, 99);
@@ -132,7 +133,15 @@ namespace Wall {
             }
 
             if (pickCount > 0 && highlightPickups) {
-                itemPopUps.Add(new ItemPopUp(Item.create(item.itemType, pickCount)));
+                Item picked = Item.create(item.itemType, pickCount);
+                foreach (var popup in itemPopUps) {
+                    if (popup.shouldAdd(picked)) {
+                        popup.addedPick(picked);
+                        return;
+                    }
+                }
+
+                itemPopUps.Add(new ItemPopUp(picked));
             }
         }
 
@@ -369,11 +378,9 @@ namespace Wall {
             }
             
             currentItem?.render(camera, spriteBatch);
-
-            renderUI(camera, spriteBatch);
         }
 
-        public void renderSlot(Item item, Rectangle rect, Camera camera, SpriteBatch spriteBatch, bool isSelected = false, bool background = true) {
+        public void renderSlot(Item item, Rectangle rect, Camera camera, SpriteBatch spriteBatch, bool isSelected = false, bool background = true, bool renderNum = true) {
             if (background) {
                 Texture2D itemSlot = Textures.get("ItemSlot");
                 if (isSelected) {
@@ -387,7 +394,7 @@ namespace Wall {
             if (item != null) {
                 spriteBatch.Draw(item.texture, Util.useRatio(item.dimen, rect), Color.White);
 
-                if (item.maxStack != 1) {
+                if (renderNum && item.maxStack != 1) {
                     spriteBatch.DrawString(Fonts.arial, "" + item.count, new Vector2(rect.Left + 40, rect.Top + 40), Color.White);
                 }
             }

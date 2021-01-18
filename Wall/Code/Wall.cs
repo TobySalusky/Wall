@@ -45,6 +45,11 @@ namespace Wall
         public static Vector2 cursorDimen;
 
         public static MusicPlayer musicPlayer;
+
+        public static Effect testShader;
+        public static Effect otherShader;
+
+        public static bool contentLoaded = false;
         
         public Wall()
         {
@@ -97,6 +102,11 @@ namespace Wall
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
             Fonts.arial = Content.Load<SpriteFont>("BaseFont");
+
+            testShader = Content.Load<Effect>("Pixel");
+            otherShader = Content.Load<Effect>("OffPixel");
+
+            contentLoaded = true;
         }
 
         public void reloadTextures() {
@@ -253,7 +263,13 @@ namespace Wall
                 player.inventoryOpen = !player.inventoryOpen;
                 paused = player.inventoryOpen;
             }
-            
+
+            if (keys.pressed(Keys.K)) {
+                Effect temp = testShader;
+                testShader = otherShader;
+                otherShader = temp;
+            }
+
             if (keys.pressed(Keys.R) && keys.down(Keys.LeftShift)) {
                 reloadTextures();
             }
@@ -285,7 +301,10 @@ namespace Wall
 
         protected override void Draw(GameTime gameTime)
         {
-            
+            if (!contentLoaded) {
+                return;
+            }
+
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
@@ -321,14 +340,26 @@ namespace Wall
 
             MouseState mouseState = Mouse.GetState();
             Vector2 mousePos = new Vector2(mouseState.X, mouseState.Y);
-            renderCursor(mousePos);
-            
+
             if (F3Enabled) { 
                 spriteBatch.DrawString(Fonts.arial, F3Info(), new Vector2(50, 200), Color.White);
             }
 
             spriteBatch.End();
+
+            // Shading
+            map.renderShading(camera, spriteBatch);
+
+            // UI
+            spriteBatch.Begin(SpriteSortMode.Deferred,
+                BlendState.NonPremultiplied,
+                SamplerState.PointClamp,
+                null, null, null, null);
             
+            player.renderUI(camera, spriteBatch);
+            renderCursor(mousePos);
+            
+            spriteBatch.End();
             
             base.Draw(gameTime);
         }

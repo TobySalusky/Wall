@@ -8,9 +8,11 @@ namespace Wall {
 
         public static int[,] mapData, backMapData, shadeData; // TODO: do this in chunks or something (perhaps load on the fly) because this can be a huge memory-use
         
-        public const int chunkSize = 8;
+        public const int chunkSize = 6;
         public readonly Tile[,] tiles = new Tile[chunkSize, chunkSize];
         public readonly Tile[,] backgrounds = new Tile[chunkSize, chunkSize];
+
+        public float[] tileShades = new float[64];
 
         private readonly Vector2 indices; // should always be ints
 
@@ -103,11 +105,27 @@ namespace Wall {
             }
         }
 
+        public Rectangle screenRect(Camera camera) {
+            return Util.tl(camera.toScreen(indices * chunkSize), Vector2.One * chunkSize * camera.scale);
+        }
+
         public void load() {
+            
             for (int i = 0; i < chunkSize; i++) {
                 for (int j = 0; j < chunkSize; j++) {
                     tiles[i, j].findTexture();
                     backgrounds[i, j].findTexture();
+                }
+            }
+
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    Vector2 topLeft = indices * chunkSize;
+                    int x = (int) (topLeft.X + i) - 1;
+                    int y = (int) (topLeft.Y + j) - 1;
+                    if (x >= 0 && x < mapData.GetLength(0) && y >= 0 && y < mapData.GetLength(1)) {
+                        tileShades[i + j * 8] = shadeData[x, y] / 10F;
+                    }
                 }
             }
 
@@ -118,16 +136,11 @@ namespace Wall {
             const int airID = (int) Tile.type.air;
             int ID = airID;
 
-            Color shade = Color.White;
             if (x >= 0 && x < mapData.GetLength(0) && y >= 0 && y < mapData.GetLength(1)) {
                 ID = mapData[x, y];
-
-                if (ID != airID) {
-                    shade = Tile.shades[shadeData[x, y]];
-                }
             }
 
-            return new Tile((Tile.type) ID, new Vector2(x, y)) {shade = shade};
+            return new Tile((Tile.type) ID, new Vector2(x, y));
         }
         
         private Tile genBack(int x, int y) {

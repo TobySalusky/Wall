@@ -31,6 +31,8 @@ namespace Wall {
 
         public string name;
 
+        public bool angleFollow = true, renderWhenReady = false;
+
         private static Dictionary<ItemType, Type> typeDict;
 
         public Item(int count) {
@@ -135,10 +137,14 @@ namespace Wall {
         }
 
         public virtual void update(float deltaTime, MouseInfo mouse) {
+            
+            Vector2 diff = mouse.pos - Wall.camera.toScreen(player.pos);
+            if (angleFollow)
+                angle = Util.angle(diff);
+            
             useTimer -= deltaTime;
 
             if (mouse.rightUnpressed) {
-                Vector2 diff = mouse.pos - Wall.camera.toScreen(player.pos);
                 useSpecial(Util.angle(diff), Util.mag(diff));
             }
 
@@ -155,7 +161,6 @@ namespace Wall {
             }
 
             if (((autoSwing && mouse.leftDown) || mouse.leftPressed) && canUse()) {
-                Vector2 diff = mouse.pos - Wall.camera.toScreen(player.pos);
                 use(Util.angle(diff), Util.mag(diff));
             }
         }
@@ -165,7 +170,7 @@ namespace Wall {
         }
 
         public virtual bool renderInHand() {
-            return allwaysRender || isUsing() || holdingSpecial();
+            return allwaysRender || (!renderWhenReady && (isUsing() || holdingSpecial())) || (renderWhenReady && canUse());
         }
 
         public void render(Camera camera, SpriteBatch spriteBatch) {
@@ -175,6 +180,12 @@ namespace Wall {
         }
         
         public virtual void renderInHand(Camera camera, SpriteBatch spriteBatch) {
+            Vector2 pos = player.pos + Util.polar((offset), angle);
+
+            bool facingLeft = Util.angleDir(angle);
+            float renderAngle = facingLeft ? angle + Maths.PI : angle;
+
+            Util.render(texture, pos, dimen, renderAngle, camera, spriteBatch, !Util.angleDir(angle));
         }
     }
 }

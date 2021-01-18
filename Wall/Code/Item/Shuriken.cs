@@ -1,12 +1,13 @@
 ﻿namespace Wall {
     public class Shuriken : Item {
         
-        public float offset = 1.5F;
-
         public Shuriken(int count) : base(count) {
             useDelay = 0.45F;
             makeStackable();
             consumable = true;
+            
+            offset = 1.5F;
+            renderWhenReady = true;
         }
 
         public override void use(float angle, float distance) {

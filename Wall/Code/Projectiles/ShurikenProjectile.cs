@@ -24,9 +24,7 @@ namespace Wall {
         public override void bonk(Vector2 newPos) {
             base.bonk(newPos);
 
-            //if (Math.Abs(vel.Y) < 1F) {
-                getStuck();
-            //}
+            getStuck();
         }
     }
 }

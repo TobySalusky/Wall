@@ -74,6 +74,32 @@ namespace Wall {
                 }
             }
         }
+        
+        public void renderShading(Camera camera, SpriteBatch spriteBatch) {
+
+            Vector2 diff = camera.screenCenter / camera.scale;
+            Point from = chunkIndices(camera.pos - diff);
+            Point to = chunkIndices(camera.pos + diff);
+
+            Rectangle rect = getChunk(from).screenRect(camera);
+            Point startRect = new Point(rect.X, rect.Y);
+            int startX = rect.X;
+            int startY = rect.Y;
+            for (int i = from.X; i <= to.X; i++) {
+                for (int j = from.Y; j <= to.Y; j++) {
+                    spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, null, null, Wall.testShader, null);
+
+                    int diffX = i - from.X;
+                    int diffY = j - from.Y;
+                    Rectangle thisRect = new Rectangle(startX + rect.Width * diffX, startY + rect.Height * diffY, rect.Width,
+                        rect.Height);
+                    Chunk chunk = getChunk(new Point(i, j));
+                    Wall.testShader.Parameters["dark"].SetValue(chunk.tileShades);
+                    spriteBatch.Draw(Textures.get("bush"), thisRect, Color.White);
+                    spriteBatch.End();
+                }
+            }
+        }
 
         public Tile getTile(Vector2 pos) {
             return getTile(blockIndices(pos));

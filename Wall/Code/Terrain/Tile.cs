@@ -21,7 +21,6 @@ namespace Wall {
         public bool specialCollide;
         public int specialCollideType;
 
-        public Color shade = Color.White;
         public static Color[] shades;
         public const int shadeRange = 7;
 
@@ -194,8 +193,8 @@ namespace Wall {
         }
 
         public Color findShade() {
-            
-            float minMag = shadeRange;
+
+            float minMag = shadeRange + 1;
             for (int x = -shadeRange; x <= shadeRange; x++) {
                 for (int y = -shadeRange; y <= shadeRange; y++) {
                     Vector2 diff = new Vector2(x, y);
@@ -208,7 +207,11 @@ namespace Wall {
                 }
             }
 
+            minMag--;
+
             float darkness = minMag/shadeRange;
+
+            darkness = Math.Clamp(darkness, 0, 1);
 
             return shades[(int) (darkness * 10)];
         }
@@ -245,7 +248,7 @@ namespace Wall {
             int size = (int) camera.scale;
             Rectangle rect = new Rectangle((int) screen.X, (int) screen.Y, size, size);
                 
-            spriteBatch.Draw(texture, rect, atlasRect, shade);
+            spriteBatch.Draw(texture, rect, atlasRect, Color.White);
         }
 
         public Rectangle textureAtlasRect() {

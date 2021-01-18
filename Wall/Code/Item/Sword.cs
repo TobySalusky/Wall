@@ -16,6 +16,7 @@ namespace Wall {
 
             swingTime = useDelay;
             maxSpecialChargeTime = 0.5F;
+            angleFollow = false;
         }
 
         public override void useSpecial(float angle, float mag) {
