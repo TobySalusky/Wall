@@ -18,7 +18,7 @@ namespace Wall {
         }
         
         public override MeleeAttack createAttackChunk(List<Entity> hasHit, float mult) {
-            return new FryingPanMelee(player.pos, true) {stunProb = Math.Max(0.1F, 0.5F * specialChargeAmount()), hasHit = hasHit, damage = damage * mult, knockback = knockback, dimen = Vector2.One * chunkSize};
+            return new FryingPanMelee(player.pos, true) {stunProb = Math.Max(0.15F, 0.75F * specialChargeAmount()), hasHit = hasHit, damage = damage * mult, knockback = knockback, dimen = Vector2.One * chunkSize};
         }
     }
 

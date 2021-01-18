@@ -50,6 +50,8 @@ namespace Wall
         public static Effect otherShader;
 
         public static bool contentLoaded = false;
+
+        public static float currentDeltaTime;
         
         public Wall()
         {
@@ -146,6 +148,7 @@ namespace Wall
 
             
             float deltaTime = delta(gameTime);
+            currentDeltaTime = deltaTime;
             fpsCounter.update(deltaTime);
             if (gameTime.TotalGameTime.Seconds > secondsPassed) {
                 secondsPassed = gameTime.TotalGameTime.Seconds;

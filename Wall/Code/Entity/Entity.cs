@@ -41,6 +41,7 @@ namespace Wall
         public bool canDespawn = true;
 
         public float stunTimer = -1F;
+        public bool shouldRenderStunStars = true;
         public bool invincible = false;
         
         private static Dictionary<EntityType, Type> typeDict;
@@ -154,7 +155,7 @@ namespace Wall
             return 0;
         }
 
-        public bool isStunned() {
+        public virtual bool isStunned() {
             return stunTimer > 0;
         }
 
@@ -341,7 +342,7 @@ namespace Wall
             Vector2 scale = dimen * camera.scale / textureSize;
             spriteBatch.Draw(texture, camera.toScreen(pos), null, getTint(), rotation, textureSize / 2F, scale,  effects, 0);
 
-            if (isStunned()) {
+            if (isStunned() && shouldRenderStunStars) {
                 renderStunStars(camera, spriteBatch);
             }
         }

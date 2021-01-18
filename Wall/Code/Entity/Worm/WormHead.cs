@@ -12,6 +12,7 @@ namespace Wall {
 
         public WormHead(Vector2 pos) : base(pos) {
 
+            shouldRenderStunStars = true;
             canDespawn = true;
             useSpawnSlot = true;
             isHead = true;
@@ -39,9 +40,14 @@ namespace Wall {
                 segment.despawn();
             }
         }
+        
+        public override bool isStunned() {
+            return stunTimer > 0;
+        }
 
         public override void wormUpdate(float deltaTime) {
 
+            hasCollision = isStunned();
             inGround = collidesAt(pos);
             hasGravity = !inGround;
             
@@ -56,6 +62,12 @@ namespace Wall {
                 groundTime = 0;
                 chargeTime = Util.random(0.75F, 2F);
             }
+        }
+
+        public override void bonkY(Vector2 newPos) {
+            base.bonkY(newPos);
+            const float friction = 2.5F;
+            vel.X *= Math.Max(0, 1 - Wall.currentDeltaTime * friction);
         }
 
         public virtual void setup() {

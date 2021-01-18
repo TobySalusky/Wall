@@ -237,7 +237,7 @@ namespace Wall {
             
             if (mouse.middlePressed) {
                 //Wall.items.Add(new GroundItem(Item.create(ItemType.Arrow, 99), Wall.camera.toWorld(mouse.pos), Vector2.Zero));
-                Wall.entities.Add(create(EntityType.SnowSlime, Wall.camera.toWorld(mouse.pos)));
+                Wall.entities.Add(create(EntityType.SnowWorm, Wall.camera.toWorld(mouse.pos)));
             }
 
         }

@@ -17,6 +17,7 @@ namespace Wall {
             mustCollideOnSpawn = true;
             canDespawn = false;
             useSpawnSlot = false;
+            shouldRenderStunStars = false;
         }
 
         public override void die() {
@@ -45,7 +46,27 @@ namespace Wall {
         public virtual void wormUpdate(float deltaTime) {
             float angle = Util.angle(inFront.pos - pos);
             pos = inFront.pos - Util.polar(segmentOffset, angle);
-            vel *= Math.Max(0, 1 - deltaTime);
+
+            if (isStunned()) {
+                if (!collidesAt(pos)) {
+                    vel += Vector2.UnitY * gravity * deltaTime;
+                }
+                else {
+                    vel = Vector2.Zero;
+                }
+            }
+            else {
+                vel *= Math.Max(0, 1 - deltaTime);
+            }
+
+            if (stunTimer > 0) {
+                head.stunTimer = stunTimer;
+                stunTimer = 0;
+            }
+        }
+        
+        public override bool isStunned() {
+            return head.isStunned();
         }
 
         public override void update(float deltaTime) {
