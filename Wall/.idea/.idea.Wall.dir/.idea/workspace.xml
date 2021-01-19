@@ -8,115 +8,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Armor/YotsugiHat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Armor/YotsugiHatBody.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Armor/YotsugiHatEarLeft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Armor/YotsugiHatEarRight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Entities/SnowWormBody.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Entities/SnowWormHead.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Map/backMapData.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Map/mapData.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Map/shadeMapData.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Player/PlayerBody.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Player/PlayerBodyAndBackpack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Player/PlayerBoot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Player/PlayerDesign.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Player/PlayerHand.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Player/PlayerHead.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Player/PlayerIdea.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Tile/DECOR_END.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Tile/DECOR_START.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Tile/frostStone - Copy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Tile/frostStone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Tile/ice.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Tile/snow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Tile/snowGrass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/Bow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/BowPull1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/BowPull2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/BowPull3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/Flamethrower.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/FrostSword.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/FryingPan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/HighTechBow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/HighTechBowPull1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/HighTechBowPull2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/HighTechBowPull3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/IcicleSpear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/IcicleSpearShaft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/Shuriken.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/SnowBall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/StoneSpear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapons/StunFlask.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 3048.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 3717.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 4400.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 448.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 4943.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 5620.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 6715.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 6861.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/autosaves/autosave Untitled 771.art" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Gaussian.fx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/TexDark.fx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Bow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/BowPull1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/BowPull2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/BowPull3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Flamethrower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/FrostSword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/FryingPan.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/HighTechBow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/HighTechBowPull1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/HighTechBowPull2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/HighTechBowPull3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/IcicleSpear.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/IcicleSpearShaft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/PlayerDesign.art" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Shuriken.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/SnowBall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/SnowWormBody.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/SnowWormHead.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/StoneSpear.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/StunFlask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/YotsugiHat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/YotsugiHatBody.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/YotsugiHatEarLeft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/YotsugiHatEarRight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/backMapData.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/frostStone - Copy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/frostStone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ice.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/mapData.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/shadeMapData.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/snow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/EntityHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/EntityHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Bow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Bow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Flamethrower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Flamethrower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/FryingPan.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/FryingPan.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Shuriken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Shuriken.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/SnowBall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/SnowBall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/Spear.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Spear.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Item/StunFlask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/StunFlask.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Terrain/Chunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Terrain/Chunk.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Terrain/ChunkMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Terrain/ChunkMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Terrain/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Terrain/Tile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Util.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Wall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Wall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/File.fx" beforeDir="false" afterPath="$PROJECT_DIR$/Content/File.fx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgcontent" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgcontent" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgstats" beforeDir="false" afterPath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgstats" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wall.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Wall.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/app.manifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Fondue.deps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Fondue.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Fondue.runtimeconfig.dev.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Fondue.runtimeconfig.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.AssemblyInfoInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.assets.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.csproj.CopyComplete" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.csproj.CoreCompileInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.csproj.FileListAbsolute.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.csprojAssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.genruntimeconfig.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Fondue.csproj.nuget.dgspec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Fondue.csproj.nuget.g.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Fondue.csproj.nuget.g.targets" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,8 +54,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Code/Entity/Enemy.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
       <option value="$PROJECT_DIR$/Code/Item/FryingPan.cs" />
       <option value="$PROJECT_DIR$/Code/Wall.cs" />
       <option value="$PROJECT_DIR$/Code/Wall.cs" />
@@ -179,6 +103,8 @@
       <option value="$PROJECT_DIR$/Code/Terrain/ChunkMap.cs" />
       <option value="$PROJECT_DIR$/Code/Wall.cs" />
       <option value="$PROJECT_DIR$/Code/Terrain/Chunk.cs" />
+      <option value="$PROJECT_DIR$/Wall.csproj" />
+      <option value="$PROJECT_DIR$/app.manifest" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mOQNeJbHdjMoHHcoB1BpLaoLCl" />
@@ -252,7 +178,8 @@
       <workItem from="1610916495276" duration="86000" />
       <workItem from="1610916639627" duration="29197000" />
       <workItem from="1610990593001" duration="12100000" />
-      <workItem from="1611019961437" duration="19906000" />
+      <workItem from="1611019961437" duration="19979000" />
+      <workItem from="1611084672368" duration="1347000" />
     </task>
     <servers />
   </component>
