@@ -105,7 +105,73 @@ namespace Wall
             
             Fonts.arial = Content.Load<SpriteFont>("BaseFont");
 
-            testShader = Content.Load<Effect>("Pixel");
+            testShader = Content.Load<Effect>("Gaussian");
+
+            float pix = 0.05F;
+            testShader.Parameters["sampleOffsets"].SetValue(new Vector2[] {
+                new Vector2(-pix * 2, -pix * 2),
+                new Vector2(-pix, -pix * 2),
+                new Vector2(0, -pix * 2),
+                new Vector2(pix, -pix * 2),
+                new Vector2(pix * 2, -pix * 2),
+                
+                new Vector2(-pix * 2, -pix),
+                new Vector2(-pix, -pix),
+                new Vector2(0, -pix),
+                new Vector2(pix, -pix),
+                new Vector2(pix * 2, -pix),
+                
+                new Vector2(-pix * 2, 0),
+                new Vector2(-pix, 0),
+                new Vector2(0, 0),
+                new Vector2(pix, 0),
+                new Vector2(pix * 2, 0),
+                
+                new Vector2(-pix * 2, pix),
+                new Vector2(-pix, pix),
+                new Vector2(0, pix),
+                new Vector2(pix, pix),
+                new Vector2(pix * 2, pix),
+                
+                new Vector2(-pix * 2, pix * 2),
+                new Vector2(-pix, pix * 2),
+                new Vector2(0, pix * 2),
+                new Vector2(pix, pix * 2),
+                new Vector2(pix * 2, pix * 2),
+            });
+            
+            testShader.Parameters["sampleWeights"].SetValue(new float[] {
+                0.003765F,
+                0.015019F,
+                0.023792F,
+                0.015019F,
+                0.003765F,
+                
+                0.015019F,
+                0.059912F,
+                0.094907F,
+                0.059912F,
+                0.015019F,
+                
+                0.023792F,
+                0.094907F,
+                0.150342F,
+                0.094907F,
+                0.023792F,
+                
+                0.015019F,
+                0.059912F,
+                0.094907F,
+                0.059912F,
+                0.015019F,
+                
+                0.003765F,
+                0.015019F,
+                0.023792F,
+                0.015019F,
+                0.003765F,
+            });
+
             otherShader = Content.Load<Effect>("OffPixel");
 
             contentLoaded = true;
@@ -289,6 +355,15 @@ namespace Wall
                 }
             }
             
+            // camera controls
+            if (keys.down(Keys.OemMinus) && keys.down(Keys.LeftControl)) {
+                camera.scale -= 1F;
+            }
+
+            if (keys.down(Keys.OemPlus) && keys.down(Keys.LeftControl)) {
+                camera.scale += 1F;
+            }
+
             // song stuff
             if (keys.pressed(Keys.NumPad1))
                 musicPlayer.play("Cave");
@@ -344,10 +419,6 @@ namespace Wall
             MouseState mouseState = Mouse.GetState();
             Vector2 mousePos = new Vector2(mouseState.X, mouseState.Y);
 
-            if (F3Enabled) { 
-                spriteBatch.DrawString(Fonts.arial, F3Info(), new Vector2(50, 200), Color.White);
-            }
-
             spriteBatch.End();
 
             // Shading
@@ -358,10 +429,15 @@ namespace Wall
                 BlendState.NonPremultiplied,
                 SamplerState.PointClamp,
                 null, null, null, null);
-            
+
+
+            if (F3Enabled) { 
+                spriteBatch.DrawString(Fonts.arial, F3Info(), new Vector2(50, 200), Color.White);
+            }
+
             player.renderUI(camera, spriteBatch);
             renderCursor(mousePos);
-            
+
             spriteBatch.End();
             
             base.Draw(gameTime);

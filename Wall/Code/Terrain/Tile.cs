@@ -24,6 +24,8 @@ namespace Wall {
         public static Color[] shades;
         public const int shadeRange = 7;
 
+        public bool solid = true;
+
         static Tile() {
             genAtlas();
 
@@ -35,10 +37,19 @@ namespace Wall {
         }
 
         public enum type {
+            
+            // blocks
             air,
             snow,
             ice,
             frostStone,
+            
+            // decor
+            DECOR_START,
+            snowGrass,
+            DECOR_END,
+            
+            // backgrounds
             snowBack,
             iceBack,
             frostStoneBack
@@ -50,6 +61,7 @@ namespace Wall {
             tableAdd(table, Color.White, type.snow);
             tableAdd(table, Color.Red, type.ice);
             tableAdd(table, Color.Blue, type.frostStone);
+            tableAdd(table, new Color(0F, 1F, 0F, 1F), type.snowGrass);
 
             return table;
         }
@@ -137,10 +149,12 @@ namespace Wall {
             this.pos = pos;
 
             background = tileType.ToString().IndexOf("Back") != -1;
+
+            solid = !(tileType == type.air || isDecor());
         }
 
         public bool isSolid() {
-            return tileType != type.air;
+            return solid;
         }
 
         public bool specialCollideWithRect(Vector2 center, Vector2 dimen) {
@@ -165,12 +179,16 @@ namespace Wall {
             return false;
         }
 
+        public bool isDecor() {
+            return tileType > type.DECOR_START && tileType < type.DECOR_END;
+        }
+
         public void findTexture() {
 
             //texture = (tileType == type.air) ? null : Textures.get(tileType.ToString());
             texture = fullAtlas;
 
-            if (tileType == type.air) {
+            if (!isSolid()) {
                 if (blockMasks(
                     -1, -1, -1,
                     -1, -1, 1,
@@ -198,7 +216,7 @@ namespace Wall {
             for (int x = -shadeRange; x <= shadeRange; x++) {
                 for (int y = -shadeRange; y <= shadeRange; y++) {
                     Vector2 diff = new Vector2(x, y);
-                    if (isAirAt(pos + diff)) {
+                    if (!solidAt(pos + diff)) {
                         float mag = Util.mag(diff);
                         if (mag < minMag) {
                             minMag = mag;
@@ -236,8 +254,11 @@ namespace Wall {
         public bool blockMask(int i, Vector2 pos) {
             if (i == 0) return true;
 
-            bool air = !isAirAt(pos);
-            return (i == 1) == air;
+            //bool air = !isAirAt(pos);
+            //return (i == 1) == air;
+            
+            bool collision = solidAt(pos);
+            return (i == 1) == collision;
         }
 
         public void render(Camera camera, SpriteBatch spriteBatch) { // TODO: make more efficient
@@ -268,6 +289,17 @@ namespace Wall {
         }
 
         private int findAtlasIndex() {
+
+            if (isDecor()) {
+                switch (tileType) {
+                    case type.snowGrass:
+                        if (sameBelow()) return 0;
+                        if (sameAbove()) return 1;
+
+                        return Util.randInt(2, 6);
+                }
+            }
+
             if (airAbove() && !airBelow() && airLeft() && !airRight())
                 return 0;
             if (airAbove() && !airBelow() && !airLeft() && !airRight())
@@ -297,7 +329,43 @@ namespace Wall {
             return
                 Wall.map.getRawTile(pos).tileType == type.air; //|| (tileType == type.ice && Wall.map.getRawTile(pos).tileType == type.snow);
         }
+        
+        private bool solidAt(Vector2 pos, bool background = false) { // TODO: unscuff
 
+            if (background) {
+                return Wall.map.getRawBack(pos).isSolid();
+            }
+
+            return
+                Wall.map.getRawTile(pos).isSolid();
+        }
+
+        private bool sameAt(Vector2 pos, bool background = false) { // TODO: unscuff
+
+            if (background) {
+                return Wall.map.getRawBack(pos).tileType == tileType;
+            }
+
+            return
+                Wall.map.getRawTile(pos).tileType == tileType;
+        }
+        private bool sameAbove() {
+            return sameAt(pos - Vector2.UnitY, background);
+        }
+        
+        private bool sameBelow() {
+            return sameAt(pos + Vector2.UnitY, background);
+        }
+        
+        private bool sameLeft() {
+            return sameAt(pos - Vector2.UnitX, background);
+        }
+        
+        private bool sameRight() {
+            return sameAt(pos + Vector2.UnitX, background);
+        }
+        
+        
         private bool airAbove() {
             return isAirAt(pos - Vector2.UnitY, background);
         }

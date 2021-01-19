@@ -8,11 +8,11 @@ namespace Wall {
 
         public static int[,] mapData, backMapData, shadeData; // TODO: do this in chunks or something (perhaps load on the fly) because this can be a huge memory-use
         
-        public const int chunkSize = 6;
+        public const int chunkSize = 8;
         public readonly Tile[,] tiles = new Tile[chunkSize, chunkSize];
         public readonly Tile[,] backgrounds = new Tile[chunkSize, chunkSize];
 
-        public float[] tileShades = new float[64];
+        public Texture2D darkness;
 
         private readonly Vector2 indices; // should always be ints
 
@@ -118,16 +118,21 @@ namespace Wall {
                 }
             }
 
-            for (int i = 0; i < 8; i++) {
-                for (int j = 0; j < 8; j++) {
+            int size = chunkSize + 2;
+            darkness = new Texture2D(Wall.getGraphicsDevice(), size, size);
+            var col = new Color[size * size];
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
                     Vector2 topLeft = indices * chunkSize;
                     int x = (int) (topLeft.X + i) - 1;
                     int y = (int) (topLeft.Y + j) - 1;
                     if (x >= 0 && x < mapData.GetLength(0) && y >= 0 && y < mapData.GetLength(1)) {
-                        tileShades[i + j * 8] = shadeData[x, y] / 10F;
+                        float dark = shadeData[x, y] / 10F;
+                        col[i + j * size] = new Color(0F, 0F, 0F, dark);
                     }
                 }
             }
+            darkness.SetData(col);
 
             loaded = true;
         }

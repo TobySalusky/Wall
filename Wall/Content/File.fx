@@ -8,34 +8,35 @@
 #endif
 
 Texture2D SpriteTexture;
-float dark[64];
 
 sampler2D SpriteTextureSampler = sampler_state
 {
-	Texture = <SpriteTexture>;
+    Texture = <SpriteTexture>;
 };
+
+static int size = 8;
+static int trueSize = 6;
 
 struct VertexShaderOutput
 {
-	float4 Position : SV_POSITION;
-	float4 Color : COLOR0;
-	float2 TextureCoordinates : TEXCOORD0;
+    float4 Position : SV_POSITION;
+    float4 Color : COLOR0;
+    float2 TextureCoordinates : TEXCOORD0;
 };
 
 float4 MainPS(VertexShaderOutput input) : COLOR
 {
-	float2 pos = input.TextureCoordinates * float2(6, 6);
-	int x = (int) pos.x + 1;
-	int y = (int) pos.y + 1;
-	int i = x + 8 * y;
+    float2 pos = input.TextureCoordinates * trueSize + float2(1, 1);
 	
-	return float4(0.f, 0.f, 0.f, dark[i]);
+    float self = tex2D(SpriteTextureSampler, pos / size).a;
+
+    return float4(0.f, 0.f, 0.f, self);
 }
 
 technique SpriteDrawing
 {
-	pass P0
-	{
-		PixelShader = compile PS_SHADERMODEL MainPS();
-	}
+    pass P0
+    {
+        PixelShader = compile PS_SHADERMODEL MainPS();
+    }
 };

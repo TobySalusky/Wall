@@ -1,4 +1,6 @@
-﻿namespace Wall {
+﻿using Microsoft.Xna.Framework;
+
+namespace Wall {
     public class SnowBall : Item {
         
         public SnowBall(int count) : base(count) {
@@ -8,6 +10,7 @@
 
             offset = 2;
             renderWhenReady = true;
+            handOffset = Vector2.UnitX * -0.3F;
         }
 
         public override void use(float angle, float distance) {

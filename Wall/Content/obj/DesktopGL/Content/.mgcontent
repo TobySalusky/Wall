@@ -7,15 +7,19 @@
     <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/BaseFont.spritefont</File>
     <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/Blur.fx</File>
     <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/File.fx</File>
+    <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/Gaussian.fx</File>
     <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/icewallcave.wav</File>
     <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/icewalllab.wav</File>
     <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/Pixel.fx</File>
+    <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/TexDark.fx</File>
     <File>C:/Users/Toby/Documents/GitHub/wall/Wall/Content/the_snake.wav</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
     <File>Vertex.fx</File>
     <File>OffPixel.fx</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

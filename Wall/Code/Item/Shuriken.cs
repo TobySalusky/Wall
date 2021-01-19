@@ -1,4 +1,6 @@
-﻿namespace Wall {
+﻿using Microsoft.Xna.Framework;
+
+namespace Wall {
     public class Shuriken : Item {
         
         public Shuriken(int count) : base(count) {
@@ -8,6 +10,7 @@
             
             offset = 1.5F;
             renderWhenReady = true;
+            handOffset = Vector2.UnitX * -0.4F;
         }
 
         public override void use(float angle, float distance) {

@@ -14,6 +14,12 @@
           <e p="VillagerNoise.ogg" t="Include" />
         </e>
         <e p="Textures" t="Include">
+          <e p="Armor" t="Include">
+            <e p="YotsugiHat.png" t="Include" />
+            <e p="YotsugiHatBody.png" t="Include" />
+            <e p="YotsugiHatEarLeft.png" t="Include" />
+            <e p="YotsugiHatEarRight.png" t="Include" />
+          </e>
           <e p="Arrow.png" t="Include" />
           <e p="autosaves" t="Include">
             <e p="autosave Untitled 112.art" t="Include" />
@@ -28,6 +34,7 @@
             <e p="autosave Untitled 223.art" t="Include" />
             <e p="autosave Untitled 2810.art" t="Include" />
             <e p="autosave Untitled 2850.art" t="Include" />
+            <e p="autosave Untitled 3048.art" t="Include" />
             <e p="autosave Untitled 3089.art" t="Include" />
             <e p="autosave Untitled 3249.art" t="Include" />
             <e p="autosave Untitled 3358.art" t="Include" />
@@ -35,6 +42,7 @@
             <e p="autosave Untitled 3419.art" t="Include" />
             <e p="autosave Untitled 3496.art" t="Include" />
             <e p="autosave Untitled 3617.art" t="Include" />
+            <e p="autosave Untitled 3717.art" t="Include" />
             <e p="autosave Untitled 3725.art" t="Include" />
             <e p="autosave Untitled 3918.art" t="Include" />
             <e p="autosave Untitled 403.art" t="Include" />
@@ -42,13 +50,17 @@
             <e p="autosave Untitled 4231.art" t="Include" />
             <e p="autosave Untitled 4252.art" t="Include" />
             <e p="autosave Untitled 4270.art" t="Include" />
+            <e p="autosave Untitled 4400.art" t="Include" />
+            <e p="autosave Untitled 448.art" t="Include" />
             <e p="autosave Untitled 4558.art" t="Include" />
             <e p="autosave Untitled 4561.art" t="Include" />
+            <e p="autosave Untitled 4943.art" t="Include" />
             <e p="autosave Untitled 5069.art" t="Include" />
             <e p="autosave Untitled 5174.art" t="Include" />
             <e p="autosave Untitled 5220.art" t="Include" />
             <e p="autosave Untitled 5321.art" t="Include" />
             <e p="autosave Untitled 5543.art" t="Include" />
+            <e p="autosave Untitled 5620.art" t="Include" />
             <e p="autosave Untitled 5768.art" t="Include" />
             <e p="autosave Untitled 5790.art" t="Include" />
             <e p="autosave Untitled 6057.art" t="Include" />
@@ -57,8 +69,10 @@
             <e p="autosave Untitled 665.art" t="Include" />
             <e p="autosave Untitled 6652.art" t="Include" />
             <e p="autosave Untitled 6686.art" t="Include" />
+            <e p="autosave Untitled 6715.art" t="Include" />
             <e p="autosave Untitled 6730.art" t="Include" />
             <e p="autosave Untitled 6796.art" t="Include" />
+            <e p="autosave Untitled 6861.art" t="Include" />
             <e p="autosave Untitled 7240.art" t="Include" />
             <e p="autosave Untitled 7254.art" t="Include" />
             <e p="autosave Untitled 727.art" t="Include" />
@@ -66,6 +80,7 @@
             <e p="autosave Untitled 736.art" t="Include" />
             <e p="autosave Untitled 7439.art" t="Include" />
             <e p="autosave Untitled 7444.art" t="Include" />
+            <e p="autosave Untitled 771.art" t="Include" />
             <e p="autosave Untitled 7836.art" t="Include" />
             <e p="autosave Untitled 79.art" t="Include" />
             <e p="autosave Untitled 8316.art" t="Include" />
@@ -83,36 +98,31 @@
             <e p="autosave Untitled 9834.art" t="Include" />
             <e p="autosave Untitled 9910.art" t="Include" />
           </e>
-          <e p="backMapData.png" t="Include" />
-          <e p="Bow.png" t="Include" />
-          <e p="BowPull1.png" t="Include" />
-          <e p="BowPull2.png" t="Include" />
-          <e p="BowPull3.png" t="Include" />
           <e p="bush.png" t="Include" />
           <e p="Cursor.png" t="Include" />
-          <e p="Flamethrower.png" t="Include" />
-          <e p="frostStone - Copy.png" t="Include" />
-          <e p="frostStone.png" t="Include" />
-          <e p="FrostSword.png" t="Include" />
-          <e p="FryingPan.png" t="Include" />
+          <e p="Entities" t="Include">
+            <e p="SnowWormBody.png" t="Include" />
+            <e p="SnowWormHead.png" t="Include" />
+          </e>
           <e p="grapple.png" t="Include" />
           <e p="grapple_chain.png" t="Include" />
-          <e p="HighTechBow.png" t="Include" />
-          <e p="HighTechBowPull1.png" t="Include" />
-          <e p="HighTechBowPull2.png" t="Include" />
-          <e p="HighTechBowPull3.png" t="Include" />
-          <e p="ice.png" t="Include" />
           <e p="Icicle.png" t="Include" />
-          <e p="IcicleSpear.png" t="Include" />
-          <e p="IcicleSpearShaft.png" t="Include" />
-          <e p="mapData.png" t="Include" />
+          <e p="Map" t="Include">
+            <e p="backMapData.png" t="Include" />
+            <e p="mapData.png" t="Include" />
+            <e p="shadeMapData.png" t="Include" />
+          </e>
           <e p="null.png" t="Include" />
-          <e p="PlayerDesign.art" t="Include" />
+          <e p="Player" t="Include">
+            <e p="PlayerBody.png" t="Include" />
+            <e p="PlayerBodyAndBackpack.png" t="Include" />
+            <e p="PlayerBoot.png" t="Include" />
+            <e p="PlayerDesign.art" t="Include" />
+            <e p="PlayerHand.png" t="Include" />
+            <e p="PlayerHead.png" t="Include" />
+            <e p="PlayerIdea.art" t="Include" />
+          </e>
           <e p="RubberArrow.png" t="Include" />
-          <e p="shadeMapData.png" t="Include" />
-          <e p="Shuriken.png" t="Include" />
-          <e p="snow.png" t="Include" />
-          <e p="SnowBall.png" t="Include" />
           <e p="snowSlime" t="Include">
             <e p="SnowSlimeIdle.png" t="Include" />
             <e p="SnowSlimeLook.png" t="Include" />
@@ -121,15 +131,35 @@
             <e p="SnowSlimeMove3.png" t="Include" />
             <e p="SnowSlimeMove4.png" t="Include" />
           </e>
-          <e p="SnowWormBody.png" t="Include" />
-          <e p="SnowWormHead.png" t="Include" />
-          <e p="StoneSpear.png" t="Include" />
-          <e p="StunFlask.png" t="Include" />
           <e p="StunStar.png" t="Include" />
-          <e p="YotsugiHat.png" t="Include" />
-          <e p="YotsugiHatBody.png" t="Include" />
-          <e p="YotsugiHatEarLeft.png" t="Include" />
-          <e p="YotsugiHatEarRight.png" t="Include" />
+          <e p="Tile" t="Include">
+            <e p="DECOR_END.png" t="Include" />
+            <e p="DECOR_START.png" t="Include" />
+            <e p="frostStone - Copy.png" t="Include" />
+            <e p="frostStone.png" t="Include" />
+            <e p="ice.png" t="Include" />
+            <e p="snow.png" t="Include" />
+            <e p="SnowGrass.png" t="Include" />
+          </e>
+          <e p="Weapons" t="Include">
+            <e p="Bow.png" t="Include" />
+            <e p="BowPull1.png" t="Include" />
+            <e p="BowPull2.png" t="Include" />
+            <e p="BowPull3.png" t="Include" />
+            <e p="Flamethrower.png" t="Include" />
+            <e p="FrostSword.png" t="Include" />
+            <e p="FryingPan.png" t="Include" />
+            <e p="HighTechBow.png" t="Include" />
+            <e p="HighTechBowPull1.png" t="Include" />
+            <e p="HighTechBowPull2.png" t="Include" />
+            <e p="HighTechBowPull3.png" t="Include" />
+            <e p="IcicleSpear.png" t="Include" />
+            <e p="IcicleSpearShaft.png" t="Include" />
+            <e p="Shuriken.png" t="Include" />
+            <e p="SnowBall.png" t="Include" />
+            <e p="StoneSpear.png" t="Include" />
+            <e p="StunFlask.png" t="Include" />
+          </e>
         </e>
       </e>
       <e p="bin" t="ExcludeRecursive" />
@@ -229,12 +259,14 @@
             <e p="Content" t="Include">
               <e p="BaseFont.xnb" t="Include" />
               <e p="Blur.xnb" t="Include" />
+              <e p="Gaussian.xnb" t="Include" />
               <e p="icewallcave.ogg" t="Include" />
               <e p="icewallcave.xnb" t="Include" />
               <e p="icewalllab.ogg" t="Include" />
               <e p="icewalllab.xnb" t="Include" />
               <e p="OffPixel.xnb" t="Include" />
               <e p="Pixel.xnb" t="Include" />
+              <e p="TexDark.xnb" t="Include" />
               <e p="the_snake.ogg" t="Include" />
               <e p="the_snake.xnb" t="Include" />
               <e p="Vertex.xnb" t="Include" />
@@ -244,6 +276,7 @@
         <e p="Blur.fx" t="Include" />
         <e p="Content.mgcb" t="Include" />
         <e p="File.fx" t="Include" />
+        <e p="Gaussian.fx" t="Include" />
         <e p="icewallcave.wav" t="Include" />
         <e p="icewalllab.wav" t="Include" />
         <e p="obj" t="Include">
@@ -254,16 +287,19 @@
               <e p=".mgstats" t="Include" />
               <e p="BaseFont.mgcontent" t="Include" />
               <e p="Blur.mgcontent" t="Include" />
+              <e p="Gaussian.mgcontent" t="Include" />
               <e p="icewallcave.mgcontent" t="Include" />
               <e p="icewalllab.mgcontent" t="Include" />
               <e p="OffPixel.mgcontent" t="Include" />
               <e p="Pixel.mgcontent" t="Include" />
+              <e p="TexDark.mgcontent" t="Include" />
               <e p="the_snake.mgcontent" t="Include" />
               <e p="Vertex.mgcontent" t="Include" />
             </e>
           </e>
         </e>
         <e p="Pixel.fx" t="Include" />
+        <e p="TexDark.fx" t="Include" />
         <e p="the_snake.wav" t="Include" />
       </e>
       <e p="Icon.bmp" t="Include" />

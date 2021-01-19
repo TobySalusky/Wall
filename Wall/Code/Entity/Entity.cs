@@ -335,12 +335,15 @@ namespace Wall
         }
 
         public virtual void render(Camera camera, SpriteBatch spriteBatch) { // TODO: perhaps use more efficient drawing unless needed, also add rotation
-            
-            //spriteBatch.Draw(texture, camera.toScreen(pos, dimen), Color.White);
-            SpriteEffects effects = facingLeft ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-            Vector2 textureSize = new Vector2(texture.Width, texture.Height);
-            Vector2 scale = dimen * camera.scale / textureSize;
-            spriteBatch.Draw(texture, camera.toScreen(pos), null, getTint(), rotation, textureSize / 2F, scale,  effects, 0);
+
+            if (texture != null) {
+                //spriteBatch.Draw(texture, camera.toScreen(pos, dimen), Color.White);
+                SpriteEffects effects = facingLeft ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+                Vector2 textureSize = new Vector2(texture.Width, texture.Height);
+                Vector2 scale = dimen * camera.scale / textureSize;
+                spriteBatch.Draw(texture, camera.toScreen(pos), null, getTint(), rotation, textureSize / 2F, scale,
+                    effects, 0);
+            }
 
             if (isStunned() && shouldRenderStunStars) {
                 renderStunStars(camera, spriteBatch);

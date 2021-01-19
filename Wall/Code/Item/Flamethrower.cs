@@ -11,6 +11,7 @@ namespace Wall {
 
             allwaysRender = true;
             maxSpecialChargeTime = 1F;
+            handOffset = new Vector2(-0.3F, 0.3F);
         }
 
         public override void useSpecial(float angle, float mag) {

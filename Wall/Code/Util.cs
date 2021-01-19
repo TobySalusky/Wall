@@ -108,6 +108,14 @@ namespace Wall {
             return new Vector2(texture.Width, texture.Height) * Tile.pixelSize;
         }
 
+        public static float lessDiff(float val, float op1, float op2) {
+            if (Math.Abs(val - op1) < Math.Abs(val - op2)) {
+                return op1;
+            }
+
+            return op2;
+        }
+
         public static void render(Texture2D texture, Vector2 pos, Vector2 dimen, float rotation, Camera camera, SpriteBatch spriteBatch, bool flipped) { // TODO: perhaps use more efficient drawing unless needed, also add rotation
             
             SpriteEffects effects = flipped ? SpriteEffects.None : SpriteEffects.FlipHorizontally;

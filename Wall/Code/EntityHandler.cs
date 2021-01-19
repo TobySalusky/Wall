@@ -8,7 +8,7 @@ namespace Wall {
         public Player player;
         public List<Entity> entities;
 
-        public int targetCount = 15;
+        public int targetCount = 8;
 
         public EntityHandler() {
             player = Wall.player;

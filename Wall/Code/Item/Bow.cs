@@ -28,6 +28,8 @@ namespace Wall {
             pullArrowOffsets = new float[] {1, 0.7F, 0.4F};
 
             maxSpecialChargeTime = 1F;
+            
+            handOffset = Vector2.UnitX * 0.4F;
         }
 
         public override void holdSpecial(float deltaTime, MouseInfo mouse) {
@@ -68,6 +70,13 @@ namespace Wall {
             proj.damage *= mult;
             Wall.projectiles.Add(proj);
             arrow.count --;
+        }
+
+        public override void animatePlayer(float deltaTime) {
+            base.animatePlayer(deltaTime);
+            if (holdingSpecial() && !specialUse) {
+                player.offHand = player.pos + Util.polar(pullArrowOffsets[arrowPosIndex], angle);
+            }
         }
 
         public float findVelocity() {

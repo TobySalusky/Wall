@@ -33,6 +33,9 @@ namespace Wall {
 
         public bool angleFollow = true, renderWhenReady = false;
 
+        public Vector2 handOffset;
+        public bool flipHandOffsetY = true;
+
         private static Dictionary<ItemType, Type> typeDict;
 
         public Item(int count) {
@@ -186,6 +189,17 @@ namespace Wall {
             float renderAngle = facingLeft ? angle + Maths.PI : angle;
 
             Util.render(texture, pos, dimen, renderAngle, camera, spriteBatch, !Util.angleDir(angle));
+        }
+
+        public virtual void animatePlayer(float deltaTime) {
+            if (renderInHand()) {
+                Vector2 hand = handOffset;
+                if (flipHandOffsetY && Util.angleDir(angle)) {
+                    hand.Y *= -1;
+                }
+
+                player.topHand = player.pos + Util.polar(offset, angle) + Util.rotate(hand, angle);
+            }
         }
     }
 }

@@ -33,7 +33,20 @@ namespace Wall {
         public List<ItemPopUp> itemPopUps;
         public static bool highlightPickups = true;
 
+        public Vector2 leftHandPos, rightHandPos, leftFootPos, rightFootPos, bodyPos, headPos;
+        public float leftHandRot, rightHandRot, leftFootRot, rightFootRot, bodyRot, headRot;
+
+        public Vector2 handDimen, bootDimen, bodyDimen, headDimen;
+        public Texture2D handTexture, bootTexture, bodyTexture, headTexture;
+        public float footOffset;
+        public float runTimer;
+        public float timeSinceGrounded;
+
         public Player(Vector2 pos) : base(pos) {
+
+            texture = null;
+            dimen = new Vector2(1.5F, 2);
+            
             
             speed = 25F;
             initHealth(50);
@@ -63,9 +76,18 @@ namespace Wall {
             hotbar[7].item = Item.create(ItemType.FryingPan);
             hotbar[8].item = Item.create(ItemType.IcicleSpear);
             
-            armor[0].item = Armor.create(ItemType.YotsugiHat);
+            //armor[0].item = Armor.create(ItemType.YotsugiHat);
 
             itemPopUps = new List<ItemPopUp>();
+
+            headTexture = Textures.get("PlayerHead");
+            bodyTexture = Textures.get("PlayerBody");
+            handTexture = Textures.get("PlayerHand");
+            bootTexture = Textures.get("PlayerBoot");
+            headDimen = Util.dimen(headTexture);
+            bodyDimen = Util.dimen(bodyTexture);
+            handDimen = Util.dimen(handTexture);
+            bootDimen = Util.dimen(bootTexture);
         }
 
         public ItemSlot mouseToSlot(Vector2 mousePos) {
@@ -200,6 +222,100 @@ namespace Wall {
                     itemPopUps.RemoveAt(0);
                 }
             }
+
+            if (grounded) {
+                timeSinceGrounded = 0;
+            }
+            else {
+                timeSinceGrounded += deltaTime;
+            }
+
+            if (collidesAt(pos + Vector2.UnitY * 0.5F)) {
+                runTimer += deltaTime * (vel.X / 5);
+
+                if (Math.Abs(vel.X) < 1.5F) {
+                    runTimer %= 1;
+                    runTimer += (Util.lessDiff(runTimer, Util.lessDiff(runTimer, 0, 0.5F), 1) - runTimer) * Math.Min(1, deltaTime * 7);
+                }
+            } else if (timeSinceGrounded > 0.15F) {
+                runTimer %= 1;
+                runTimer += (Util.lessDiff(runTimer, 0.25F, 0.75F) - runTimer) * Math.Min(1, deltaTime * 7);
+            }
+            footOffset = (float) Math.Sin(runTimer * Maths.twoPI);
+
+            updateModel(deltaTime);
+        }
+
+        public Vector2 topHand {
+            get => (facingLeft) ? rightHandPos : leftHandPos;
+
+            set {
+                if (facingLeft) {
+                    rightHandPos = value;
+                }
+                else {
+                    leftHandPos = value;
+                }
+            }
+        }
+        
+        public Vector2 offHand {
+            get => (facingLeft) ? leftHandPos : rightHandPos;
+
+            set {
+                if (facingLeft) {
+                    leftHandPos = value;
+                }
+                else {
+                    rightHandPos = value;
+                }
+            }
+        }
+
+        public void updateModel(float deltaTime) {
+
+            bodyRot = rotation;
+
+            const float mouseWeight = 1 / 3F;
+            headRot = bodyRot;
+
+            Vector2 mouseDiff = Wall.lastMouseInfo.pos - Wall.camera.toScreen(pos);
+            if (facingLeft) {
+                mouseDiff *= -1;
+            }
+
+            mouseDiff.X = Math.Abs(mouseDiff.X);
+
+            //mouseDiff.X = Math.Max(0, mouseDiff.X);
+            
+            float mouseAngle = Util.angle(mouseDiff);
+            mouseAngle = Util.nearestAngle(mouseAngle, headRot);
+            headRot = headRot * (1 - mouseWeight) + mouseAngle * mouseWeight;
+
+            leftFootRot = bodyRot;
+            rightFootRot = bodyRot;
+            leftHandRot = bodyRot;
+            rightHandRot = bodyRot;
+            
+            bodyPos = pos;
+            headPos = bodyPos + Util.rotate(new Vector2(0, -1), bodyRot);
+
+            Vector2 handRunOff = Util.polar(1, Maths.PI * 0.2F * footOffset);
+            handRunOff *= new Vector2(0.3F, 0.3F);
+            
+            leftHandPos = bodyPos + Util.rotate(new Vector2(-0.6F, 0) - handRunOff, bodyRot);
+            rightHandPos = bodyPos + Util.rotate(new Vector2(0.6F, 0) + handRunOff, bodyRot);
+
+            if (!grounded && timeSinceGrounded > 0.1F) {
+                //leftHandPos = bodyPos + Util.rotate(new Vector2(-0.8F, -1), bodyRot);
+                //rightHandPos = bodyPos + Util.rotate(new Vector2(0.8F, -1), bodyRot);
+            }
+
+            leftFootPos = bodyPos + Util.rotate(new Vector2(-0.4F, 0.7F + footOffset * 0.2F), bodyRot);
+            rightFootPos = bodyPos + Util.rotate(new Vector2(0.4F, 0.7F - footOffset * 0.2F), bodyRot);
+            
+            
+            currentItem?.animatePlayer(deltaTime);
         }
 
         public override void die() {
@@ -373,12 +489,24 @@ namespace Wall {
 
         public override void render(Camera camera, SpriteBatch spriteBatch) {
             base.render(camera, spriteBatch);
+
+            bool flip = !facingLeft;
+            Util.render(handTexture, offHand, handDimen, (facingLeft) ? leftHandRot : rightHandRot, camera, spriteBatch, flip);
             
+            
+            Util.render(bodyTexture, bodyPos, bodyDimen, bodyRot, camera, spriteBatch, flip);
+            Util.render(bootTexture, leftFootPos, bootDimen, leftFootRot, camera, spriteBatch, flip);
+            Util.render(bootTexture, rightFootPos, bootDimen, rightFootRot, camera, spriteBatch, flip);
+            Util.render(headTexture, headPos, headDimen, headRot, camera, spriteBatch, flip);
+
+            currentItem?.render(camera, spriteBatch);
+
+            Util.render(handTexture, topHand, handDimen, (facingLeft) ? rightHandRot : leftHandRot, camera, spriteBatch, flip);
+
+
             foreach (var piece in armor) {
                 piece.armor?.renderWearing(camera, spriteBatch);
             }
-            
-            currentItem?.render(camera, spriteBatch);
         }
 
         public void renderSlot(Item item, Rectangle rect, Camera camera, SpriteBatch spriteBatch, bool isSelected = false, bool background = true, bool renderNum = true) {

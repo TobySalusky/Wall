@@ -15,6 +15,8 @@ namespace Wall {
 
             useDelay = 0.8F;
             swingTime = 0.4F;
+
+            handOffset = Vector2.UnitX * -2.5F;
         }
         
         public override MeleeAttack createAttackChunk(List<Entity> hasHit, float mult) {

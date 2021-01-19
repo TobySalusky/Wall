@@ -10,6 +10,7 @@ namespace Wall {
         public Spear(int count) : base(count) {
             maxSpecialChargeTime = 1;
             angleFollow = false;
+            handOffset = Vector2.UnitX * -1.5F;
         }
 
         public override void update(float deltaTime, MouseInfo mouse) {

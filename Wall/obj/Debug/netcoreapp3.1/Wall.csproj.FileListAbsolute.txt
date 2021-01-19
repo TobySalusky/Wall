@@ -103,3 +103,5 @@ C:\Users\Toby\Documents\GitHub\wall\Wall\bin\Debug\netcoreapp3.1\Content\Blur.xn
 C:\Users\Toby\Documents\GitHub\wall\Wall\bin\Debug\netcoreapp3.1\Content\Pixel.xnb
 C:\Users\Toby\Documents\GitHub\wall\Wall\bin\Debug\netcoreapp3.1\Content\Vertex.xnb
 C:\Users\Toby\Documents\GitHub\wall\Wall\bin\Debug\netcoreapp3.1\Content\OffPixel.xnb
+C:\Users\Toby\Documents\GitHub\wall\Wall\bin\Debug\netcoreapp3.1\Content\TexDark.xnb
+C:\Users\Toby\Documents\GitHub\wall\Wall\bin\Debug\netcoreapp3.1\Content\Gaussian.xnb
