@@ -8,41 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/projectSettingsUpdater.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/riderModule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fondue.dir/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wall.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Wall.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/app.manifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Fondue.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Fondue.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Fondue.runtimeconfig.dev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Fondue.runtimeconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Item/Armor/YotsugiHat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Armor/YotsugiHat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Item/Item.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.csproj.CopyComplete" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.csprojAssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Fondue.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Fondue.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Fondue.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Fondue.csproj.nuget.g.targets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,10 +27,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Code/Item/FryingPan.cs" />
-      <option value="$PROJECT_DIR$/Code/Wall.cs" />
-      <option value="$PROJECT_DIR$/Code/Wall.cs" />
-      <option value="$PROJECT_DIR$/Code/Terrain/Chunk.cs" />
       <option value="$PROJECT_DIR$/Content/Pixel.fx" />
       <option value="$PROJECT_DIR$/Code/Terrain/Tile.cs" />
       <option value="$PROJECT_DIR$/Code/Wall.cs" />
@@ -105,6 +74,10 @@
       <option value="$PROJECT_DIR$/Code/Terrain/Chunk.cs" />
       <option value="$PROJECT_DIR$/Wall.csproj" />
       <option value="$PROJECT_DIR$/app.manifest" />
+      <option value="$PROJECT_DIR$/Code/Item/Item.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/Arrow.cs" />
+      <option value="$PROJECT_DIR$/Code/Item/Armor/YotsugiHat.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mOQNeJbHdjMoHHcoB1BpLaoLCl" />
@@ -180,6 +153,7 @@
       <workItem from="1610990593001" duration="12100000" />
       <workItem from="1611019961437" duration="19979000" />
       <workItem from="1611084672368" duration="1347000" />
+      <workItem from="1611086340182" duration="5131000" />
     </task>
     <servers />
   </component>

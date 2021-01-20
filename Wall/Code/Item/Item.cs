@@ -60,6 +60,10 @@ namespace Wall {
             return (Item) construct.Invoke(new object[] {1});
         }
 
+        public string genHoverInfo() {
+            return name;
+        }
+
         public void renderHoverInfo(Vector2 mousePos, SpriteBatch spriteBatch) {
             
             mousePos += Vector2.One * 20;
@@ -69,7 +73,7 @@ namespace Wall {
             Vector2 center = mousePos + infoDimen / 2;
             
             spriteBatch.Draw(itemSlot, Util.center(center, infoDimen), new Color(Color.White, 0.4F));
-            spriteBatch.DrawString(Fonts.arial, name, mousePos, Color.White);
+            spriteBatch.DrawString(Fonts.arial, genHoverInfo(), mousePos, Color.White);
         }
 
         public static Vector2 mouseDiff(MouseInfo mouse) {

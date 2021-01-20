@@ -76,7 +76,7 @@ namespace Wall {
             hotbar[7].item = Item.create(ItemType.FryingPan);
             hotbar[8].item = Item.create(ItemType.IcicleSpear);
             
-            //armor[0].item = Armor.create(ItemType.YotsugiHat);
+            armor[0].item = Armor.create(ItemType.YotsugiHat);
 
             itemPopUps = new List<ItemPopUp>();
 
@@ -88,6 +88,10 @@ namespace Wall {
             bodyDimen = Util.dimen(bodyTexture);
             handDimen = Util.dimen(handTexture);
             bootDimen = Util.dimen(bootTexture);
+        }
+
+        public Vector2 topOfHead() {
+            return headPos - Util.rotate(headDimen.Y / 2 * Vector2.UnitY, headRot);
         }
 
         public ItemSlot mouseToSlot(Vector2 mousePos) {
@@ -495,18 +499,16 @@ namespace Wall {
             
             
             Util.render(bodyTexture, bodyPos, bodyDimen, bodyRot, camera, spriteBatch, flip);
+            armor[1].armor?.renderWearing(camera, spriteBatch);
             Util.render(bootTexture, leftFootPos, bootDimen, leftFootRot, camera, spriteBatch, flip);
             Util.render(bootTexture, rightFootPos, bootDimen, rightFootRot, camera, spriteBatch, flip);
+            armor[2].armor?.renderWearing(camera, spriteBatch);
             Util.render(headTexture, headPos, headDimen, headRot, camera, spriteBatch, flip);
+            armor[0].armor?.renderWearing(camera, spriteBatch);
 
             currentItem?.render(camera, spriteBatch);
 
             Util.render(handTexture, topHand, handDimen, (facingLeft) ? rightHandRot : leftHandRot, camera, spriteBatch, flip);
-
-
-            foreach (var piece in armor) {
-                piece.armor?.renderWearing(camera, spriteBatch);
-            }
         }
 
         public void renderSlot(Item item, Rectangle rect, Camera camera, SpriteBatch spriteBatch, bool isSelected = false, bool background = true, bool renderNum = true) {

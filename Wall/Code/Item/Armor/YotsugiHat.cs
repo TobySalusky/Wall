@@ -19,7 +19,7 @@ namespace Wall {
         }
 
         public YotsugiHat(int count) : base(count) {
-            wearOffset = -Vector2.UnitY * player.dimen.Y / 2;
+            wearOffset = -Vector2.UnitY * 0.9F;
         }
 
         public override void renderWearing(Camera camera, SpriteBatch spriteBatch) {
@@ -28,8 +28,8 @@ namespace Wall {
             Vector2 leftOff = new Vector2(-0.2F, -0.3F) * flip;
             Vector2 rightOff = new Vector2(0.2F, -0.3F) * flip;
             
-            Vector2 leftPos = player.pos + Util.rotate(wearOffset + leftOff, player.rotation);
-            Vector2 rightPos = player.pos + Util.rotate(wearOffset + rightOff, player.rotation);
+            Vector2 leftPos = player.headPos + Util.rotate(wearOffset + leftOff, player.headRot);
+            Vector2 rightPos = player.headPos + Util.rotate(wearOffset + rightOff, player.headRot);
             
             // TODO: move to update
             const float maxRot = (float) Math.PI * 0.4F;
@@ -48,7 +48,7 @@ namespace Wall {
             Util.render(leftEar, leftPos, earDimen, (player.facingLeft) ? leftAngle : rightAngle, camera, spriteBatch, player.facingLeft, origin);
             Util.render(rightEar, rightPos, earDimen, (player.facingLeft) ? rightAngle : leftAngle, camera, spriteBatch, player.facingLeft, origin);
 
-            Util.render(wearingTexture(), player.pos + Util.rotate(wearOffset, player.rotation), bodyDimen, player.rotation, camera, spriteBatch, player.facingLeft);
+            Util.render(wearingTexture(), player.headPos + Util.rotate(wearOffset, player.headRot), bodyDimen, player.headRot, camera, spriteBatch, player.facingLeft);
         }
 
         public override Texture2D wearingTexture() {
