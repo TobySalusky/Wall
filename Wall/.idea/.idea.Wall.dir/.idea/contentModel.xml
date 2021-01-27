@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Toby\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Toby\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_.19.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Toby\Documents\GitHub\wall\wall" t="IncludeRecursive">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="app.manifest" t="Include" />
       <e p="Assets" t="Include">
         <e p="Music" t="Include">
@@ -258,7 +256,6 @@
           <e p="DesktopGL" t="Include">
             <e p="Content" t="Include">
               <e p="BaseFont.xnb" t="Include" />
-              <e p="Blur.xnb" t="Include" />
               <e p="Gaussian.xnb" t="Include" />
               <e p="icewallcave.ogg" t="Include" />
               <e p="icewallcave.xnb" t="Include" />
@@ -281,12 +278,10 @@
         <e p="icewalllab.wav" t="Include" />
         <e p="obj" t="Include">
           <e p="DesktopGL" t="Include">
-            <e p=".mgstats" t="Include" />
             <e p="Content" t="Include">
               <e p=".mgcontent" t="Include" />
               <e p=".mgstats" t="Include" />
               <e p="BaseFont.mgcontent" t="Include" />
-              <e p="Blur.mgcontent" t="Include" />
               <e p="Gaussian.mgcontent" t="Include" />
               <e p="icewallcave.mgcontent" t="Include" />
               <e p="icewalllab.mgcontent" t="Include" />
@@ -315,5 +310,7 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="Wall.csproj" t="IncludeRecursive" />
     </e>
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_.19.00" t="ExcludeRecursive" />
   </component>
 </project>
