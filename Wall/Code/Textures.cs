@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -38,8 +39,9 @@ namespace Wall {
         }
 
         private static void processFile(string path) { // assumes a png file...
-            int start = path.LastIndexOf("\\") + 1;
-            int pngIndex = path.LastIndexOf(".png");
+            var separator = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "\\" : "/";
+            int start = path.LastIndexOf(separator, StringComparison.Ordinal) + 1;
+            int pngIndex = path.LastIndexOf(".png", StringComparison.Ordinal);
             
             if (pngIndex != -1) {
                 string filename = path.Substring(start, pngIndex - start);
