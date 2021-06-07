@@ -172,6 +172,7 @@
           <e p="Grapple.cs" t="Include" />
           <e p="LivingSnowball.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="Rope.cs" t="Include" />
           <e p="SnowSlime.cs" t="Include" />
           <e p="Worm" t="Include">
             <e p="IceSnake.cs" t="Include" />

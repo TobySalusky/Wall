@@ -8,53 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbaa6c6-7bbc-4363-8d89-e218f9181440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/.idea.Wall/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/.idea.Wall/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/.idea.Wall/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/Wall/xs/UserPrefs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/Wall/xs/project-cache/Wall-Debug.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Entity/Rope.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/riderModule.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wall.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/bin/DesktopGL/Content/BaseFont.xnb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgcontent" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/.mgstats" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/obj/DesktopGL/Content/BaseFont.mgcontent" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Content/BaseFont.xnb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/MonoGame.Framework.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.runtimeconfig.dev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Wall.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/runtimes/linux-x64/native/libSDL2-2.0.so.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/runtimes/linux-x64/native/libopenal.so.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/runtimes/osx/native/libSDL2-2.0.0.dylib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/runtimes/osx/native/libopenal.1.dylib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/SDL2.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/soft_oal.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/SDL2.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/soft_oal.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.CopyComplete" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.csprojAssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Wall.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/apphost.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Wall.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Wall.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Wall.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/Grapple.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Grapple.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Entity/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,14 +22,8 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Users/tale/Documents/Projects/Wall/Wall/Code/Textures.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/tale/Documents/Projects/Wall/Wall/Code/FileUtil/Paths.cs" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Code/Wall.cs" />
-      <option value="$PROJECT_DIR$/Code/Projectiles/ShurikenProjectile.cs" />
       <option value="$PROJECT_DIR$/Code/Projectiles/Projectile.cs" />
       <option value="$PROJECT_DIR$/Code/Projectiles/MeleeAttack.cs" />
       <option value="$PROJECT_DIR$/Code/Particles/StunParticle.cs" />
@@ -89,19 +41,14 @@
       <option value="$PROJECT_DIR$/Code/Item/ItemType.cs" />
       <option value="$PROJECT_DIR$/Code/Item/Bow.cs" />
       <option value="$PROJECT_DIR$/Code/Item/HighTechBow.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
       <option value="$PROJECT_DIR$/Code/Item/FryingPan.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Worm/WormSegment.cs" />
       <option value="$PROJECT_DIR$/Code/Entity/Worm/WormHead.cs" />
       <option value="$PROJECT_DIR$/Code/Wall.cs" />
       <option value="$PROJECT_DIR$/Code/Terrain/Tile.cs" />
       <option value="$PROJECT_DIR$/Code/EntityHandler.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
       <option value="$PROJECT_DIR$/Code/Util.cs" />
       <option value="$PROJECT_DIR$/Code/Item/Bow.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
       <option value="$PROJECT_DIR$/Code/Item/StunFlask.cs" />
       <option value="$PROJECT_DIR$/Code/Item/Shuriken.cs" />
       <option value="$PROJECT_DIR$/Code/Item/SnowBall.cs" />
@@ -118,9 +65,16 @@
       <option value="$PROJECT_DIR$/Code/Item/Item.cs" />
       <option value="$PROJECT_DIR$/Code/Item/Arrow.cs" />
       <option value="$PROJECT_DIR$/Code/Item/Armor/YotsugiHat.cs" />
-      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
       <option value="$PROJECT_DIR$/Code/FileUtil/Paths.cs" />
       <option value="$PROJECT_DIR$/Code/Textures.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Entity.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Player.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Grapple.cs" />
+      <option value="$PROJECT_DIR$/Code/Entity/Rope.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1mOQNeJbHdjMoHHcoB1BpLaoLCl" />

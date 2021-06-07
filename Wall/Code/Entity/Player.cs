@@ -15,6 +15,7 @@ namespace Wall {
 
         public bool grappleOut, grappleHit;
         public Grapple grapple;
+        public Rope Rope { get; set; } = null;
 
         public bool canGrapple = true;
         public bool canNotBounce = false;
@@ -212,12 +213,6 @@ namespace Wall {
 
             currentItem = hotbar[selectedItemIndex].item;
 
-            if (grappleHit) { // grapple movement
-                Vector2 accel = Vector2.Normalize(grapple.pos - pos) * 90;
-                //accel += Vector2.UnitY * gravity;
-                vel += accel * deltaTime;
-            }
-            
             base.update(deltaTime);
 
             if (itemPopUps.Count > 0) {
